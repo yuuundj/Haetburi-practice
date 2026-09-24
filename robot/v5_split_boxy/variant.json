@@ -1,0 +1,37 @@
+{
+  "variant": "v5_split_boxy",
+  "title": "roll motor in the leg, pitch motor in a boxy foot",
+  "layout": "split",
+  "demo": {
+    "pitch_lean": 4,
+    "roll_lean": 8,
+    "yaw": 35,
+    "bow_hip": 12,
+    "bow_ankle": -9,
+    "diag_roll": 7,
+    "diag_yaw": -30
+  },
+  "mass_kg": 2.694,
+  "com_mm": [
+    -12.3,
+    1.5,
+    231.1
+  ],
+  "height_mm": 583.8,
+  "summary": {
+    "foot (mm)": "61.6 x 45.0 x 49.4",
+    "leg section (mm)": "37.0 wide x 46.0 deep",
+    "leg length, crotch to bottom (mm)": 56.8,
+    "pitch / roll axis above sole (mm)": "17.2 / 75.0",
+    "ankle gap (mm)": 11.9
+  },
+  "motors_inside": {
+    "pelvis#0": 1.0,
+    "pelvis#1": 1.0,
+    "torso#0": 1.0,
+    "leg_l#0": 1.0,
+    "foot_l#0": 1.0,
+    "leg_r#0": 1.0,
+    "foot_r#0": 1.0
+  }
+}

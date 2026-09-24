@@ -1,0 +1,56 @@
+model   7 actuated DoF, 8 links, 2.077 kg
+CoM     x -0.0  y +0.0  z 192.2  mm
+        pelvis    0.641 kg
+        torso     0.961 kg
+        leg_l     0.096 kg
+        ankle_l   0.082 kg
+        foot_l    0.060 kg
+
+7 XL430 boxes, tightest pair leg_l / ankle_l: +0.0 mm (OK)
+
+neutral pose held for 3 s: CoM sank 0.1 mm, residual speed 0.0 mm/s
+  holding torque
+    waist_yaw        -0.000 N.m     0.0 % of stall
+    hip_pitch_l      -0.041 N.m     2.9 % of stall
+    hip_pitch_r      -0.041 N.m     2.9 % of stall
+    ankle_pitch_l    -0.042 N.m     3.0 % of stall
+    ankle_pitch_r    -0.041 N.m     3.0 % of stall
+    ankle_roll_l     -0.033 N.m     2.4 % of stall
+    ankle_roll_r     +0.025 N.m     1.8 % of stall
+
+  ankle pitch (lean fore/aft): both joints commanded together, 1.5 s ramp then hold
+     cmd deg  N.m worst  % stall  CoM shift mm  state
+           0      0.042     3.0%           0.3  standing
+           4      0.136     9.7%           9.5  standing
+           8      0.229    16.4%          18.7  standing
+          12      0.322    23.0%          27.7  standing
+          15      0.390    27.9%          34.4  standing
+          18      0.457    32.6%          40.9  standing
+          21      0.106     7.6%         206.9  TIPPED OVER
+          24      0.044     3.1%         203.2  TIPPED OVER
+
+  ankle roll (lean left/right): both joints commanded together, 1.5 s ramp then hold
+     cmd deg  N.m worst  % stall  CoM shift mm  state
+           0      0.033     2.4%           0.3  standing
+           4      0.190    13.6%           9.4  standing
+           8      0.071     5.1%          22.3  standing
+          12      0.331    23.6%          35.1  standing
+          15      0.524    37.4%          44.6  standing
+          18      1.400   100.0%          54.0  standing
+          21      1.400   100.0%         317.6  TIPPED OVER
+          24      1.400   100.0%         315.4  TIPPED OVER
+
+  single support: lean onto the left foot, swing the right leg
+    right foot lifts at 2.5 deg; holding 5.5 deg the right pad clears the floor by ~3 mm
+    left foot carries 100 % of the weight; left ankle roll 0.09 N.m (7 %), pitch 0.09 N.m (6 %)
+      R hip  swing  peak %:   L roll  L pitch  L hip  R hip  waist  state
+      -20 deg  1.0 s               7        6      6      8      0  standing
+      +20 deg  1.0 s               7        9      9      8      0  standing
+      -20 deg  0.3 s               7        6      6     20      1  standing
+      +20 deg  0.3 s               7        9      9     20      0  standing
+
+foot pad 110 x 66 mm per foot, ankle-roll axis 35 mm above the sole
+CoM is 157 mm above the ankle axis and 4 mm behind it
+static tip-over fore/aft at 19.0 deg of ankle pitch
+  holding that lean on two feet : 0.52 N.m per ankle (37 % of stall)
+  holding that lean on one foot : 1.04 N.m (75 % of stall)

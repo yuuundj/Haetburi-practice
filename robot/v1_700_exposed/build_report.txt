@@ -1,0 +1,26 @@
+variant  v1_700_exposed: 700 mm, ankle motors stacked under the legs (exposed)
+wrote    robot/v1_700_exposed/haetburi.urdf, robot/v1_700_exposed/haetburi_scene.xml
+
+link       mass kg  com (m, robot frame)
+pelvis       0.764  [-0.0066  0.0084  0.1461]
+torso        2.158  [-0.0092  0.0007  0.3933]
+leg_l        0.113  [0.0009 0.0297 0.0776]
+ankle_l      0.082  [0.0009 0.0296 0.0342]
+foot_l       0.060  [0.0009 0.0376 0.006 ]
+leg_r        0.113  [ 0.0009 -0.0297  0.0776]
+ankle_r      0.082  [ 0.0009 -0.0296  0.0342]
+foot_r       0.060  [ 0.0009 -0.0376  0.006 ]
+
+total mass 3.433 kg   com [-0.0071  0.0023  0.2867] m   com height 287 mm
+standing height 700 mm, character scale x2.0667
+ankle stack under the legs (mm): 80.0
+roll motor: flat
+foot pad (mm): 110 x 66 x 12
+motor volume inside the shell:
+  pelvis#0   100.0 %
+  pelvis#1   100.0 %
+  pelvis#2   100.0 %
+  leg_l#0      0.0 %
+  ankle_l#0    0.0 %
+  leg_r#0      0.0 %
+  ankle_r#0    0.0 %

@@ -1,0 +1,8 @@
+demo min com mm 282
+waist_yaw 42
+hip_pitch_l 47
+hip_pitch_r 48
+ankle_pitch_l 63
+ankle_pitch_r 62
+ankle_roll_l 59
+ankle_roll_r 65

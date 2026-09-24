@@ -1,0 +1,37 @@
+{
+  "variant": "v6_split_round",
+  "title": "roll motor in the leg, pitch motor in a round forward foot, shorts",
+  "layout": "split",
+  "demo": {
+    "pitch_lean": 5,
+    "roll_lean": 8,
+    "yaw": 35,
+    "bow_hip": 12,
+    "bow_ankle": -9,
+    "diag_roll": 7,
+    "diag_yaw": -30
+  },
+  "mass_kg": 2.818,
+  "com_mm": [
+    -0.2,
+    1.5,
+    244.1
+  ],
+  "height_mm": 614.3,
+  "summary": {
+    "foot (mm)": "108.1 x 45.0 x 81.5",
+    "leg section (mm)": "37.0 wide x 46.0 deep",
+    "leg length, crotch to bottom (mm)": 56.8,
+    "pitch / roll axis above sole (mm)": "17.2 / 105.5",
+    "ankle gap (mm)": 10.2
+  },
+  "motors_inside": {
+    "pelvis#0": 1.0,
+    "pelvis#1": 1.0,
+    "torso#0": 1.0,
+    "leg_l#0": 1.0,
+    "foot_l#0": 1.0,
+    "leg_r#0": 1.0,
+    "foot_r#0": 1.0
+  }
+}

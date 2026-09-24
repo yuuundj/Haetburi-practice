@@ -1,0 +1,35 @@
+{
+  "variant": "v1_700_exposed",
+  "title": "700 mm, ankle motors stacked under the legs (exposed)",
+  "layout": "exposed",
+  "demo": {
+    "pitch_lean": 7,
+    "roll_lean": 8,
+    "yaw": 35,
+    "bow_hip": 16,
+    "bow_ankle": -13,
+    "diag_roll": 7,
+    "diag_yaw": -30
+  },
+  "mass_kg": 3.433,
+  "com_mm": [
+    -7.1,
+    2.3,
+    286.7
+  ],
+  "height_mm": 700.0,
+  "summary": {
+    "ankle stack under the legs (mm)": 80.0,
+    "roll motor": "flat",
+    "foot pad (mm)": "110 x 66 x 12"
+  },
+  "motors_inside": {
+    "pelvis#0": 1.0,
+    "pelvis#1": 1.0,
+    "pelvis#2": 1.0,
+    "leg_l#0": 0.0,
+    "ankle_l#0": 0.0,
+    "leg_r#0": 0.0,
+    "ankle_r#0": 0.0
+  }
+}

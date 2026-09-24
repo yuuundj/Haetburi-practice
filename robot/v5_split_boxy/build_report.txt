@@ -1,0 +1,28 @@
+variant  v5_split_boxy: roll motor in the leg, pitch motor in a boxy foot
+wrote    robot/v5_split_boxy/haetburi.urdf, robot/v5_split_boxy/haetburi_scene.xml
+
+link       mass kg  com (m, robot frame)
+pelvis       0.306  [-0.0091  0.011   0.1399]
+torso        1.803  [-0.0152  0.0004  0.3062]
+leg_l        0.106  [0.0007 0.0246 0.0864]
+ankle_l      0.050  [0.0007 0.0246 0.0461]
+foot_l       0.136  [-0.0113  0.0246  0.0179]
+leg_r        0.106  [ 0.0008 -0.0246  0.0864]
+ankle_r      0.050  [ 0.0007 -0.0246  0.0461]
+foot_r       0.136  [-0.0113 -0.0246  0.0179]
+
+total mass 2.694 kg   com [-0.0123  0.0015  0.2311] m   com height 231 mm
+standing height 584 mm, character scale x1.6667
+foot (mm): 61.6 x 45.0 x 49.4
+leg section (mm): 37.0 wide x 46.0 deep
+leg length, crotch to bottom (mm): 56.8
+pitch / roll axis above sole (mm): 17.2 / 75.0
+ankle gap (mm): 11.9
+motor volume inside the shell:
+  pelvis#0   100.0 %
+  pelvis#1   100.0 %
+  torso#0    100.0 %
+  leg_l#0    100.0 %
+  foot_l#0   100.0 %
+  leg_r#0    100.0 %
+  foot_r#0   100.0 %

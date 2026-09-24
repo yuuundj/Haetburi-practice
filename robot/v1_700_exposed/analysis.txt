@@ -1,0 +1,122 @@
+variant v1_700_exposed
+model   7 actuated DoF, 8 links, 3.433 kg
+CoM     x -0.0  y +0.0  z 286.7  mm
+        pelvis    0.764 kg
+        torso     2.158 kg
+        leg_l     0.113 kg
+        ankle_l   0.082 kg
+        foot_l    0.060 kg
+
+7 XL430 boxes, tightest pair leg_l / ankle_l: +0.0 mm (OK)
+
+neutral pose held for 3 s: CoM sank 0.2 mm, residual speed 0.0 mm/s
+  holding torque
+    waist_yaw        -0.000 N.m     0.0 % of stall
+    hip_pitch_l      -0.170 N.m    12.1 % of stall
+    hip_pitch_r      -0.170 N.m    12.2 % of stall
+    ankle_pitch_l    -0.176 N.m    12.6 % of stall
+    ankle_pitch_r    -0.175 N.m    12.5 % of stall
+    ankle_roll_l     -0.023 N.m     1.6 % of stall
+    ankle_roll_r     +0.011 N.m     0.8 % of stall
+
+  ankle pitch (lean fore/aft): both joints commanded together, 1.5 s ramp then hold
+     cmd deg  N.m worst  % stall  CoM shift mm  state
+           0      0.176    12.6%           2.4  standing
+           1      0.261    18.6%           7.4  standing
+           2      0.346    24.7%          12.5  standing
+           3      0.431    30.8%          17.5  standing
+           4      0.516    36.8%          22.5  standing
+           5      0.600    42.8%          27.5  standing
+           6      0.684    48.8%          32.4  standing
+           7      0.769    54.9%          37.4  standing
+           8      0.850    60.7%          42.3  standing
+           9      0.057     4.0%         290.1  TIPPED OVER
+          10      0.053     3.8%         289.8  TIPPED OVER
+          11      0.052     3.7%         288.3  TIPPED OVER
+          12      0.051     3.6%         286.5  TIPPED OVER
+          13      0.049     3.5%         284.8  TIPPED OVER
+          14      0.063     4.5%         283.0  TIPPED OVER
+          15      0.088     6.3%         282.8  TIPPED OVER
+          16      0.096     6.9%         281.0  TIPPED OVER
+          17      0.097     6.9%         279.6  TIPPED OVER
+          18      0.103     7.3%         278.1  TIPPED OVER
+          19      0.112     8.0%         276.6  TIPPED OVER
+          20      0.107     7.7%         275.7  TIPPED OVER
+          21      0.110     7.9%         274.8  TIPPED OVER
+          22      0.109     7.8%         274.3  TIPPED OVER
+          23      0.113     8.1%         274.3  TIPPED OVER
+          24      0.115     8.2%         274.3  TIPPED OVER
+          25      0.118     8.4%         274.4  TIPPED OVER
+          26      0.121     8.7%         274.0  TIPPED OVER
+          27      0.127     9.0%         273.7  TIPPED OVER
+          28      0.127     9.1%         273.4  TIPPED OVER
+          29      0.130     9.3%         272.6  TIPPED OVER
+          30      0.134     9.6%         271.5  TIPPED OVER
+          31      0.136     9.7%         270.6  TIPPED OVER
+          32      0.137     9.8%         269.9  TIPPED OVER
+          33      0.135     9.7%         269.3  TIPPED OVER
+          34      0.135     9.6%         268.8  TIPPED OVER
+          35      0.115     8.2%         268.1  TIPPED OVER
+          36      0.109     7.8%         267.4  TIPPED OVER
+          37      0.095     6.8%         266.7  TIPPED OVER
+          38      0.069     4.9%         266.1  TIPPED OVER
+          39      0.077     5.5%         265.5  TIPPED OVER
+          40      0.014     1.0%         264.5  TIPPED OVER
+          41      0.019     1.4%         263.7  TIPPED OVER
+          42      0.063     4.5%         263.0  TIPPED OVER
+          43      0.062     4.4%         262.0  TIPPED OVER
+          44      0.080     5.7%         261.4  TIPPED OVER
+          45      0.071     5.1%         261.3  TIPPED OVER
+
+  ankle roll (lean left/right): both joints commanded together, 1.5 s ramp then hold
+     cmd deg  N.m worst  % stall  CoM shift mm  state
+           0      0.023     1.6%           2.4  standing
+           1      0.301    21.5%           2.7  standing
+           2      0.507    36.2%           4.4  standing
+           3      0.557    39.8%           8.7  standing
+           4      0.485    34.7%          14.4  standing
+           5      0.258    18.5%          20.7  standing
+           6      0.031     2.2%          27.2  standing
+           7      0.197    14.1%          33.9  standing
+           8      0.425    30.4%          40.5  standing
+           9      0.652    46.6%          47.2  standing
+          10      0.879    62.8%          53.9  standing
+          11      0.018     1.3%         376.9  TIPPED OVER
+          12      0.005     0.3%         509.2  TIPPED OVER
+          13      0.009     0.7%         523.3  TIPPED OVER
+          14      0.009     0.7%         515.3  TIPPED OVER
+          15      0.010     0.7%         508.8  TIPPED OVER
+          16      0.009     0.7%         502.0  TIPPED OVER
+          17      0.009     0.7%         495.7  TIPPED OVER
+          18      0.009     0.6%         488.4  TIPPED OVER
+          19      0.009     0.6%         486.6  TIPPED OVER
+          20      0.008     0.6%         479.5  TIPPED OVER
+          21      0.007     0.5%         461.9  TIPPED OVER
+          22      0.006     0.5%         451.0  TIPPED OVER
+          23      0.006     0.4%         439.6  TIPPED OVER
+          24      0.006     0.5%         451.5  TIPPED OVER
+          25      0.012     0.8%         509.8  TIPPED OVER
+          26      0.010     0.7%         500.5  TIPPED OVER
+          27      0.005     0.4%         427.2  TIPPED OVER
+          28      0.004     0.3%         421.1  TIPPED OVER
+          29      0.004     0.3%         420.0  TIPPED OVER
+          30      0.322    23.0%         417.9  TIPPED OVER
+
+  single support: lean onto the left foot, swing the right leg
+    right foot lifts at +4.0 deg; holding +7.0 deg the right pad clears the floor by ~6 mm
+    left foot carries 100 % of the weight; left ankle roll 0.18 N.m (13 %), pitch 0.48 N.m (34 %)
+      R hip  swing  peak %:   L roll  L pitch  L hip  R hip  waist  state
+      -20 deg  1.0 s              16       35     32      9      2  standing
+      +20 deg  1.0 s              16       40     37      8      2  standing
+      -20 deg  0.3 s              16       35     32     21      2  standing
+      +20 deg  0.3 s              16       40     37     20      2  standing
+
+foot 110 x 66 mm per foot, flat sole 110 x 66 mm; ankle pitch axis 29 mm above the sole
+CoM is 258 mm above the ankle axis; sole reaches 47 mm behind and 63 mm ahead of it
+static tip-over toward the heel at 10.5 deg of ankle pitch
+  holding that lean on two feet : 0.79 N.m per ankle (56 % of stall)
+  holding that lean on one foot : 1.58 N.m (113 % of stall)  <- exceeds the XL430
+
+demo (sim/demo.py, 23.5 s, amplitudes from variant.json)
+  stayed up the whole run
+  peak torque, % of stall: waist_yaw 42, hip_pitch_l 47, hip_pitch_r 48, ankle_pitch_l 63, ankle_pitch_r 62, ankle_roll_l 59, ankle_roll_r 65
