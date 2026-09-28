@@ -64,7 +64,9 @@ def label_at(t):
 
 def drive(m, d, t):
     for k, v in targets_at(t).items():
-        d.ctrl[mujoco.mj_name2id(m, mujoco.mjtObj.mjOBJ_ACTUATOR, k)] = v
+        i = mujoco.mj_name2id(m, mujoco.mjtObj.mjOBJ_ACTUATOR, k)
+        if i >= 0:                                     # e.g. no ankle pitch on v7
+            d.ctrl[i] = v
 
 
 def run_viewer(m, d):

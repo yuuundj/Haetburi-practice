@@ -54,11 +54,21 @@ def render(variant):
         g.text((8, 7), label, fill=(240, 240, 240))
         return np.array(im)
 
-    def pose(targets, seconds=3.0):
-        mujoco.mj_resetDataKeyframe(m, d, 0)
+    def pose(targets, seconds=3.0, ramp=1.5, reset=True):
+        """Ease into the pose over `ramp` s, then hold; a step command would
+        shove the lighter variants over."""
+        if reset:
+            mujoco.mj_resetDataKeyframe(m, d, 0)
+        start = d.ctrl.copy()
+        goal = start.copy()
         for k, v in targets.items():
-            d.ctrl[mujoco.mj_name2id(m, mujoco.mjtObj.mjOBJ_ACTUATOR, k)] = np.deg2rad(v)
-        for _ in range(int(seconds / m.opt.timestep)):
+            i = mujoco.mj_name2id(m, mujoco.mjtObj.mjOBJ_ACTUATOR, k)
+            if i >= 0:
+                goal[i] = np.deg2rad(v)
+        n = int(ramp / m.opt.timestep)
+        for step in range(int(seconds / m.opt.timestep)):
+            a = min(1.0, (step + 1) / n)
+            d.ctrl[:] = start + a * (goal - start)
             mujoco.mj_step(m, d)
 
     tiles = []
@@ -69,19 +79,19 @@ def render(variant):
     tiles.append(shot("legs, feet and ankle gap", 205, -8, 0.75, 0.17))
     mode("xray")
     tiles.append(shot("x-ray: legs and feet", 205, -8, 0.75, 0.17))
-    tiles.append(shot("x-ray: all 7 XL430", 215, -10, 2.0, 0.45))
+    tiles.append(shot(f"x-ray: all {m.nu} XL430", 215, -10, 2.0, 0.45))
     mode("solid")
-    pose({"hip_pitch_l": demo["bow_hip"], "hip_pitch_r": demo["bow_hip"],
-          "ankle_pitch_l": demo["bow_ankle"], "ankle_pitch_r": demo["bow_ankle"],
+    pose({"hip_pitch_l": demo["pose_bow_hip"], "hip_pitch_r": demo["pose_bow_hip"],
+          "ankle_pitch_l": demo["pose_bow_ankle"], "ankle_pitch_r": demo["pose_bow_ankle"],
           "waist_yaw": -30})
     tiles.append(shot("hip bow + waist twist", 215, -10, 2.2, 0.5))
-    pose({"ankle_roll_l": 6.5, "ankle_roll_r": 6.5})
-    pose_t = {"ankle_roll_l": 6.5, "ankle_roll_r": 6.5, "hip_pitch_r": 15, "ankle_pitch_r": -15}
-    for k, v in pose_t.items():
-        d.ctrl[mujoco.mj_name2id(m, mujoco.mjtObj.mjOBJ_ACTUATOR, k)] = np.deg2rad(v)
-    for _ in range(int(1.5 / m.opt.timestep)):
-        mujoco.mj_step(m, d)
-    tiles.append(shot("ankle roll 6.5 + right hip 15", 160, -6, 2.2, 0.5))
+    lr, lh = demo["pose_lift_roll"], demo["pose_lift_hip"]
+    pose({"ankle_roll_l": lr, "ankle_roll_r": lr})
+    hipj = "hip_yaw" if mujoco.mj_name2id(m, mujoco.mjtObj.mjOBJ_ACTUATOR, "hip_yaw_r") >= 0 else "hip_pitch"
+    pose({"ankle_roll_l": lr, "ankle_roll_r": lr, f"{hipj}_r": lh,
+          "ankle_pitch_r": -lh if hipj == "hip_pitch" else 0},
+         seconds=1.5, ramp=1.0, reset=False)
+    tiles.append(shot(f"ankle roll {lr} + right {hipj.replace('_', ' ')} {lh}", 160, -6, 2.2, 0.5))
     mujoco.mj_resetDataKeyframe(m, d, 0)
     mujoco.mj_forward(m, d)
     mode("col")

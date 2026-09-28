@@ -125,6 +125,36 @@ def body_heights_from_leg_bottom(z_leg_bottom):
                 hip=z_crotch + HIP_ABOVE_CROTCH, top=P.SRC_HEIGHT * S + lift)
 
 
+# ------------------------------------------------ v7_roll_only (roll in the foot)
+def foot_layout_roll():
+    """Roll motor and the bun around it, foot frame (origin on the roll axis)."""
+    size, c = _aabb("x", P.ROLL_H_DIR, P.ROLL_SHIFT)
+    horn = size + np.array([P.MOTOR_HORN, 0, 0])               # horn on one x face
+    z0 = c[2] - size[2] / 2 - P.FLOOR
+    env = _corners(horn, c, inflate=P.WALL)
+    if P.FOOT_HEEL_REACH is not None:
+        reach = np.array([[-P.FOOT_HEEL_REACH, 0, z0 + 0.5], [P.FOOT_TOE_REACH, 0, z0 + 0.5]])
+        env = np.vstack([env, reach])
+    f = AS.fit_bun(env, z0, (P.FOOT_PLAN_EXPONENT, P.FOOT_SIDE_EXPONENT))
+    if f is None:
+        raise RuntimeError("no foot bun fits between the legs")
+    f.update(z0=z0)
+    return dict(z_roll=-z0, foot=f, roll=(size, c))
+
+
+def leg_clear_height_roll(f, leg_rel, z_min):
+    """Lowest leg bottom above the roll axis (foot frame origin) at which the
+    leg never touches its foot over the ankle roll range."""
+    rlo, rhi = P.LIM["ankle_roll"]
+    z = z_min
+    while True:
+        q0 = leg_rel + np.array([0, 0, z])
+        if not any(foot_inside(f, q0 @ _rot("x", rr).T, grow=P.LEG_FOOT_CLEAR).any()
+                   for rr in np.linspace(rlo, rhi, 13)):
+            return z
+        z += 0.5
+
+
 # -------------------------------------------------------------------- the leg
 def leg_motor():
     """Roll motor in the leg, relative to the roll axis: standing, long end up."""
@@ -211,6 +241,19 @@ def body_heights(z_leg_bottom, leg_len):
 def hip_case():
     """Hip motor in the pelvis, relative to the hip axis: standing, horn down."""
     return _aabb("y", "+z")
+
+
+def hip_yaw_case():
+    """Hip yaw motor in the pelvis, relative to the crotch point under the hip:
+    shaft vertical through the leg centre, horn down, long end toward the back.
+    Just above the crotch the belly is only ~+-30 mm deep at the legs, less than
+    the case's 35 mm reach; from HIP_YAW_LIFT up it deepens toward the backpack,
+    so the case sits there (98 % inside) and a shaft extension reaches the leg."""
+    d = np.array([0, 0, 1.0]); h = np.array([-1.0, 0, 0]); w = np.cross(d, h)
+    R = np.stack([d, h, w], axis=1)
+    size = np.abs(R) @ np.array([P.MOTOR_D, P.MOTOR_H, P.MOTOR_W])
+    centre = R @ np.array([P.HIP_YAW_LIFT + P.MOTOR_D / 2.0, H_MID, 0.0])
+    return size, centre
 
 
 def waist_case():

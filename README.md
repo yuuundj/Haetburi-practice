@@ -19,6 +19,8 @@
 | `v4_ankle_in_foot` | 발목 모터 2개 모두 큰 발 속 | 608 mm | 2.83 kg | 전부 | 11.3° | 됨 |
 | `v5_split_boxy` | 롤은 다리, 피치는 발, 각진 발(뒤쪽) | 584 mm | 2.69 kg | 전부 | 8° | 됨 |
 | `v6_split_round` | 롤은 다리, 피치는 발, 둥근 앞발, 반바지 | 614 mm | 2.82 kg | 전부 | 10.3° | **안 됨** |
+| `v7_roll_only` | **발목 피치 없음** (모터 5개), 롤은 발 속 낮게, 원본 다리 | 581 mm | 2.62 kg | 전부 | 8.5° (몸 전체) | 됨, 걷기 확인 |
+| `v8_yaw_roll` | Otto 구성: **고관절 요** + 발목 롤 (모터 5개), 낮춘 발 | 546 mm | 2.59 kg | 고관절 98 %, 나머지 전부 | 8.0° (몸 전체) | 됨, 걷기 확인 |
 
 앞뒤 전도는 정적 계산값입니다. 각 버전의 `analysis.txt`에 시뮬레이션 값이 함께 있습니다.
 
@@ -30,8 +32,46 @@ python3 sim/demo.py --variant v5_split_boxy                # 데모
 python3 sim/analyse.py --variant v1_700_exposed            # 분석 리포트
 ```
 
-`--variant`를 생략하면 최신 버전(v6)을 씁니다. 버전별 설정은 모두
+`--variant`를 생략하면 v6을 씁니다. 버전별 설정은 모두
 `tools/haetburi_params.py`의 `VARIANTS`와 레이아웃별 블록에 있습니다.
+
+### 보행 테스트 (`sim/walk.py`)
+
+Otto·Zowi 같은 4서보 이족 로봇이 쓰는 방식의 열린 루프 보행입니다. 발목 롤을 사인파로
+흔들어 좌우로 번갈아 한 발을 띄우고, 고관절을 좌우 반대 위상으로 흔들어 뜬 다리를
+내딛습니다. 주파수·롤 폭·다리 폭·위상 1,152개 조합을 시뮬레이션해서, 넘어지지 않고
+방향을 20° 이상 틀지 않으며 발 이동의 60 % 이상이 공중에서 일어나는(미끄러짐이 아닌)
+조합 중 가장 멀리 간 것을 고릅니다.
+
+```
+python3 sim/walk.py --variant v7_roll_only --search     # 탐색, robot/v7_roll_only/walk.txt
+MUJOCO_GL=glfw python3 sim/walk.py --variant v7_roll_only --video robot/v7_roll_only/walk.mp4
+```
+
+고관절은 좌우를 반대로("anti", 다리가 가위처럼 엇갈림) 또는 같은 방향으로("same")
+흔드는 두 가지 패턴을 모두 탐색합니다. Otto 라이브러리의 walk는 두 고관절 요를 같은
+방향, 발목을 90° 늦은 위상으로 흔듭니다. 이렇게 하면 딛은 발을 축으로 골반이 돌고, 뜬 발은
+방향을 유지한 채 앞으로 옮겨가서 두 발끝이 서로 부딪히지 않습니다.
+
+| | v7 (고관절 피치) | v8 (고관절 요) |
+|---|---|---|
+| 최적 보행 | 0.4 Hz, 롤 6°, 고관절 ±4.5° (반대 방향) | 1.1 Hz, 롤 4°, 고관절 ±25° (같은 방향, 위상 105°) |
+| 12초 전진 | 146 mm (초당 12 mm) | 445 mm (초당 37 mm) |
+| 방향 틀어짐 / 옆 이탈 | 0° / 19 mm | 10° / 69 mm |
+| 발 이동 중 공중 비율 | 62 % | 97 % |
+| 최대 부하 | 74 % | 53 % |
+| 결과 파일 | `robot/v7_roll_only/walk.*` | `robot/v8_yaw_roll/walk.*` |
+
+v7 탐색은 "same" 패턴을 추가하기 전에 돌린 결과입니다. 고관절 피치를 같은 방향으로
+흔들면 몸 전체가 앞뒤로 숙여질 뿐이라 결과가 달라지지 않을 것으로 보지만, 확인하려면
+v7 탐색을 다시 돌리면 됩니다.
+
+v8의 발은 v7과 같은 방향으로 롤 모터를 세워 넣되, 발 윗면을 조금 더 평평하게(옆 모서리
+지수 6) 하고, 높이 가중치를 2로 올리고, 모터를 발끝 쪽으로 12 mm 옮겨 빈 공간을 줄였습니다.
+발이 95.6 × 43 × 93.5 mm에서 85 × 43 × 57.5 mm로 낮아졌습니다. 모터를 옆으로 눕히면
+88 × 63 × 38.5 mm까지 낮출 수 있지만 발 폭이 넓어지고 바깥으로 치우칩니다.
+v8의 고관절 요 모터는 배가 얕은 가랑이 바로 위를 피해 15.5 mm 올려 두었고(축 연장
+브래킷으로 다리와 연결), 뒤쪽 아래 모서리 일부(약 2 %)가 배 밖으로 나옵니다.
 
 **복원에 관해.** v1, v2, v4, v5는 한때 파일이 덮어써져 사라졌던 것을 당시 설계대로
 코드를 다시 짜서 복원했습니다. 질량·무게중심·전고·발 크기가 당시 기록과 모두 일치합니다.
@@ -142,8 +182,10 @@ tools/make_feet.py 외 2개  도라에몽 발 시안(v3)과 검토 이미지
 
 robot/<버전>/              haetburi.urdf, haetburi_scene.xml, meshes/,
                            build_report.txt, variant.json, analysis.txt, preview.png
+                           (v7, v8: walk.txt, walk.json, walk.mp4, walk_strip.png)
 robot/variants_overview.png  전 버전 비교 (정면 / 투시 / 발목 근접)
-sim/                       view.py, demo.py, analyse.py (모두 --variant), variants.py
+sim/                       view.py, demo.py, analyse.py, walk.py (모두 --variant),
+                           walk_video.py, variants.py
 archive/                   작업 기록 보존 (archive/README.md 참고)
 review/                    발 시안 검토 이미지
 ```

@@ -1,0 +1,55 @@
+variant v8_yaw_roll
+model   5 actuated DoF, 6 links, 2.594 kg
+CoM     x -0.0  y +0.0  z 200.1  mm
+        pelvis    0.656 kg
+        torso     1.503 kg
+        leg_l     0.067 kg
+        foot_l    0.150 kg
+
+5 XL430 boxes, tightest pair pelvis / torso: +0.2 mm (OK)
+
+neutral pose held for 3 s: CoM sank 0.1 mm, residual speed 0.0 mm/s
+  holding torque
+    waist_yaw        -0.000 N.m     0.0 % of stall
+    hip_yaw_l        -0.000 N.m     0.0 % of stall
+    hip_yaw_r        +0.000 N.m     0.0 % of stall
+    ankle_roll_l     -0.009 N.m     0.6 % of stall
+    ankle_roll_r     -0.009 N.m     0.6 % of stall
+
+  no ankle pitch joint: fore/aft lean sweep skipped
+
+  ankle roll (lean left/right): both joints commanded together, 1.5 s ramp then hold
+     cmd deg  N.m worst  % stall  CoM shift mm  state
+           0      0.009     0.6%           0.1  standing
+           1      0.259    18.5%           0.8  standing
+           2      0.437    31.2%           1.9  standing
+           3      0.426    30.4%           5.4  standing
+           4      0.312    22.3%           9.9  standing
+           5      0.200    14.3%          14.4  standing
+           6      0.095     6.8%          18.5  standing
+           7      0.015     1.0%          22.9  standing
+           8      0.118     8.5%          27.0  standing
+           9      0.222    15.9%          31.1  standing
+          10      0.335    24.0%          35.6  standing
+          11      0.008     0.6%         278.3  TIPPED OVER
+          12      0.010     0.7%         358.5  TIPPED OVER
+          13      0.011     0.8%         364.2  TIPPED OVER
+          14      0.011     0.8%         365.7  TIPPED OVER
+          15      0.002     0.1%         365.3  TIPPED OVER
+
+  single support: lean onto the left foot, swing the right leg
+    right foot lifts at +3.0 deg; holding +6.0 deg the right pad clears the floor by ~5 mm
+    left foot carries 100 % of the weight; left ankle roll 0.10 N.m (7 %)
+      R hip  swing  peak %:   L roll  L pitch  L hip  R hip  waist  state
+      -20 deg  1.0 s               9        -     45    100      1  standing
+      +20 deg  1.0 s               9        -     46    100      1  standing
+      -20 deg  0.3 s               9        -     38    100      1  standing
+      +20 deg  0.3 s               9        -     40    100      1  standing
+
+foot 85 x 43 mm per foot, flat sole 85 x 43 mm; ankle pitch axis 14 mm above the sole
+CoM is 186 mm above the ankle axis; sole reaches 28 mm behind and 57 mm ahead of it
+no ankle pitch: fore/aft balance is passive, the whole robot tips over once leaned 8.0 deg toward the heel
+
+demo (sim/demo.py, 23.5 s, amplitudes from variant.json)
+  stayed up the whole run
+  peak torque, % of stall: waist_yaw 30, hip_yaw_l 1, hip_yaw_r 1, ankle_roll_l 41, ankle_roll_r 41

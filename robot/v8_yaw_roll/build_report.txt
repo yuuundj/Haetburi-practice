@@ -1,0 +1,24 @@
+variant  v8_yaw_roll: Otto layout: hip yaw + ankle roll, lower foot
+wrote    robot/v8_yaw_roll/haetburi.urdf, robot/v8_yaw_roll/haetburi_scene.xml
+
+link       mass kg  com (m, robot frame)
+pelvis       0.656  [0.0059 0.0051 0.1031]
+torso        1.503  [-0.0073  0.0005  0.2916]
+leg_l        0.067  [0.0007 0.024  0.0458]
+foot_l       0.150  [0.0131 0.0239 0.0235]
+leg_r        0.067  [ 0.0008 -0.024   0.0457]
+foot_r       0.150  [ 0.0131 -0.0239  0.0235]
+
+total mass 2.594 kg   com [-0.0012  0.0016  0.2001] m   com height 200 mm
+standing height 546 mm, character scale x1.6667
+actuated joints: 5 (waist yaw, hip yaw x2, ankle roll x2)
+foot (mm): 85.0 x 43.0 x 57.5
+roll axis above sole (mm): 14.2
+leg shell (mm): original, 19.2 from bottom to crotch
+ankle gap (mm): 4.0
+motor volume inside the shell:
+  pelvis#0    97.7 %
+  pelvis#1    99.5 %
+  torso#0    100.0 %
+  foot_l#0   100.0 %
+  foot_r#0   100.0 %

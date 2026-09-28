@@ -1,0 +1,24 @@
+variant  v7_roll_only: no ankle pitch: hip pitch + ankle roll, roll motor low in the foot
+wrote    robot/v7_roll_only/haetburi.urdf, robot/v7_roll_only/haetburi_scene.xml
+
+link       mass kg  com (m, robot frame)
+pelvis       0.606  [0.0086 0.0056 0.1382]
+torso        1.503  [-0.0073  0.0005  0.3261]
+leg_l        0.067  [0.0007 0.024  0.0674]
+foot_l       0.189  [0.0095 0.0239 0.033 ]
+leg_r        0.067  [ 0.0008 -0.024   0.0674]
+foot_r       0.189  [ 0.0095 -0.0239  0.033 ]
+
+total mass 2.621 kg   com [-0.0008  0.0016  0.2272] m   com height 227 mm
+standing height 581 mm, character scale x1.6667
+actuated joints: 5 (waist yaw, hip pitch x2, ankle roll x2)
+foot (mm): 95.6 x 43.0 x 93.5
+roll axis above sole (mm): 14.2
+leg shell (mm): original, 19.2 from bottom to crotch
+ankle gap (mm): 2.5
+motor volume inside the shell:
+  pelvis#0   100.0 %
+  pelvis#1   100.0 %
+  torso#0    100.0 %
+  foot_l#0   100.0 %
+  foot_r#0   100.0 %

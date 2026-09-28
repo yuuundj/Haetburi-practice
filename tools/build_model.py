@@ -331,6 +331,10 @@ def build_split():
     for sg_ in (1, -1):
         _motor(L["pelvis"], hs, hc + np.array([0, sg_ * y_hip_mm, 0]))
     L["pelvis"].items.append(MP.point_props(2 * P.BRACKET_MASS_KG, (0, 0, 0)))
+    if yaw:                                            # shaft extensions from the raised hip cases
+        for sg_ in (1, -1):
+            L["pelvis"].items.append(MP.point_props(P.BRACKET_MASS_KG,
+                                                    (0, sg_ * y_hip_mm * MM, P.HIP_YAW_LIFT / 2 * MM)))
     if P.ELECTRONICS_AT == "belly":
         L["pelvis"].items.append(MP.point_props(P.ELECTRONICS_KG, np.array(P.ELECTRONICS_POS) * MM))
     _torso(L, org, pieces, lift, battery_backpack=(P.ELECTRONICS_AT == "backpack"))
@@ -360,7 +364,80 @@ def build_split():
     return L, joints, meta
 
 
-BUILDERS = {"exposed": build_exposed, "foot_both": build_foot_both, "split": build_split}
+# ------------------------------------------ v7: no ankle pitch, roll motor in the foot
+def build_roll_foot():
+    pieces = segment_foot_both()                       # original leg, straight at the bottom
+    c_l, c_r, y_hip_mm, x_axis = _leg_centres(pieces)
+    fl = LY.foot_layout_roll()
+    f, z_r = fl["foot"], fl["z_roll"]                  # roll axis height above the sole
+    rs, rc = fl["roll"]
+    leg0 = to_link_frame(pieces["leg_l"], c_l[0] - y_hip_mm / P.MESH_SCALE,
+                         (x_axis, y_hip_mm * MM, 0.0), -P.LEG_BOTTOM_NATIVE * P.MESH_SCALE)
+    leg_rel = leg0.vertices / MM
+    leg_rel = leg_rel[leg_rel[:, 2] < 25.0]
+    z_min = rc[2] + rs[2] / 2 + P.LEG_ABOVE_ROLL_CASE
+    z_lb = z_r + LY.leg_clear_height_roll(f, leg_rel, z_min)
+    hz = LY.body_heights_from_leg_bottom(z_lb)
+    lift = hz["lift"]
+    yaw = P.HIP_JOINT == "yaw"
+    if yaw:                                            # yaw axis is vertical: put the joint at the crotch
+        hz["hip"] = hz["crotch"]
+    org = {"pelvis": np.array([x_axis, 0.0, hz["hip"] * MM]),
+           "torso": np.array([x_axis, 0.0, hz["waist"] * MM])}
+    for sd, sg_ in (("l", 1), ("r", -1)):
+        y = sg_ * y_hip_mm * MM
+        org[f"leg_{sd}"] = np.array([x_axis, y, hz["hip"] * MM])
+        org[f"foot_{sd}"] = np.array([x_axis, y, z_r * MM])
+    L = {n: Link(n) for n in org}
+
+    _pelvis_shell(L, org, pieces, lift,
+                  drop=((hz["crotch"] - hz["hip"]) * MM, (hz["waist"] - hz["hip"]) * MM))
+    hs, hc = LY.hip_yaw_case() if yaw else LY.hip_case()
+    for sg_ in (1, -1):
+        _motor(L["pelvis"], hs, hc + np.array([0, sg_ * y_hip_mm, 0]))
+    L["pelvis"].items.append(MP.point_props(2 * P.BRACKET_MASS_KG, (0, 0, 0)))
+    if yaw:                                            # shaft extensions from the raised hip cases
+        for sg_ in (1, -1):
+            L["pelvis"].items.append(MP.point_props(P.BRACKET_MASS_KG,
+                                                    (0, sg_ * y_hip_mm * MM, P.HIP_YAW_LIFT / 2 * MM)))
+    if P.ELECTRONICS_AT == "belly":
+        L["pelvis"].items.append(MP.point_props(P.ELECTRONICS_KG, np.array(P.ELECTRONICS_POS) * MM))
+    _torso(L, org, pieces, lift)
+    if P.ELECTRONICS_AT == "chest":
+        L["torso"].items.append(MP.point_props(P.ELECTRONICS_KG, np.array(P.ELECTRONICS_POS) * MM))
+
+    for sd, sg_ in (("l", 1), ("r", -1)):
+        key = f"leg_{sd}"
+        c_native = (c_l if sg_ > 0 else c_r)[0]
+        lg = to_link_frame(pieces[key], c_native - sg_ * y_hip_mm / P.MESH_SCALE, org[key], lift)
+        L[key].mesh_file = lg
+        L[key].items.append(MP.shell_props(lg, drop_planes=((hz["crotch"] - hz["hip"]) * MM,)))
+        # bracket from the leg bottom down to the roll horn in the foot
+        span = (z_lb - z_r) * MM
+        L[key].items.append(MP.box_props(2 * P.BRACKET_MASS_KG, (0.020, 0.040, span),
+                                         (0, 0, lg.bounds[0][2] - span / 2)))
+        L[key].collision.append(("box", _fit_box(lg.vertices)))
+        _foot_bun(L, f"foot_{sd}", sg_, f, z_r, (rs, rc), mirror_motor=True)
+
+    joints = [("waist_yaw", "pelvis", "torso", (0, 0, 1), org["torso"] - org["pelvis"], "waist_yaw")]
+    hip, hax = ("hip_yaw", (0, 0, 1)) if yaw else ("hip_pitch", (0, 1, 0))
+    for sd in ("l", "r"):
+        joints.append((f"{hip}_{sd}", "pelvis", f"leg_{sd}", hax,
+                       org[f"leg_{sd}"] - org["pelvis"], hip))
+    for sd in ("l", "r"):
+        joints.append((f"ankle_roll_{sd}", f"leg_{sd}", f"foot_{sd}", (1, 0, 0),
+                       org[f"foot_{sd}"] - org[f"leg_{sd}"], "ankle_roll"))
+    meta = dict(org=org, heights=hz, exclude=[("leg_l", "foot_l"), ("leg_r", "foot_r")],
+                summary={"actuated joints": f"5 (waist yaw, {hip.replace('_', ' ')} x2, ankle roll x2)",
+                         "foot (mm)": f"{f['L']:.1f} x {f['W']:.1f} x {f['H']:.1f}",
+                         "roll axis above sole (mm)": round(z_r, 1),
+                         "leg shell (mm)": f"original, {(P.CUT_LEG_TOP - P.LEG_BOTTOM_NATIVE) * P.MESH_SCALE:.1f} from bottom to crotch",
+                         "ankle gap (mm)": round(z_lb - f["H"], 1)})
+    return L, joints, meta
+
+
+BUILDERS = {"exposed": build_exposed, "foot_both": build_foot_both, "split": build_split,
+            "roll_foot": build_roll_foot}
 
 
 def motors_inside(L, org, n=6):

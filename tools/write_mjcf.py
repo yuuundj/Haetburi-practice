@@ -177,8 +177,8 @@ def write(L, joints, meta, path):
     o.append('  </sensor>')
     o.append('')
     o.append('  <keyframe>')
-    o.append(f'    <key name="stand" qpos="{f3(root)} 1 0 0 0 0 0 0 0 0 0 0" '
-             f'ctrl="0 0 0 0 0 0 0"/>')
+    zeros = " ".join(["0"] * len(joints))
+    o.append(f'    <key name="stand" qpos="{f3(root)} 1 0 0 0 {zeros}" ctrl="{zeros}"/>')
     o.append('  </keyframe>')
     o.append('</mujoco>')
 

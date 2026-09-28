@@ -1,0 +1,39 @@
+{
+  "variant": "v8_yaw_roll",
+  "title": "Otto layout: hip yaw + ankle roll, lower foot",
+  "layout": "roll_foot",
+  "demo": {
+    "pitch_lean": 0,
+    "roll_lean": 5,
+    "yaw": 35,
+    "bow_hip": 0,
+    "bow_ankle": 0,
+    "diag_roll": 5,
+    "diag_yaw": -30,
+    "pose_bow_hip": 0,
+    "pose_bow_ankle": 0,
+    "pose_lift_roll": 5,
+    "pose_lift_hip": 8
+  },
+  "mass_kg": 2.594,
+  "com_mm": [
+    -1.2,
+    1.6,
+    200.1
+  ],
+  "height_mm": 546.5,
+  "summary": {
+    "actuated joints": "5 (waist yaw, hip yaw x2, ankle roll x2)",
+    "foot (mm)": "85.0 x 43.0 x 57.5",
+    "roll axis above sole (mm)": 14.2,
+    "leg shell (mm)": "original, 19.2 from bottom to crotch",
+    "ankle gap (mm)": 4.0
+  },
+  "motors_inside": {
+    "pelvis#0": 0.977,
+    "pelvis#1": 0.995,
+    "torso#0": 1.0,
+    "foot_l#0": 1.0,
+    "foot_r#0": 1.0
+  }
+}

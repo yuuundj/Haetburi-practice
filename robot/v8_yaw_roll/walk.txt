@@ -1,0 +1,20 @@
+variant v8_yaw_roll: 2676 gaits, 2261 stayed up, 1349 kept their heading (147 s)
+top 40 by distance checked for real steps; 40 move their feet mostly through the air (>= 60% of foot travel), the rest mostly slide
+
+ freq  roll  swing  phase  hips |  forward   side   turn     speed  peak | in air   lift stepped
+  1.1     4   25.0    105  same |    445mm   69mm   10deg  37.1mm/s   53% |    49%  3.5mm     97%
+  1.3     3   25.0     90  same |    426mm  167mm   -9deg  35.5mm/s   66% |    49%  2.5mm     93%
+  1.1     4   20.0     90  same |    422mm  -14mm   15deg  35.2mm/s   57% |    49%  3.5mm     99%
+  1.1     4   20.0     90  same |    422mm  -14mm   15deg  35.2mm/s   57% |    49%  3.5mm     99%
+  1.1     4   20.0    105  same |    409mm   26mm   19deg  34.0mm/s   50% |    49%  3.4mm     99%
+  1.1     4   25.0    120  same |    358mm  -23mm  -13deg  29.8mm/s   57% |    49%  3.5mm     95%
+  1.1     4   20.0    120  same |    342mm  -22mm   -6deg  28.5mm/s   53% |    49%  3.4mm     97%
+  1.1     4   16.0     90  same |    342mm  -12mm   12deg  28.5mm/s   47% |    50%  3.4mm     99%
+  0.9     6   16.0     90  same |    278mm  -12mm   15deg  23.2mm/s   40% |    50%  5.4mm    100%
+  0.7     6   20.0     90  same |    268mm  -26mm  -15deg  22.4mm/s   40% |    50%  4.9mm     99%
+
+furthest overall (for comparison, may be sliding):
+  1.1     4   25.0    105  same |    445mm   69mm   10deg  37.1mm/s   53% |    49%  3.5mm     97%
+  1.3     3   25.0     90  same |    426mm  167mm   -9deg  35.5mm/s   66% |    49%  2.5mm     93%
+  1.1     4   20.0     90  same |    422mm  -14mm   15deg  35.2mm/s   57% |    49%  3.5mm     99%
+falls by roll amplitude: 3 deg: 42, 4 deg: 53, 5 deg: 60, 6 deg: 66, 7 deg: 2, 8 deg: 192

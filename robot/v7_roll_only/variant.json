@@ -1,0 +1,39 @@
+{
+  "variant": "v7_roll_only",
+  "title": "no ankle pitch: hip pitch + ankle roll, roll motor low in the foot",
+  "layout": "roll_foot",
+  "demo": {
+    "pitch_lean": 0,
+    "roll_lean": 5,
+    "yaw": 35,
+    "bow_hip": 12,
+    "bow_ankle": 0,
+    "diag_roll": 5,
+    "diag_yaw": -30,
+    "pose_bow_hip": 6,
+    "pose_bow_ankle": 0,
+    "pose_lift_roll": 5,
+    "pose_lift_hip": 4
+  },
+  "mass_kg": 2.621,
+  "com_mm": [
+    -0.8,
+    1.6,
+    227.2
+  ],
+  "height_mm": 581.0,
+  "summary": {
+    "actuated joints": "5 (waist yaw, hip pitch x2, ankle roll x2)",
+    "foot (mm)": "95.6 x 43.0 x 93.5",
+    "roll axis above sole (mm)": 14.2,
+    "leg shell (mm)": "original, 19.2 from bottom to crotch",
+    "ankle gap (mm)": 2.5
+  },
+  "motors_inside": {
+    "pelvis#0": 1.0,
+    "pelvis#1": 1.0,
+    "torso#0": 1.0,
+    "foot_l#0": 1.0,
+    "foot_r#0": 1.0
+  }
+}

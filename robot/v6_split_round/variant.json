@@ -9,7 +9,11 @@
     "bow_hip": 12,
     "bow_ankle": -9,
     "diag_roll": 7,
-    "diag_yaw": -30
+    "diag_yaw": -30,
+    "pose_bow_hip": 12,
+    "pose_bow_ankle": -9,
+    "pose_lift_roll": 6.5,
+    "pose_lift_hip": 15
   },
   "mass_kg": 2.818,
   "com_mm": [

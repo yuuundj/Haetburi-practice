@@ -19,6 +19,15 @@ def act(m, name):
     return mujoco.mj_name2id(m, mujoco.mjtObj.mjOBJ_ACTUATOR, name)
 
 
+def has(m, name):
+    return act(m, name) >= 0
+
+
+def hip(m):
+    """The hip joint this variant has: hip_pitch or hip_yaw."""
+    return "hip_yaw" if has(m, "hip_yaw_l") else "hip_pitch"
+
+
 def ramp_hold(m, d, targets, ramp=1.5, hold=2.0):
     """Drive the named actuators to their targets over `ramp` s, then hold."""
     ids = {act(m, k): v for k, v in targets.items()}
@@ -139,19 +148,24 @@ def single_support(m, d, com0):
     clear = foot_world_verts(m, d, "foot_r")[:, 2].min() * 1000
     print(f"    right foot lifts at {sgn*lift:+.1f} deg; holding {sgn*roll:+.1f} deg the right pad "
           f"clears the floor by ~{clear:.0f} mm")
-    print(f"    left foot carries {foot_load(m, d, 'foot_l')/weight*100:.0f} % of the weight; "
-          f"left ankle roll {abs(t['ankle_roll_l']):.2f} N.m "
-          f"({abs(t['ankle_roll_l'])/STALL*100:.0f} %), pitch {abs(t['ankle_pitch_l']):.2f} N.m "
-          f"({abs(t['ankle_pitch_l'])/STALL*100:.0f} %)")
+    msg = (f"    left foot carries {foot_load(m, d, 'foot_l')/weight*100:.0f} % of the weight; "
+           f"left ankle roll {abs(t['ankle_roll_l']):.2f} N.m "
+           f"({abs(t['ankle_roll_l'])/STALL*100:.0f} %)")
+    if "ankle_pitch_l" in t:
+        msg += (f", pitch {abs(t['ankle_pitch_l']):.2f} N.m "
+                f"({abs(t['ankle_pitch_l'])/STALL*100:.0f} %)")
+    print(msg)
 
     print(f"    {'R hip':>7s} {'swing':>6s}  peak %:  {'L roll':>7s} {'L pitch':>8s} "
           f"{'L hip':>6s} {'R hip':>6s} {'waist':>6s}  state")
-    for hip, dur in ((-20, 1.0), (20, 1.0), (-20, 0.3), (20, 0.3)):
+    for hip_deg, dur in ((-20, 1.0), (20, 1.0), (-20, 0.3), (20, 0.3)):
         mujoco.mj_resetDataKeyframe(m, d, 0)
         ramp_hold(m, d, tgt, ramp=1.5, hold=0.5)
-        swing = dict(tgt, hip_pitch_r=np.deg2rad(hip), ankle_pitch_r=np.deg2rad(-hip))
+        swing = dict(tgt, **{f"{hip(m)}_r": np.deg2rad(hip_deg)})
+        if has(m, "ankle_pitch_r") and hip(m) == "hip_pitch":                    # keep the swinging sole level
+            swing["ankle_pitch_r"] = np.deg2rad(-hip_deg)
         ids = {act(m, k): v for k, v in swing.items()}
-        moving = {act(m, "hip_pitch_r"), act(m, "ankle_pitch_r")}
+        moving = {act(m, f"{hip(m)}_r"), act(m, "ankle_pitch_r")} - {-1}
         n = int(dur / m.opt.timestep)                  # swing, then hold 1 s
         peak = {}
         for i in range(n + int(1.0 / m.opt.timestep)):
@@ -162,9 +176,9 @@ def single_support(m, d, com0):
             for k, v in torques(m, d).items():
                 peak[k] = max(peak.get(k, 0.0), abs(v))
         up = d.subtree_com[1][2] > 0.75 * com0[2] and foot_load(m, d, "foot_l") > 0.5 * weight
-        pc = lambda k: f"{peak[k]/STALL*100:5.0f}"
-        print(f"    {hip:+5d} deg {dur:4.1f} s         {pc('ankle_roll_l'):>7s} {pc('ankle_pitch_l'):>8s} "
-              f"{pc('hip_pitch_l'):>6s} {pc('hip_pitch_r'):>6s} {pc('waist_yaw'):>6s}  "
+        pc = lambda k: f"{peak[k]/STALL*100:5.0f}" if k in peak else "    -"
+        print(f"    {hip_deg:+5d} deg {dur:4.1f} s         {pc('ankle_roll_l'):>7s} {pc('ankle_pitch_l'):>8s} "
+              f"{pc(hip(m) + '_l'):>6s} {pc(hip(m) + '_r'):>6s} {pc('waist_yaw'):>6s}  "
               f"{'standing' if up else 'LOST BALANCE'}")
 
 
@@ -183,6 +197,8 @@ def main():
     print(f"CoM     x {com0[0]*1000:+.1f}  y {com0[1]*1000:+.1f}  z {com0[2]*1000:.1f}  mm")
     for b in ("pelvis", "torso", "leg_l", "ankle_l", "foot_l"):
         i = mujoco.mj_name2id(m, mujoco.mjtObj.mjOBJ_BODY, b)
+        if i < 0:
+            continue
         print(f"        {b:8s} {m.body_mass[i]:6.3f} kg")
 
     n, gap, pair = motor_clearance(m, d)
@@ -196,10 +212,13 @@ def main():
     for k, v in torques(m, d).items():
         print(f"    {k:15s} {v:+7.3f} N.m   {abs(v)/STALL*100:5.1f} % of stall")
 
-    hi_p = np.degrees(m.jnt_range[mujoco.mj_name2id(m, mujoco.mjtObj.mjOBJ_JOINT, "ankle_pitch_l")][1])
     hi_r = np.degrees(m.jnt_range[mujoco.mj_name2id(m, mujoco.mjtObj.mjOBJ_JOINT, "ankle_roll_l")][1])
-    sweep(m, d, ("ankle_pitch_l", "ankle_pitch_r"), "ankle pitch (lean fore/aft)", com0,
-          np.arange(0, hi_p + 0.1, 1.0))
+    if has(m, "ankle_pitch_l"):
+        hi_p = np.degrees(m.jnt_range[mujoco.mj_name2id(m, mujoco.mjtObj.mjOBJ_JOINT, "ankle_pitch_l")][1])
+        sweep(m, d, ("ankle_pitch_l", "ankle_pitch_r"), "ankle pitch (lean fore/aft)", com0,
+              np.arange(0, hi_p + 0.1, 1.0))
+    else:
+        print("\n  no ankle pitch joint: fore/aft lean sweep skipped")
     sweep(m, d, ("ankle_roll_l", "ankle_roll_r"), "ankle roll (lean left/right)", com0,
           np.arange(0, hi_r + 0.1, 1.0))
 
@@ -220,12 +239,17 @@ def main():
     print(f"CoM is {lever:.0f} mm above the ankle axis; sole reaches {heel:.0f} mm behind and "
           f"{toe:.0f} mm ahead of it")
     tip = m.body_mass.sum() * 9.81 * margin / 1000
-    print(f"static tip-over toward the {'heel' if heel < toe else 'toe'} at "
-          f"{np.degrees(np.arcsin(min(1, margin/lever))):.1f} deg of ankle pitch")
-    print(f"  holding that lean on two feet : {tip/2:.2f} N.m per ankle "
-          f"({tip/2/STALL*100:.0f} % of stall)")
-    print(f"  holding that lean on one foot : {tip:.2f} N.m "
-          f"({tip/STALL*100:.0f} % of stall){'  <- exceeds the XL430' if tip > STALL else ''}")
+    if has(m, "ankle_pitch_l"):
+        print(f"static tip-over toward the {'heel' if heel < toe else 'toe'} at "
+              f"{np.degrees(np.arcsin(min(1, margin/lever))):.1f} deg of ankle pitch")
+        print(f"  holding that lean on two feet : {tip/2:.2f} N.m per ankle "
+              f"({tip/2/STALL*100:.0f} % of stall)")
+        print(f"  holding that lean on one foot : {tip:.2f} N.m "
+              f"({tip/STALL*100:.0f} % of stall){'  <- exceeds the XL430' if tip > STALL else ''}")
+    else:
+        print(f"no ankle pitch: fore/aft balance is passive, the whole robot tips over once "
+              f"leaned {np.degrees(np.arctan(margin / (com0[2]*1000))):.1f} deg toward the "
+              f"{'heel' if heel < toe else 'toe'}")
 
 
 if __name__ == "__main__":
