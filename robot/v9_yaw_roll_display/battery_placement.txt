@@ -1,0 +1,11 @@
+v9_yaw_roll_display: where to carry the 300 g battery + U2D2 (the display itself is fixed in the hands)
+built with HAETBURI_ELECTRONICS=belly|chest|backpack, analysed with sim/analyse.py, sim/walk.py (peak <= 70 % of XL430 stall), sim/loads.py
+
+placement   CoM height  sole behind/ahead of CoM  fore/aft tip  best walk (12 s)                     XL430 worst peak / RMS
+belly       191 mm      43 / 42 mm                12.4 deg      419 mm, side   3 mm, turn 17 deg      63 % / 25 %   (hip yaw)
+chest       196 mm      43 / 42 mm                12.2 deg      419 mm, side  -9 mm, turn 17 deg      68 % / 25 %   (hip yaw)
+backpack    196 mm      35 / 50 mm                10.3 deg      447 mm, side  97 mm, turn -6 deg      69 % / 35 %   (hip yaw)
+
+chosen: belly (unchanged).  The display pulls the CoM 15 mm forward, which lands it over the middle of
+the sole (v8 had it 28 mm from the heel and 57 mm from the toe), so no counterweight is needed; moving the
+battery back only undoes that and raises the hip loads.

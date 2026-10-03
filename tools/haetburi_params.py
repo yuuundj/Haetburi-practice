@@ -42,11 +42,31 @@ VARIANTS = {
     "v8_yaw_roll": dict(
         title="Otto layout: hip yaw + ankle roll, lower foot",
         LAYOUT="roll_foot", HIP_JOINT="yaw"),
+    "v9_yaw_roll_display": dict(
+        title="v8 holding a 9 inch display in both hands",
+        LAYOUT="roll_foot", HIP_JOINT="yaw", DISPLAY=True),
+    "v10_split_display": dict(
+        title="3 joints per leg (v5/v6 layout) with the display, round feet, <= 600 mm",
+        LAYOUT="split", SPLIT_STYLE="round", DISPLAY=True,
+        # applied after the layout block: the foot gets whatever height the
+        # 600 mm budget leaves (see README, v10)
+        after=dict(
+            # Foot: round from above (3) and domed (5), height capped at 55 mm.  The
+            # 600 mm budget would allow ~66 mm, but the roll axis sits in the leg just
+            # above the foot, and above ~80 mm the feet roll onto their edges instead
+            # of the body tipping onto one foot (v6).  55 mm keeps it at 77 mm.
+            FOOT_MAX_H=55.0, FOOT_PLAN_EXPONENT=3.0, FOOT_SIDE_EXPONENT=5.0,
+            FOOT_COST={"length": 1.0, "width": 1.3, "height": 0.25},
+            # Weight: the display pulls the CoM forward.  With an ankle pitch joint the
+            # CoM must sit over that axis, or the stance ankle holds the robot up all
+            # the time (44 % of stall on one foot).  The pitch axis moves under the CoM;
+            # the battery stays low in the belly (in the backpack no foot would lift).
+            ELECTRONICS_AT="belly", PITCH_AXIS_X="auto")),
 }
 VARIANT = _os.environ.get("HAETBURI_VARIANT", DEFAULT_VARIANT)
 if VARIANT not in VARIANTS:
     raise KeyError(f"unknown HAETBURI_VARIANT {VARIANT!r}; choose from {list(VARIANTS)}")
-OUT_DIR = _os.path.join(ROOT, "robot", VARIANT)
+OUT_DIR = _os.environ.get("HAETBURI_OUT") or _os.path.join(ROOT, "robot", VARIANT)   # override: experiments
 MESH_DIR = _os.path.join(OUT_DIR, "meshes")
 
 # ============================================================ shared values
@@ -90,7 +110,21 @@ FIT_LEGACY = False
 FOOT_PLAN_EXPONENT = FOOT_SIDE_EXPONENT = 4.0
 FOOT_SOLE_CUT = 0.30
 FOOT_HEEL_REACH = FOOT_TOE_REACH = None
+FOOT_MAX_H = None                           # optional cap on the foot height
+PITCH_AXIS_X = 0.0          # ankle pitch axis ahead of the leg centre (mm), or "auto":
+                            # put it right under the robot's centre of mass
 LEG_FOOT_CLEAR = 2.0
+
+# 9 inch display held in both hands (images-modeling/Haetburi_display.png).
+# Waveshare 9inch 2560x1600 Monitor: 210.5 x 142.3 x 11.5 mm outline, 192 x 120 mm
+# active area, listed weight 0.621 kg (used as is: it may include packaging,
+# which errs on the heavy side for a load check).
+DISPLAY = False
+DISPLAY_OUTLINE = (11.5, 210.5, 142.3)      # thickness (x), width (y), height (z)
+DISPLAY_ACTIVE = (192.0, 120.0)
+DISPLAY_MASS_KG = 0.621
+DISPLAY_MOUNT_KG = 0.030                    # clips / brackets into the fists
+DISPLAY_CLEAR = 3.0                         # gap to the body and head (fists excepted)
 
 # demo / preview motion amplitudes (degrees)
 DEMO = dict(pitch_lean=7, roll_lean=8, yaw=35, bow_hip=16, bow_ankle=-13,
@@ -98,7 +132,7 @@ DEMO = dict(pitch_lean=7, roll_lean=8, yaw=35, bow_hip=16, bow_ankle=-13,
             pose_bow_hip=18, pose_bow_ankle=-12,     # held 3 s for the preview images
             pose_lift_roll=6.5, pose_lift_hip=15)
 
-globals().update({k: v for k, v in VARIANTS[VARIANT].items() if k != "title"})
+globals().update({k: v for k, v in VARIANTS[VARIANT].items() if k not in ("title", "after")})
 TITLE = VARIANTS[VARIANT]["title"]
 
 # ======================================================== layout: exposed
@@ -216,3 +250,15 @@ elif LAYOUT == "roll_foot":
         ELECTRONICS_POS = (26.0, 0.0, 12.0 + 12.25)   # same belly spot as v7, pelvis frame at the crotch
 else:
     raise ValueError(LAYOUT)
+
+# per-variant values that must win over the layout block
+globals().update(VARIANTS[VARIANT].get("after", {}))
+
+# experiment hooks: move the battery or cap the foot height without editing a variant
+# (HAETBURI_ELECTRONICS=belly|chest|backpack, HAETBURI_FOOT_MAX_H=<mm>)
+if _os.environ.get("HAETBURI_FOOT_MAX_H"):
+    FOOT_MAX_H = float(_os.environ["HAETBURI_FOOT_MAX_H"])
+if _os.environ.get("HAETBURI_ELECTRONICS"):
+    ELECTRONICS_AT = _os.environ["HAETBURI_ELECTRONICS"]
+    if ELECTRONICS_AT == "chest":
+        ELECTRONICS_POS = (22.0, 0.0, 30.0)          # torso frame, in front of the waist motor

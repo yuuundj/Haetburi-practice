@@ -1,0 +1,29 @@
+variant  v10_split_display: 3 joints per leg (v5/v6 layout) with the display, round feet, <= 600 mm
+wrote    robot/v10_split_display/haetburi.urdf, robot/v10_split_display/haetburi_scene.xml
+
+link       mass kg  com (m, robot frame)
+pelvis       0.623  [0.0084 0.0054 0.1424]
+torso        2.154  [0.017  0.0004 0.2894]
+leg_l        0.105  [0.0008 0.0246 0.0881]
+ankle_l      0.050  [0.0078 0.0246 0.0471]
+foot_l       0.160  [0.0273 0.0246 0.0194]
+leg_r        0.105  [ 0.0007 -0.0246  0.0881]
+ankle_r      0.050  [ 0.0078 -0.0246  0.0471]
+foot_r       0.160  [ 0.0273 -0.0246  0.0194]
+
+total mass 3.406 kg   com [0.0151 0.0012 0.2177] m   com height 218 mm
+standing height 586 mm, character scale x1.6667
+foot (mm): 96.6 x 45.0 x 55.0
+leg section (mm): 37.0 wide x 46.0 deep
+leg length, crotch to bottom (mm): 56.8
+pitch / roll axis above sole (mm): 17.2 / 77.0
+ankle gap (mm): 8.2
+display: 210.5 x 142.3 x 11.5 mm, 0.651 kg, centre 73 mm ahead, 193 mm up, bottom edge 122 mm above the floor
+motor volume inside the shell:
+  pelvis#0   100.0 %
+  pelvis#1   100.0 %
+  torso#0    100.0 %
+  leg_l#0    100.0 %
+  foot_l#0   100.0 %
+  leg_r#0    100.0 %
+  foot_r#0   100.0 %

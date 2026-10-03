@@ -40,8 +40,9 @@ def _body(L, joints, name, indent, out, tree=None):
     if link.mesh_file is not None:
         out.append(f'{pad}  <geom class="shell" mesh="{name}"/>')
     for _, (size, pos), mat in link.visual:
-        cls = "motorbox" if mat == "motor" else "footbox"
-        out.append(f'{pad}  <geom class="{cls}" size="{f3(np.array(size)/2)}" pos="{f3(pos)}"/>')
+        cls = {"motor": "motorbox", "foot": "footbox"}.get(mat, "visbox")
+        extra = f' material="{mat}"' if cls == "visbox" else ""
+        out.append(f'{pad}  <geom class="{cls}"{extra} size="{f3(np.array(size)/2)}" pos="{f3(pos)}"/>')
     cls = "colleg" if name in LEG_CHAIN else "colbody"
     for i, (kind, params) in enumerate(link.collision):
         if kind == "mesh":
@@ -104,6 +105,9 @@ def write(L, joints, meta, path):
     o.append('    <default class="footbox">')
     o.append('      <geom type="box" material="foot" contype="0" conaffinity="0" group="2"/>')
     o.append('    </default>')
+    o.append('    <default class="visbox">')
+    o.append('      <geom type="box" contype="0" conaffinity="0" group="2"/>')
+    o.append('    </default>')
     o.append('    <default class="colleg">')
     o.append('      <geom group="3" rgba="0.9 0.2 0.2 0.35" contype="1" conaffinity="1" '
              'friction="1.0 0.02 0.001" solref="0.005 1"/>')
@@ -132,6 +136,8 @@ def write(L, joints, meta, path):
     o.append('    <material name="shell" rgba="0.106 0.216 0.541 1" specular="0.3" shininess="0.4"/>')
     o.append('    <material name="motor" rgba="0.13 0.13 0.15 1" specular="0.5" shininess="0.6"/>')
     o.append('    <material name="foot" rgba="0.25 0.25 0.28 1"/>')
+    o.append('    <material name="display" rgba="0.18 0.19 0.21 1" specular="0.6" shininess="0.7"/>')
+    o.append('    <material name="screen" rgba="0.62 0.80 0.95 1" specular="0.9" shininess="0.9" emission="0.25"/>')
     for n, l in L.items():
         if l.mesh_file is not None:
             o.append(f'    <mesh name="{n}" file="{n}.stl"/>')

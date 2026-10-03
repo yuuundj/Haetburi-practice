@@ -1,0 +1,25 @@
+variant v10_split_display: 5400 gaits, 2010 stayed up, 62 kept their heading with peak torque <= 70% of stall (272 s)
+top 40 by distance checked for real steps; 30 move their feet mostly through the air (>= 60% of foot travel), the rest mostly slide
+
+ freq  roll  swing  phase  hips foll |  forward   side   turn     speed  peak | in air   lift stepped |   sway  rock wiggle
+  0.9     5    3.0    300  anti  1.0 |    186mm   -2mm    0deg  15.5mm/s   69% |    40%  3.7mm     95% |    6mm  7.1d   0.4d
+  0.9     6    3.0    300  anti  1.0 |    178mm    1mm    0deg  14.8mm/s   67% |    43%  5.5mm     95% |   11mm 11.0d   0.5d
+  0.5     7    3.0    270  anti  0.5 |    132mm    3mm    1deg  11.0mm/s   69% |    31%  5.7mm     89% |   15mm 14.2d   1.5d
+  0.7     6    3.0    300  anti  1.0 |    131mm   -9mm   -0deg  10.9mm/s   69% |    40%  4.2mm     94% |    9mm  9.3d   0.4d
+  0.5     6    3.0    270  anti  0.5 |    127mm    2mm    2deg  10.6mm/s   69% |    29%  4.4mm     89% |   10mm 11.0d   1.1d
+  0.7     7    3.0    300  anti  1.0 |    127mm   -9mm   -0deg  10.6mm/s   69% |    41%  6.4mm     93% |   14mm 13.3d   0.5d
+  0.6     6    3.0    240  anti  0.5 |    111mm   16mm   13deg   9.2mm/s   69% |    26%  3.1mm     84% |   12mm  9.8d   2.0d
+  0.7     6    3.0    330  anti  1.0 |    103mm  -13mm   -0deg   8.6mm/s   65% |    40%  3.8mm     92% |    9mm  9.1d   0.4d
+  0.4     7    3.0    270  anti  0.5 |    103mm    1mm    3deg   8.5mm/s   57% |    32%  5.5mm     90% |   12mm 13.4d   1.3d
+  0.9     7    3.0    330  anti  1.0 |     99mm    0mm    0deg   8.3mm/s   69% |    43%  7.5mm     93% |   17mm 15.2d   0.7d
+
+calmest gait that still covers >= 60% of the best distance (least side-to-side sway):
+  0.9     5    3.0    300  anti  1.0 |    186mm   -2mm    0deg  15.5mm/s   69% |    40%  3.7mm     95% |    6mm  7.1d   0.4d
+
+sway = side-to-side travel of the pelvis, rock = torso roll range, wiggle = heading swing (all peak-to-peak, trend removed)
+
+furthest overall (for comparison, may be sliding):
+  0.9     5    3.0    300  anti  1.0 |    186mm   -2mm    0deg  15.5mm/s   69% |    40%  3.7mm     95% |    6mm  7.1d   0.4d
+  0.9     6    3.0    300  anti  1.0 |    178mm    1mm    0deg  14.8mm/s   67% |    43%  5.5mm     95% |   11mm 11.0d   0.5d
+  0.5     7    3.0    270  anti  0.5 |    132mm    3mm    1deg  11.0mm/s   69% |    31%  5.7mm     89% |   15mm 14.2d   1.5d
+falls by roll amplitude: 3 deg: 601, 4 deg: 639, 5 deg: 677, 6 deg: 712, 7 deg: 761

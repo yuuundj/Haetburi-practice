@@ -1,0 +1,157 @@
+{
+ "worst": {
+  "all runs, including the fastest gait": {
+   "waist_yaw": [
+    0.5412052846048581,
+    0.17695202597380072,
+    0.9589446187322092
+   ],
+   "hip_yaw_l": [
+    0.724043376586295,
+    0.38318695957548954,
+    2.9783656723625986
+   ],
+   "hip_yaw_r": [
+    0.7389960662232697,
+    0.37587237840674986,
+    2.9661645572456368
+   ],
+   "ankle_roll_l": [
+    0.5728852886325042,
+    0.2572155834411683,
+    0.8325783637322094
+   ],
+   "ankle_roll_r": [
+    0.5758922626478216,
+    0.2131148857999951,
+    0.8277267685134753
+   ]
+  },
+  "walking at the reference pace (no fastest gait)": {
+   "waist_yaw": [
+    0.41560309255559913,
+    0.06980782853951273,
+    0.9589446187322092
+   ],
+   "hip_yaw_l": [
+    0.383305198065397,
+    0.2027661404718339,
+    1.5715550727311645
+   ],
+   "hip_yaw_r": [
+    0.3908593675824994,
+    0.20187130041190318,
+    1.5736601855763357
+   ],
+   "ankle_roll_l": [
+    0.5728852886325042,
+    0.2572155834411683,
+    0.8325783637322094
+   ],
+   "ankle_roll_r": [
+    0.5758922626478216,
+    0.2131148857999951,
+    0.8277267685134753
+   ]
+  }
+ },
+ "verdict": {
+  "all runs, including the fastest gait": {
+   "XL430-W250-T (11.1V)": {
+    "waist_yaw": true,
+    "hip_yaw_l": true,
+    "hip_yaw_r": true,
+    "ankle_roll_l": true,
+    "ankle_roll_r": true
+   },
+   "XC330-T288-T (11.1V)": {
+    "waist_yaw": true,
+    "hip_yaw_l": false,
+    "hip_yaw_r": false,
+    "ankle_roll_l": true,
+    "ankle_roll_r": true
+   },
+   "XC330-M288-T (5V)": {
+    "waist_yaw": true,
+    "hip_yaw_l": false,
+    "hip_yaw_r": false,
+    "ankle_roll_l": true,
+    "ankle_roll_r": true
+   },
+   "XC330-T181-T (11.1V)": {
+    "waist_yaw": false,
+    "hip_yaw_l": false,
+    "hip_yaw_r": false,
+    "ankle_roll_l": false,
+    "ankle_roll_r": false
+   },
+   "XL330-M288-T (5V)": {
+    "waist_yaw": false,
+    "hip_yaw_l": false,
+    "hip_yaw_r": false,
+    "ankle_roll_l": false,
+    "ankle_roll_r": false
+   }
+  },
+  "walking at the reference pace (no fastest gait)": {
+   "XL430-W250-T (11.1V)": {
+    "waist_yaw": true,
+    "hip_yaw_l": true,
+    "hip_yaw_r": true,
+    "ankle_roll_l": true,
+    "ankle_roll_r": true
+   },
+   "XC330-T288-T (11.1V)": {
+    "waist_yaw": true,
+    "hip_yaw_l": true,
+    "hip_yaw_r": true,
+    "ankle_roll_l": true,
+    "ankle_roll_r": true
+   },
+   "XC330-M288-T (5V)": {
+    "waist_yaw": true,
+    "hip_yaw_l": true,
+    "hip_yaw_r": true,
+    "ankle_roll_l": true,
+    "ankle_roll_r": true
+   },
+   "XC330-T181-T (11.1V)": {
+    "waist_yaw": true,
+    "hip_yaw_l": true,
+    "hip_yaw_r": true,
+    "ankle_roll_l": false,
+    "ankle_roll_r": false
+   },
+   "XL330-M288-T (5V)": {
+    "waist_yaw": false,
+    "hip_yaw_l": false,
+    "hip_yaw_r": false,
+    "ankle_roll_l": false,
+    "ankle_roll_r": false
+   }
+  }
+ },
+ "best": {
+  "freq": 1.1,
+  "roll": 4,
+  "swing": 25,
+  "phase": 105,
+  "pair": "same",
+  "fell": null,
+  "dx": 445.235241701841,
+  "dy": 68.65134683639148,
+  "dyaw": 10.370031841351771,
+  "speed": 37.102936808482596,
+  "peak": 53.39390346175804,
+  "air_time": 0.48683552741209796,
+  "lift_mm": 3.4894969889597527,
+  "step_ratio": 0.9715486571839175
+ },
+ "ref": {
+  "freq": 0.9,
+  "roll": 6,
+  "swing": 16,
+  "phase": 90,
+  "pair": "same"
+ }
+}

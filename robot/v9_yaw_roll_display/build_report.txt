@@ -1,0 +1,25 @@
+variant  v9_yaw_roll_display: v8 holding a 9 inch display in both hands
+wrote    robot/v9_yaw_roll_display/haetburi.urdf, robot/v9_yaw_roll_display/haetburi_scene.xml
+
+link       mass kg  com (m, robot frame)
+pelvis       0.656  [0.0059 0.0051 0.1031]
+torso        2.154  [0.017  0.0004 0.2501]
+leg_l        0.067  [0.0007 0.024  0.0458]
+foot_l       0.150  [0.0131 0.0239 0.0235]
+leg_r        0.067  [ 0.0008 -0.024   0.0457]
+foot_r       0.150  [ 0.0131 -0.0239  0.0235]
+
+total mass 3.245 kg   com [0.0137 0.0013 0.1909] m   com height 191 mm
+standing height 546 mm, character scale x1.6667
+actuated joints: 5 (waist yaw, hip yaw x2, ankle roll x2)
+foot (mm): 85.0 x 43.0 x 57.5
+roll axis above sole (mm): 14.2
+leg shell (mm): original, 19.2 from bottom to crotch
+ankle gap (mm): 4.0
+display: 210.5 x 142.3 x 11.5 mm, 0.651 kg, centre 73 mm ahead, 154 mm up, bottom edge 83 mm above the floor
+motor volume inside the shell:
+  pelvis#0    97.7 %
+  pelvis#1    99.5 %
+  torso#0    100.0 %
+  foot_l#0   100.0 %
+  foot_r#0   100.0 %

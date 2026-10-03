@@ -150,6 +150,10 @@ def fit_bun(env, z0, n, inner_limit=INNER_LIMIT):
             L, Wd, Hh = 2 * a, 2 * b, (cz + cs - z0)[:, 0]
             cost = W_LEN * L + W_WID * Wd + W_HGT * Hh
             cost[~ok] = np.inf
+            if P.FOOT_MAX_H is not None:                 # height budget (v10)
+                cost[Hh > P.FOOT_MAX_H] = np.inf
+            if not np.isfinite(cost).any():
+                continue
             i = int(np.argmin(cost))
             if best is None or cost[i] < best["cost"]:
                 best = dict(cost=cost[i], L=L[i], W=Wd, H=Hh[i], a=a[i], b=b, p=p, q=q,

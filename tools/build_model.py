@@ -310,6 +310,8 @@ def build_split():
                          (x_axis, y_hip_mm * MM, 0.0), -bottom_native * P.MESH_SCALE)
     leg_rel = leg0.vertices / MM
     leg_rel = leg_rel[leg_rel[:, 2] < 30.0]
+    off = float(P.PITCH_AXIS_X) if P.PITCH_AXIS_X != "auto" else 0.0   # main() resolves "auto"
+    leg_rel = leg_rel - np.array([off, 0.0, 0.0])      # the leg seen from the pitch axis
     z_lb = z_p + LY.leg_clear_height(f, leg_rel, roll_above_bottom)
     z_r = z_lb + roll_above_bottom
     hz = LY.body_heights(z_lb, leg_len)
@@ -320,7 +322,7 @@ def build_split():
         y = sg_ * y_hip_mm * MM
         org[f"leg_{sd}"] = np.array([x_axis, y, hz["hip"] * MM])
         org[f"ankle_{sd}"] = np.array([x_axis, y, z_r * MM])
-        org[f"foot_{sd}"] = np.array([x_axis, y, z_p * MM])
+        org[f"foot_{sd}"] = np.array([x_axis + off * MM, y, z_p * MM])
     L = {n: Link(n) for n in org}
 
     shorts = P.TRUNK_BLEND_TOP is not None
@@ -331,10 +333,6 @@ def build_split():
     for sg_ in (1, -1):
         _motor(L["pelvis"], hs, hc + np.array([0, sg_ * y_hip_mm, 0]))
     L["pelvis"].items.append(MP.point_props(2 * P.BRACKET_MASS_KG, (0, 0, 0)))
-    if yaw:                                            # shaft extensions from the raised hip cases
-        for sg_ in (1, -1):
-            L["pelvis"].items.append(MP.point_props(P.BRACKET_MASS_KG,
-                                                    (0, sg_ * y_hip_mm * MM, P.HIP_YAW_LIFT / 2 * MM)))
     if P.ELECTRONICS_AT == "belly":
         L["pelvis"].items.append(MP.point_props(P.ELECTRONICS_KG, np.array(P.ELECTRONICS_POS) * MM))
     _torso(L, org, pieces, lift, battery_backpack=(P.ELECTRONICS_AT == "backpack"))
@@ -351,7 +349,7 @@ def build_split():
         L[key].collision.append(("box", _fit_box(lg.vertices)))
         # ankle bracket between the roll horn (leg) and the pitch horn (foot)
         L[f"ankle_{sd}"].items.append(
-            MP.box_props(2 * P.BRACKET_MASS_KG, (0.020, 0.045, span), (0, 0, -span / 2)))
+            MP.box_props(2 * P.BRACKET_MASS_KG, (0.020, 0.045, span), (off * MM / 2, 0, -span / 2)))
         _foot_bun(L, f"foot_{sd}", sg_, f, z_p, fl["pitch"], mirror_motor=True)
 
     joints = _leg_chain_joints(org, "ankle_roll", "ankle_pitch")
@@ -402,7 +400,7 @@ def build_roll_foot():
                                                     (0, sg_ * y_hip_mm * MM, P.HIP_YAW_LIFT / 2 * MM)))
     if P.ELECTRONICS_AT == "belly":
         L["pelvis"].items.append(MP.point_props(P.ELECTRONICS_KG, np.array(P.ELECTRONICS_POS) * MM))
-    _torso(L, org, pieces, lift)
+    _torso(L, org, pieces, lift, battery_backpack=(P.ELECTRONICS_AT == "backpack"))
     if P.ELECTRONICS_AT == "chest":
         L["torso"].items.append(MP.point_props(P.ELECTRONICS_KG, np.array(P.ELECTRONICS_POS) * MM))
 
@@ -432,12 +430,46 @@ def build_roll_foot():
                          "foot (mm)": f"{f['L']:.1f} x {f['W']:.1f} x {f['H']:.1f}",
                          "roll axis above sole (mm)": round(z_r, 1),
                          "leg shell (mm)": f"original, {(P.CUT_LEG_TOP - P.LEG_BOTTOM_NATIVE) * P.MESH_SCALE:.1f} from bottom to crotch",
-                         "ankle gap (mm)": round(z_lb - f["H"], 1)})
+                         "ankle gap (mm)": round(z_lb - f["H"], 1),
+                         "ankle pitch axis ahead of the leg (mm)": round(off, 1)})
     return L, joints, meta
 
 
 BUILDERS = {"exposed": build_exposed, "foot_both": build_foot_both, "split": build_split,
             "roll_foot": build_roll_foot}
+
+
+def add_display(L, meta):
+    """Put the 9 inch display in the fists, screen facing forward, rigid with
+    the torso.  Centred in the fists' thickness and width; lowered from the fist
+    centre until it clears the body and the chin by DISPLAY_CLEAR."""
+    org = meta["org"]
+    tr = L["torso"].mesh_file.vertices + org["torso"]            # world, metres
+    arm = tr[np.abs(tr[:, 1]) > 80 * MM]
+    arm = arm[arm[:, 2] < org["torso"][2] + 90 * MM]
+    fist = arm[arm[:, 0] > arm[:, 0].max() - 25 * MM]
+    t, w, h = np.array(P.DISPLAY_OUTLINE) * MM
+    cx = (fist[:, 0].min() + fist[:, 0].max()) / 2.0
+    cz = (fist[:, 2].min() + fist[:, 2].max()) / 2.0
+    body = np.vstack([L[k].mesh_file.vertices + org[k] for k in ("torso", "pelvis")])
+    body = body[np.abs(body[:, 1]) < 80 * MM]                    # everything but the arms
+    g = P.DISPLAY_CLEAR * MM
+    while True:
+        inside = ((np.abs(body[:, 0] - cx) < t / 2 + g) & (np.abs(body[:, 1]) < w / 2 + g)
+                  & (np.abs(body[:, 2] - cz) < h / 2 + g))
+        if not inside.any():
+            break
+        cz -= 0.5 * MM
+    c = np.array([cx, 0.0, cz]) - org["torso"]                   # torso frame
+    L["torso"].items.append(MP.box_props(P.DISPLAY_MASS_KG + P.DISPLAY_MOUNT_KG, (t, w, h), c))
+    L["torso"].visual.append(("box", ((t, w, h), tuple(c)), "display"))
+    aw, ah = np.array(P.DISPLAY_ACTIVE) * MM
+    L["torso"].visual.append(("box", ((0.4 * MM, aw, ah), tuple(c + [t / 2, 0, 0])), "screen"))
+    L["torso"].collision.append(("box", ((t, w, h), tuple(c))))
+    meta["summary"]["display"] = (f"{P.DISPLAY_OUTLINE[1]:.1f} x {P.DISPLAY_OUTLINE[2]:.1f} x "
+                                  f"{P.DISPLAY_OUTLINE[0]:.1f} mm, {P.DISPLAY_MASS_KG + P.DISPLAY_MOUNT_KG:.3f} kg, "
+                                  f"centre {cx*1000:.0f} mm ahead, {cz*1000:.0f} mm up, "
+                                  f"bottom edge {(cz - h/2)*1000:.0f} mm above the floor")
 
 
 def motors_inside(L, org, n=6):
@@ -468,6 +500,8 @@ def motors_inside(L, org, n=6):
 #  URDF
 # --------------------------------------------------------------------------- #
 RGBA = {
+    "display": "0.18 0.19 0.21 1",       # metal case / bezel
+    "screen": "0.62 0.80 0.95 1",
     "shell":  "0.106 0.216 0.541 1",     # Haetburi blue
     "motor":  "0.15 0.15 0.17 1",
     "foot":   "0.25 0.25 0.28 1",
@@ -551,7 +585,24 @@ def main():
     os.makedirs(P.MESH_DIR, exist_ok=True)
     for old in os.listdir(P.MESH_DIR):                 # this variant's folder only
         os.remove(os.path.join(P.MESH_DIR, old))
-    L, joints, meta = BUILDERS[P.LAYOUT]()
+    def assemble():
+        L, joints, meta = BUILDERS[P.LAYOUT]()
+        if P.DISPLAY:
+            add_display(L, meta)
+        return L, joints, meta
+
+    if P.PITCH_AXIS_X == "auto":
+        # put the ankle pitch axis under the whole robot's CoM (two passes: moving
+        # the foot moves the CoM a little)
+        P.PITCH_AXIS_X = 0.0
+        for _ in range(2):
+            L, joints, meta = assemble()
+            items = [(l.props()[0], l.props()[1] + meta["org"][n], l.props()[2]) for n, l in L.items()]
+            com_x = MP.combine(items)[1][0]
+            leg_x = meta["org"]["leg_l"][0]
+            P.PITCH_AXIS_X = round((com_x - leg_x) / MM + float(P.PITCH_AXIS_X)
+                                   - (meta["org"]["foot_l"][0] - leg_x) / MM, 1)
+    L, joints, meta = assemble()
     meta["inside"] = motors_inside(L, meta["org"])
     for name, link in L.items():
         if link.mesh_file is not None:

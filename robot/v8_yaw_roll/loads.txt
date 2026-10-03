@@ -1,0 +1,28 @@
+== v8_yaw_roll  (2.59 kg)
+best gait {'freq': 1.1, 'roll': 4, 'swing': 25, 'phase': 105, 'pair': 'same', 'fell': None, 'dx': 445.235241701841, 'dy': 68.65134683639148, 'dyaw': 10.370031841351771, 'speed': 37.102936808482596, 'peak': 53.39390346175804, 'air_time': 0.48683552741209796, 'lift_mm': 3.4894969889597527, 'step_ratio': 0.9715486571839175}
+reference gait {'freq': 0.9, 'roll': 6, 'swing': 16, 'phase': 90, 'pair': 'same'}
+
+joint                         stand             best gait        reference gait                  demo   max speed
+                    peak / rms  N.m       peak / rms  N.m       peak / rms  N.m       peak / rms  N.m   rad/s
+waist_yaw             0.000 / 0.000         0.541 / 0.177         0.109 / 0.070         0.416 / 0.070    0.96
+hip_yaw_l             0.000 / 0.000         0.724 / 0.383         0.383 / 0.203         0.020 / 0.006    2.98
+hip_yaw_r             0.000 / 0.000         0.739 / 0.376         0.391 / 0.202         0.009 / 0.003    2.97
+ankle_roll_l          0.009 / 0.009         0.329 / 0.100         0.548 / 0.257         0.573 / 0.152    0.83
+ankle_roll_r          0.009 / 0.009         0.347 / 0.075         0.537 / 0.213         0.576 / 0.195    0.83
+
+motor check, all runs, including the fastest gait: peak under 70% of stall, RMS under 35% of stall, speed under no-load speed
+joint          XL430-W250-T  XC330-T288-T  XC330-M288-T  XC330-T181-T  XL330-M288-T
+waist_yaw       39%/ 13% ok   59%/ 19% ok   58%/ 19% ok   71%/ 23% --  104%/ 34% --
+hip_yaw_l       52%/ 27% ok   79%/ 42% --   78%/ 41% --   95%/ 50% --  139%/ 74% --
+hip_yaw_r       53%/ 27% ok   80%/ 41% --   79%/ 40% --   97%/ 49% --  142%/ 72% --
+ankle_roll_l    41%/ 18% ok   62%/ 28% ok   62%/ 28% ok   75%/ 34% --  110%/ 49% --
+ankle_roll_r    41%/ 15% ok   63%/ 23% ok   62%/ 23% ok   76%/ 28% --  111%/ 41% --
+
+motor check, walking at the reference pace (no fastest gait): peak under 70% of stall, RMS under 35% of stall, speed under no-load speed
+joint          XL430-W250-T  XC330-T288-T  XC330-M288-T  XC330-T181-T  XL330-M288-T
+waist_yaw       30%/  5% ok   45%/  8% ok   45%/  8% ok   55%/  9% ok   80%/ 13% --
+hip_yaw_l       27%/ 14% ok   42%/ 22% ok   41%/ 22% ok   50%/ 27% ok   74%/ 39% --
+hip_yaw_r       28%/ 14% ok   42%/ 22% ok   42%/ 22% ok   51%/ 27% ok   75%/ 39% --
+ankle_roll_l    41%/ 18% ok   62%/ 28% ok   62%/ 28% ok   75%/ 34% --  110%/ 49% --
+ankle_roll_r    41%/ 15% ok   63%/ 23% ok   62%/ 23% ok   76%/ 28% --  111%/ 41% --
+  (cells: peak % of stall / RMS % of stall, then ok or --)

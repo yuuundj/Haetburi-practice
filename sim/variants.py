@@ -13,15 +13,20 @@ def available():
                   if os.path.isfile(os.path.join(base, d, "haetburi_scene.xml")))
 
 
+def folder(variant):
+    """robot/<variant>, or any folder holding a built scene (experiments)."""
+    return variant if os.path.isdir(variant) else os.path.join(ROOT, "robot", variant)
+
+
 def scene(variant):
-    path = os.path.join(ROOT, "robot", variant, "haetburi_scene.xml")
+    path = os.path.join(folder(variant), "haetburi_scene.xml")
     if not os.path.isfile(path):
         raise SystemExit(f"no built model for {variant!r}; built: {available()}")
     return path
 
 
 def info(variant):
-    with open(os.path.join(ROOT, "robot", variant, "variant.json")) as fh:
+    with open(os.path.join(folder(variant), "variant.json")) as fh:
         return json.load(fh)
 
 

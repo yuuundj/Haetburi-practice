@@ -1,0 +1,42 @@
+{
+  "variant": "v10_split_display",
+  "title": "3 joints per leg (v5/v6 layout) with the display, round feet, <= 600 mm",
+  "layout": "split",
+  "demo": {
+    "pitch_lean": 5,
+    "roll_lean": 8,
+    "yaw": 35,
+    "bow_hip": 12,
+    "bow_ankle": -9,
+    "diag_roll": 7,
+    "diag_yaw": -30,
+    "pose_bow_hip": 12,
+    "pose_bow_ankle": -9,
+    "pose_lift_roll": 6.5,
+    "pose_lift_hip": 15
+  },
+  "mass_kg": 3.406,
+  "com_mm": [
+    15.1,
+    1.2,
+    217.7
+  ],
+  "height_mm": 585.8,
+  "summary": {
+    "foot (mm)": "96.6 x 45.0 x 55.0",
+    "leg section (mm)": "37.0 wide x 46.0 deep",
+    "leg length, crotch to bottom (mm)": 56.8,
+    "pitch / roll axis above sole (mm)": "17.2 / 77.0",
+    "ankle gap (mm)": 8.2,
+    "display": "210.5 x 142.3 x 11.5 mm, 0.651 kg, centre 73 mm ahead, 193 mm up, bottom edge 122 mm above the floor"
+  },
+  "motors_inside": {
+    "pelvis#0": 1.0,
+    "pelvis#1": 1.0,
+    "torso#0": 1.0,
+    "leg_l#0": 1.0,
+    "foot_l#0": 1.0,
+    "leg_r#0": 1.0,
+    "foot_r#0": 1.0
+  }
+}
