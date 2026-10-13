@@ -12,7 +12,7 @@ import numpy as np
 import variants
 
 SCENE = None                      # set from --variant in main()
-STALL = 1.4                     # XL430-W250-T stall torque at 11.1 V, N.m
+STALL = 1.4                     # servo stall torque, N.m; main() reads it from the model
 
 
 def act(m, name):
@@ -188,6 +188,8 @@ def main():
     SCENE = variants.scene(a.variant)
     print(f"variant {a.variant}")
     m = mujoco.MjModel.from_xml_path(SCENE)
+    global STALL
+    STALL = float(m.actuator_forcerange[:, 1].max())
     d = mujoco.MjData(m)
     mujoco.mj_resetDataKeyframe(m, d, 0)
     mujoco.mj_forward(m, d)
@@ -245,7 +247,7 @@ def main():
         print(f"  holding that lean on two feet : {tip/2:.2f} N.m per ankle "
               f"({tip/2/STALL*100:.0f} % of stall)")
         print(f"  holding that lean on one foot : {tip:.2f} N.m "
-              f"({tip/STALL*100:.0f} % of stall){'  <- exceeds the XL430' if tip > STALL else ''}")
+              f"({tip/STALL*100:.0f} % of stall){'  <- exceeds the servo' if tip > STALL else ''}")
     else:
         print(f"no ankle pitch: fore/aft balance is passive, the whole robot tips over once "
               f"leaned {np.degrees(np.arctan(margin / (com0[2]*1000))):.1f} deg toward the "
