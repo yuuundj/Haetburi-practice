@@ -68,7 +68,7 @@ def analyse(v):
     text += "\ndemo (sim/demo.py, 23.5 s, amplitudes from variant.json)\n"
     text += f"  {'fell at %.1f s during %s' % fell if fell else 'stayed up the whole run'}\n"
     text += "  peak torque, % of stall: " + ", ".join(
-        f"{k} {v_ / 1.4 * 100:.0f}" for k, v_ in peak.items()) + "\n"
+        f"{k} {v_ / m.actuator_forcerange[:, 1].max() * 100:.0f}" for k, v_ in peak.items()) + "\n"
     with open(os.path.join(ROOT, "robot", v, "analysis.txt"), "w") as fh:
         fh.write(text)
     return text

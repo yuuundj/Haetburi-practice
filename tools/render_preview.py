@@ -79,7 +79,8 @@ def render(variant):
     tiles.append(shot("legs, feet and ankle gap", 205, -8, 0.75, 0.17))
     mode("xray")
     tiles.append(shot("x-ray: legs and feet", 205, -8, 0.75, 0.17))
-    tiles.append(shot(f"x-ray: all {m.nu} XL430", 215, -10, 2.0, 0.45))
+    servo = info["summary"].get("servo", "XL430-W250-T").split(":")[0]
+    tiles.append(shot(f"x-ray: all {m.nu} {servo}", 215, -10, 2.0, 0.45))
     mode("solid")
     pose({"hip_pitch_l": demo["pose_bow_hip"], "hip_pitch_r": demo["pose_bow_hip"],
           "ankle_pitch_l": demo["pose_bow_ankle"], "ankle_pitch_r": demo["pose_bow_ankle"],

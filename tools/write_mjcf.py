@@ -32,7 +32,7 @@ def _body(L, joints, name, indent, out, tree=None):
                f'fullinertia="{I[0,0]:.6g} {I[1,1]:.6g} {I[2,2]:.6g} '
                f'{I[0,1]:.6g} {I[0,2]:.6g} {I[1,2]:.6g}"/>')
     jn = _joint_of(joints, name)
-    if jn is not None:
+    if jn is not None and jn[5] is not None:          # lk None: a fixed joint (no motor)
         _, _, _, axis, _, lk = jn
         lo, hi = P.LIM[lk]
         out.append(f'{pad}  <joint name="{jn[0]}" class="dxl" axis="{f3(axis)}" '
@@ -163,17 +163,18 @@ def write(L, joints, meta, path):
             o.append(f'    <exclude body1="{b1}" body2="{b2}"/>')
         o.append('  </contact>')
         o.append('')
+    driven = [j for j in joints if j[5] is not None]
     o.append('  <actuator>')
-    for jn, _, _, _, _, lk in joints:
+    for jn, _, _, _, _, lk in driven:
         lo, hi = P.LIM[lk]
         o.append(f'    <position class="dxl" name="{jn}" joint="{jn}" '
                  f'ctrlrange="{lo*DEG:.6g} {hi*DEG:.6g}"/>')
     o.append('  </actuator>')
     o.append('')
     o.append('  <sensor>')
-    for jn, _, _, _, _, _ in joints:
+    for jn, _, _, _, _, _ in driven:
         o.append(f'    <jointpos name="{jn}_pos" joint="{jn}"/>')
-    for jn, _, _, _, _, _ in joints:
+    for jn, _, _, _, _, _ in driven:
         o.append(f'    <jointactuatorfrc name="{jn}_trq" joint="{jn}"/>')
     o.append('    <framequat name="torso_quat" objtype="site" objname="imu"/>')
     o.append('    <gyro name="torso_gyro" site="imu"/>')
@@ -183,7 +184,7 @@ def write(L, joints, meta, path):
     o.append('  </sensor>')
     o.append('')
     o.append('  <keyframe>')
-    zeros = " ".join(["0"] * len(joints))
+    zeros = " ".join(["0"] * len(driven))
     o.append(f'    <key name="stand" qpos="{f3(root)} 1 0 0 0 {zeros}" ctrl="{zeros}"/>')
     o.append('  </keyframe>')
     o.append('</mujoco>')

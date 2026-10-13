@@ -248,8 +248,11 @@ def hip_yaw_case():
     shaft vertical through the leg centre, horn down, long end toward the back.
     Just above the crotch the belly is only ~+-30 mm deep at the legs, less than
     the case's 35 mm reach; from HIP_YAW_LIFT up it deepens toward the backpack,
-    so the case sits there (98 % inside) and a shaft extension reaches the leg."""
-    d = np.array([0, 0, 1.0]); h = np.array([-1.0, 0, 0]); w = np.cross(d, h)
+    so the case sits there (98 % inside) and a shaft extension reaches the leg.
+    HIP_LONG_END = "front" turns the long end forward instead (v12: the new
+    character's belly is deeper in front)."""
+    fwd = getattr(P, "HIP_LONG_END", "back") == "front"
+    d = np.array([0, 0, 1.0]); h = np.array([1.0 if fwd else -1.0, 0, 0]); w = np.cross(d, h)
     R = np.stack([d, h, w], axis=1)
     size = np.abs(R) @ np.array([P.MOTOR_D, P.MOTOR_H, P.MOTOR_W])
     centre = R @ np.array([P.HIP_YAW_LIFT + P.MOTOR_D / 2.0, H_MID, 0.0])
