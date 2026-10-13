@@ -1,0 +1,194 @@
+{
+ "worst": {
+  "all runs, including the fastest gait": {
+   "hip_yaw_l": [
+    0.44,
+    0.16530535863511778,
+    1.7650491357831424
+   ],
+   "hip_yaw_r": [
+    0.40037231297029074,
+    0.15912265677379353,
+    1.8817825306812928
+   ],
+   "ankle_pitch_l": [
+    0.44,
+    0.29197934449292545,
+    1.2585927481881087
+   ],
+   "ankle_pitch_r": [
+    0.44,
+    0.2942622161351464,
+    0.8409087476131679
+   ],
+   "ankle_roll_l": [
+    0.44,
+    0.24372429383885638,
+    1.1777359014951971
+   ],
+   "ankle_roll_r": [
+    0.44,
+    0.24588509966225705,
+    1.4813159508651335
+   ]
+  },
+  "walking at the reference pace (no fastest gait)": {
+   "hip_yaw_l": [
+    0.44,
+    0.16530535863511778,
+    1.7650491357831424
+   ],
+   "hip_yaw_r": [
+    0.40037231297029074,
+    0.15912265677379353,
+    1.8817825306812928
+   ],
+   "ankle_pitch_l": [
+    0.44,
+    0.29197934449292545,
+    1.2585927481881087
+   ],
+   "ankle_pitch_r": [
+    0.44,
+    0.2942622161351464,
+    0.8409087476131679
+   ],
+   "ankle_roll_l": [
+    0.44,
+    0.24372429383885638,
+    1.1777359014951971
+   ],
+   "ankle_roll_r": [
+    0.44,
+    0.24588509966225705,
+    1.4813159508651335
+   ]
+  }
+ },
+ "verdict": {
+  "all runs, including the fastest gait": {
+   "XL430-W250-T (11.1V)": {
+    "hip_yaw_l": true,
+    "hip_yaw_r": true,
+    "ankle_pitch_l": true,
+    "ankle_pitch_r": true,
+    "ankle_roll_l": true,
+    "ankle_roll_r": true
+   },
+   "XC330-T288-T (11.1V)": {
+    "hip_yaw_l": true,
+    "hip_yaw_r": true,
+    "ankle_pitch_l": true,
+    "ankle_pitch_r": true,
+    "ankle_roll_l": true,
+    "ankle_roll_r": true
+   },
+   "XC330-M288-T (5V)": {
+    "hip_yaw_l": true,
+    "hip_yaw_r": true,
+    "ankle_pitch_l": true,
+    "ankle_pitch_r": true,
+    "ankle_roll_l": true,
+    "ankle_roll_r": true
+   },
+   "XC330-T181-T (11.1V)": {
+    "hip_yaw_l": true,
+    "hip_yaw_r": true,
+    "ankle_pitch_l": false,
+    "ankle_pitch_r": false,
+    "ankle_roll_l": true,
+    "ankle_roll_r": true
+   },
+   "XL330-M288-T (5V)": {
+    "hip_yaw_l": false,
+    "hip_yaw_r": false,
+    "ankle_pitch_l": false,
+    "ankle_pitch_r": false,
+    "ankle_roll_l": false,
+    "ankle_roll_r": false
+   },
+   "STS3032 (6V)": {
+    "hip_yaw_l": false,
+    "hip_yaw_r": false,
+    "ankle_pitch_l": false,
+    "ankle_pitch_r": false,
+    "ankle_roll_l": false,
+    "ankle_roll_r": false
+   },
+   "SCS0009 (6V)": {
+    "hip_yaw_l": false,
+    "hip_yaw_r": false,
+    "ankle_pitch_l": false,
+    "ankle_pitch_r": false,
+    "ankle_roll_l": false,
+    "ankle_roll_r": false
+   }
+  },
+  "walking at the reference pace (no fastest gait)": {
+   "XL430-W250-T (11.1V)": {
+    "hip_yaw_l": true,
+    "hip_yaw_r": true,
+    "ankle_pitch_l": true,
+    "ankle_pitch_r": true,
+    "ankle_roll_l": true,
+    "ankle_roll_r": true
+   },
+   "XC330-T288-T (11.1V)": {
+    "hip_yaw_l": true,
+    "hip_yaw_r": true,
+    "ankle_pitch_l": true,
+    "ankle_pitch_r": true,
+    "ankle_roll_l": true,
+    "ankle_roll_r": true
+   },
+   "XC330-M288-T (5V)": {
+    "hip_yaw_l": true,
+    "hip_yaw_r": true,
+    "ankle_pitch_l": true,
+    "ankle_pitch_r": true,
+    "ankle_roll_l": true,
+    "ankle_roll_r": true
+   },
+   "XC330-T181-T (11.1V)": {
+    "hip_yaw_l": true,
+    "hip_yaw_r": true,
+    "ankle_pitch_l": false,
+    "ankle_pitch_r": false,
+    "ankle_roll_l": true,
+    "ankle_roll_r": true
+   },
+   "XL330-M288-T (5V)": {
+    "hip_yaw_l": false,
+    "hip_yaw_r": false,
+    "ankle_pitch_l": false,
+    "ankle_pitch_r": false,
+    "ankle_roll_l": false,
+    "ankle_roll_r": false
+   },
+   "STS3032 (6V)": {
+    "hip_yaw_l": false,
+    "hip_yaw_r": false,
+    "ankle_pitch_l": false,
+    "ankle_pitch_r": false,
+    "ankle_roll_l": false,
+    "ankle_roll_r": false
+   },
+   "SCS0009 (6V)": {
+    "hip_yaw_l": false,
+    "hip_yaw_r": false,
+    "ankle_pitch_l": false,
+    "ankle_pitch_r": false,
+    "ankle_roll_l": false,
+    "ankle_roll_r": false
+   }
+  }
+ },
+ "best": null,
+ "ref": {
+  "freq": 0.9,
+  "roll": 6,
+  "swing": 16,
+  "phase": 90,
+  "pair": "same"
+ }
+}

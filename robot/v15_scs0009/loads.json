@@ -1,0 +1,222 @@
+{
+ "worst": {
+  "all runs, including the fastest gait": {
+   "hip_yaw_l": [
+    0.19977821416293928,
+    0.0991012121079901,
+    1.8219606220983984
+   ],
+   "hip_yaw_r": [
+    0.14766894210519688,
+    0.06878322321179445,
+    1.800406491645081
+   ],
+   "ankle_pitch_l": [
+    0.226,
+    0.0993326037903091,
+    0.659552503979448
+   ],
+   "ankle_pitch_r": [
+    0.1828804922408593,
+    0.06873111633524787,
+    0.6385020400442692
+   ],
+   "ankle_roll_l": [
+    0.226,
+    0.17413398747258102,
+    0.862538498850405
+   ],
+   "ankle_roll_r": [
+    0.226,
+    0.11052141014278531,
+    1.0390881710760271
+   ]
+  },
+  "walking at the reference pace (no fastest gait)": {
+   "hip_yaw_l": [
+    0.19977821416293928,
+    0.0991012121079901,
+    1.8219606220983984
+   ],
+   "hip_yaw_r": [
+    0.14766894210519688,
+    0.06878322321179445,
+    1.800406491645081
+   ],
+   "ankle_pitch_l": [
+    0.226,
+    0.0993326037903091,
+    0.659552503979448
+   ],
+   "ankle_pitch_r": [
+    0.1828804922408593,
+    0.06873111633524787,
+    0.6385020400442692
+   ],
+   "ankle_roll_l": [
+    0.226,
+    0.17413398747258102,
+    0.862538498850405
+   ],
+   "ankle_roll_r": [
+    0.226,
+    0.11052141014278531,
+    1.0390881710760271
+   ]
+  }
+ },
+ "verdict": {
+  "all runs, including the fastest gait": {
+   "XL430-W250-T (11.1V)": {
+    "hip_yaw_l": true,
+    "hip_yaw_r": true,
+    "ankle_pitch_l": true,
+    "ankle_pitch_r": true,
+    "ankle_roll_l": true,
+    "ankle_roll_r": true
+   },
+   "XC330-T288-T (11.1V)": {
+    "hip_yaw_l": true,
+    "hip_yaw_r": true,
+    "ankle_pitch_l": true,
+    "ankle_pitch_r": true,
+    "ankle_roll_l": true,
+    "ankle_roll_r": true
+   },
+   "XC330-M288-T (5V)": {
+    "hip_yaw_l": true,
+    "hip_yaw_r": true,
+    "ankle_pitch_l": true,
+    "ankle_pitch_r": true,
+    "ankle_roll_l": true,
+    "ankle_roll_r": true
+   },
+   "XC330-T181-T (11.1V)": {
+    "hip_yaw_l": true,
+    "hip_yaw_r": true,
+    "ankle_pitch_l": true,
+    "ankle_pitch_r": true,
+    "ankle_roll_l": true,
+    "ankle_roll_r": true
+   },
+   "XL330-M288-T (5V)": {
+    "hip_yaw_l": true,
+    "hip_yaw_r": true,
+    "ankle_pitch_l": true,
+    "ankle_pitch_r": true,
+    "ankle_roll_l": true,
+    "ankle_roll_r": true
+   },
+   "STS3032 (6V)": {
+    "hip_yaw_l": true,
+    "hip_yaw_r": true,
+    "ankle_pitch_l": true,
+    "ankle_pitch_r": true,
+    "ankle_roll_l": false,
+    "ankle_roll_r": true
+   },
+   "SCS0009 (6V)": {
+    "hip_yaw_l": false,
+    "hip_yaw_r": true,
+    "ankle_pitch_l": false,
+    "ankle_pitch_r": false,
+    "ankle_roll_l": false,
+    "ankle_roll_r": false
+   }
+  },
+  "walking at the reference pace (no fastest gait)": {
+   "XL430-W250-T (11.1V)": {
+    "hip_yaw_l": true,
+    "hip_yaw_r": true,
+    "ankle_pitch_l": true,
+    "ankle_pitch_r": true,
+    "ankle_roll_l": true,
+    "ankle_roll_r": true
+   },
+   "XC330-T288-T (11.1V)": {
+    "hip_yaw_l": true,
+    "hip_yaw_r": true,
+    "ankle_pitch_l": true,
+    "ankle_pitch_r": true,
+    "ankle_roll_l": true,
+    "ankle_roll_r": true
+   },
+   "XC330-M288-T (5V)": {
+    "hip_yaw_l": true,
+    "hip_yaw_r": true,
+    "ankle_pitch_l": true,
+    "ankle_pitch_r": true,
+    "ankle_roll_l": true,
+    "ankle_roll_r": true
+   },
+   "XC330-T181-T (11.1V)": {
+    "hip_yaw_l": true,
+    "hip_yaw_r": true,
+    "ankle_pitch_l": true,
+    "ankle_pitch_r": true,
+    "ankle_roll_l": true,
+    "ankle_roll_r": true
+   },
+   "XL330-M288-T (5V)": {
+    "hip_yaw_l": true,
+    "hip_yaw_r": true,
+    "ankle_pitch_l": true,
+    "ankle_pitch_r": true,
+    "ankle_roll_l": true,
+    "ankle_roll_r": true
+   },
+   "STS3032 (6V)": {
+    "hip_yaw_l": true,
+    "hip_yaw_r": true,
+    "ankle_pitch_l": true,
+    "ankle_pitch_r": true,
+    "ankle_roll_l": false,
+    "ankle_roll_r": true
+   },
+   "SCS0009 (6V)": {
+    "hip_yaw_l": false,
+    "hip_yaw_r": true,
+    "ankle_pitch_l": false,
+    "ankle_pitch_r": false,
+    "ankle_roll_l": false,
+    "ankle_roll_r": false
+   }
+  }
+ },
+ "best": {
+  "freq": 0.5,
+  "roll": 6,
+  "swing": 12,
+  "phase": 90,
+  "pair": "same",
+  "fb": {
+   "ki": 0.3,
+   "kd": 0.2,
+   "kdr": 0.03
+  },
+  "fell": null,
+  "dx": 91.14885136983433,
+  "dy": -2.5393999780166907,
+  "dyaw": -0.8015554660997122,
+  "speed": 7.59573761415201,
+  "peak": 69.44246808724455,
+  "sway_mm": 7.472842774759057,
+  "roll_deg": 7.148704549794737,
+  "yaw_osc_deg": 24.329984598691276,
+  "air_time": 0.34335944009331776,
+  "lift_mm": 1.61880300744318,
+  "step_ratio": 0.8878044555459902
+ },
+ "ref": {
+  "freq": 0.9,
+  "roll": 6,
+  "swing": 16,
+  "phase": 90,
+  "pair": "same",
+  "fb": {
+   "ki": 0.3,
+   "kd": 0.2,
+   "kdr": 0.03
+  }
+ }
+}

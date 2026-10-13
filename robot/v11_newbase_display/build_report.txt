@@ -1,0 +1,29 @@
+variant  v11_newbase_display: v9 layout on the new display character: its own feet hold the roll motors
+wrote    robot/v11_newbase_display/haetburi.urdf, robot/v11_newbase_display/haetburi_scene.xml
+
+link       mass kg  com (m, robot frame)
+pelvis       0.537  [ 0.0319 -0.0001  0.0878]
+torso        3.455  [2.63e-02 2.00e-04 3.43e-01]
+leg_l        0.063  [0.0139 0.0339 0.0414]
+foot_l       0.150  [0.0308 0.0354 0.0155]
+leg_r        0.063  [ 0.014  -0.0342  0.0416]
+foot_r       0.149  [ 0.0297 -0.0357  0.0154]
+
+total mass 4.417 kg   com [2.690e-02 1.000e-04 2.812e-01] m   com height 281 mm
+standing height 727 mm, character scale x5.9500
+actuated joints: 5 (waist yaw, hip yaw x2, ankle roll x2)
+character scale: x5.95 of the 120 mm STL (714 mm character; the walled roll motor fits the STL foot from x5.89)
+foot (mm): 97.9 long x 66.0 wide x 47.5 high (the STL's own foot, flat sole 87 x 54)
+roll motor: lying on its side in the foot, shaft fore-aft, long end outward
+roll axis above sole (mm): 17.3 / 17.3 (left / right)
+roll axis vs leg centre (mm): 15.2 ahead, 9.3 inboard
+legs raised to clear the feet (mm): 12.8
+ankle gap, leg bottom to foot top (mm): 6.6
+leg shell (mm): original, 17.0 from bottom to crotch
+display: 210.5 x 142.3 x 11.5 mm, 0.651 kg, centre 131 mm ahead, 230 mm up, bottom edge 159 mm above the floor
+motor volume inside the shell:
+  pelvis#0    99.5 %
+  pelvis#1   100.0 %
+  torso#0    100.0 %
+  foot_l#0   100.0 %
+  foot_r#0   100.0 %

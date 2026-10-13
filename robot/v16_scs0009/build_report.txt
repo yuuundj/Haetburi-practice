@@ -1,0 +1,34 @@
+variant  v16_scs0009: SCS0009, ankle pitch + roll both in the STL foot, legs unchanged, 510 mm
+wrote    robot/v16_scs0009/haetburi.urdf, robot/v16_scs0009/haetburi_scene.xml
+
+link       mass kg  com (m, robot frame)
+pelvis       0.239  [ 0.0011 -0.0001  0.0984]
+torso        2.102  [3.160e-02 1.000e-04 2.363e-01]
+leg_l        0.018  [0.0097 0.0241 0.0354]
+ankle_l      0.025  [0.0252 0.0262 0.011 ]
+foot_l       0.069  [0.0155 0.0252 0.0105]
+leg_r        0.018  [ 0.0098 -0.0243  0.0356]
+ankle_r      0.025  [ 0.0253 -0.0255  0.011 ]
+foot_r       0.068  [ 0.0155 -0.0254  0.0104]
+
+total mass 2.564 kg   com [2.750e-02 1.000e-04 2.042e-01] m   com height 204 mm
+standing height 524 mm, character scale x4.2500
+actuated joints: 6 (hip yaw x2, ankle pitch x2, ankle roll x2; the waist is fixed)
+servo: SCS0009: 12.1 x 23.2 x 25.25 mm, 13 g, stall 0.226 N.m
+roll axis above sole (mm): 11.3 / 11.3 (left / right)
+roll axis vs leg centre (mm): -5.3 ahead, 0.4 inboard
+legs raised to clear the feet (mm): 13.6
+character scale: x4.25 of the 120 mm STL (510 mm character)
+foot (mm): 69.9 long x 47.1 wide x 33.9 high (the STL's own foot, flat sole 62 x 39)
+ankle motors: both inside the foot: roll standing, pitch lying with its long side to the toe, riding the roll output
+pitch axis above sole (mm): 11.0, 17.2 ahead of the leg centre
+ankle gap, leg bottom to foot top (mm): 9.2
+leg shell (mm): original, 12.1 from bottom to crotch
+display: 214.7 x 145.1 x 11.7 mm, 0.690 kg, centre 94 mm ahead, 147 mm up, bottom edge 75 mm above the floor
+motor volume inside the shell:
+  pelvis#0   100.0 %
+  pelvis#1   100.0 %
+  ankle_l#0  100.0 %
+  foot_l#0   100.0 %
+  ankle_r#0  100.0 %
+  foot_r#0   100.0 %

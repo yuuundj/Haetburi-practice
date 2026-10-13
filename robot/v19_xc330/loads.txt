@@ -1,0 +1,31 @@
+== v19_xc330  (3.39 kg)
+best gait {'freq': 1.1, 'roll': 4, 'swing': 0, 'phase': 330, 'pair': 'anti', 'yaw': 12, 'fb': {'ki': 0.3, 'kd': 0.2, 'kdr': 0.03}, 'fell': None, 'dx': 252.40344470072307, 'dy': 8.731505503813985, 'dyaw': 12.820556144837973, 'speed': 21.033620391724565, 'peak': 68.49081795951804, 'hip_hit': 0.0, 'sway_mm': 6.698395228118137, 'roll_deg': 4.619371761383425, 'yaw_osc_deg': 23.748034744877266, 'air_time': 0.3506082319613398, 'lift_mm': 1.1786611220058683, 'step_ratio': 0.9478084020372622}
+reference gait {'freq': 0.4, 'roll': 6, 'swing': 4.5, 'phase': 330, 'pair': 'anti', 'fb': {'ki': 0.3, 'kd': 0.2, 'kdr': 0.03}}
+
+joint                         stand             best gait        reference gait                  demo   max speed
+                    peak / rms  N.m       peak / rms  N.m       peak / rms  N.m       peak / rms  N.m   rad/s
+hip_yaw_l             0.027 / 0.013         0.656 / 0.258         0.449 / 0.135         0.113 / 0.042    1.57
+hip_pitch_l           0.064 / 0.033         0.582 / 0.195         0.830 / 0.203         0.558 / 0.161    0.65
+hip_yaw_r             0.032 / 0.020         0.652 / 0.251         0.461 / 0.140         0.133 / 0.051    1.57
+hip_pitch_r           0.083 / 0.040         0.594 / 0.207         0.766 / 0.202         0.506 / 0.135    0.67
+ankle_roll_l          0.009 / 0.007         0.378 / 0.114         0.551 / 0.227         0.430 / 0.154    0.76
+ankle_roll_r          0.065 / 0.064         0.354 / 0.105         0.551 / 0.220         0.427 / 0.157    0.73
+
+motor check, walking (standing, best gait, reference gait; IMU feedback on): peak under 70% of stall, RMS under 35% of stall, speed under no-load speed
+joint          XL430-W250-T  XC330-T288-T  XC330-M288-T  XC330-T181-T  XL330-M288-T       STS3032       SCS0009
+hip_yaw_l       47%/ 18% ok   71%/ 28% --   71%/ 28% --   86%/ 34% --  126%/ 50% --  149%/ 59% --  290%/114% --
+hip_pitch_l     59%/ 15% ok   90%/ 22% --   89%/ 22% --  109%/ 27% --  160%/ 39% --  189%/ 46% --  367%/ 90% --
+hip_yaw_r       47%/ 18% ok   71%/ 27% --   70%/ 27% --   86%/ 33% --  125%/ 48% --  148%/ 57% --  289%/111% --
+hip_pitch_r     55%/ 15% ok   83%/ 23% --   82%/ 22% --  101%/ 27% --  147%/ 40% --  174%/ 47% --  339%/ 92% --
+ankle_roll_l    39%/ 16% ok   60%/ 25% ok   59%/ 24% ok   72%/ 30% --  106%/ 44% --  125%/ 52% --  244%/101% --
+ankle_roll_r    39%/ 16% ok   60%/ 24% ok   59%/ 24% ok   73%/ 29% --  106%/ 42% --  125%/ 50% --  244%/ 97% --
+
+motor check, all runs, the demo's scripted bows and twists included: peak under 70% of stall, RMS under 35% of stall, speed under no-load speed
+joint          XL430-W250-T  XC330-T288-T  XC330-M288-T  XC330-T181-T  XL330-M288-T       STS3032       SCS0009
+hip_yaw_l       47%/ 18% ok   71%/ 28% --   71%/ 28% --   86%/ 34% --  126%/ 50% --  149%/ 59% --  290%/114% --
+hip_pitch_l     59%/ 15% ok   90%/ 22% --   89%/ 22% --  109%/ 27% --  160%/ 39% --  189%/ 46% --  367%/ 90% --
+hip_yaw_r       47%/ 18% ok   71%/ 27% --   70%/ 27% --   86%/ 33% --  125%/ 48% --  148%/ 57% --  289%/111% --
+hip_pitch_r     55%/ 15% ok   83%/ 23% --   82%/ 22% --  101%/ 27% --  147%/ 40% --  174%/ 47% --  339%/ 92% --
+ankle_roll_l    39%/ 16% ok   60%/ 25% ok   59%/ 24% ok   72%/ 30% --  106%/ 44% --  125%/ 52% --  244%/101% --
+ankle_roll_r    39%/ 16% ok   60%/ 24% ok   59%/ 24% ok   73%/ 29% --  106%/ 42% --  125%/ 50% --  244%/ 97% --
+  (cells: peak % of stall / RMS % of stall, then ok or --)

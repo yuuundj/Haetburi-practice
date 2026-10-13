@@ -1,0 +1,34 @@
+variant  v16_xl330: XL330-M288, ankle pitch + roll both in the STL foot, legs unchanged, 642 mm
+wrote    robot/v16_xl330/haetburi.urdf, robot/v16_xl330/haetburi_scene.xml
+
+link       mass kg  com (m, robot frame)
+pelvis       0.330  [ 6.300e-03 -1.000e-04  1.152e-01]
+torso        3.889  [3.37e-02 1.00e-04 3.04e-01]
+leg_l        0.029  [0.012  0.0302 0.0456]
+ankle_l      0.034  [0.0296 0.034  0.0138]
+foot_l       0.114  [0.0219 0.0334 0.014 ]
+leg_r        0.029  [ 0.0122 -0.0306  0.0457]
+ankle_r      0.034  [ 0.0297 -0.0352  0.0138]
+foot_r       0.113  [ 0.0218 -0.0337  0.0139]
+
+total mass 4.572 kg   com [3.080e-02 1.000e-04 2.684e-01] m   com height 268 mm
+standing height 656 mm, character scale x5.3500
+actuated joints: 6 (hip yaw x2, ankle pitch x2, ankle roll x2; the waist is fixed)
+servo: XL330-M288-T: 20.0 x 34.0 x 26.0 mm, 18 g, stall 0.52 N.m
+roll axis above sole (mm): 10.8 / 10.8 (left / right)
+roll axis vs leg centre (mm): -7.7 ahead, -4.1 inboard
+legs raised to clear the feet (mm): 14.4
+character scale: x5.35 of the 120 mm STL (642 mm character)
+foot (mm): 88.1 long x 59.3 wide x 42.7 high (the STL's own foot, flat sole 79 x 49)
+ankle motors: both inside the foot: roll standing, pitch lying with its long side to the toe, riding the roll output
+pitch axis above sole (mm): 14.7, 17.9 ahead of the leg centre
+ankle gap, leg bottom to foot top (mm): 8.9
+leg shell (mm): original, 15.3 from bottom to crotch
+display: 270.3 x 182.7 x 14.8 mm, 1.073 kg, centre 118 mm ahead, 184 mm up, bottom edge 93 mm above the floor
+motor volume inside the shell:
+  pelvis#0   100.0 %
+  pelvis#1   100.0 %
+  ankle_l#0  100.0 %
+  foot_l#0   100.0 %
+  ankle_r#0  100.0 %
+  foot_r#0   100.0 %

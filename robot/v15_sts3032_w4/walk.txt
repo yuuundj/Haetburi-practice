@@ -1,0 +1,26 @@
+feedback balance on: {'ki': 0.3, 'kd': 0.2, 'kdr': 0.03}
+variant v15_sts3032_w4: 2676 gaits, 2485 stayed up, 1203 kept their heading with peak torque <= 70% of stall (376 s)
+top 40 by distance checked for real steps; 39 move their feet mostly through the air (>= 60% of foot travel), the rest mostly slide
+
+ freq  roll  swing  phase  hips foll  yaw |  forward   side   turn     speed  peak | in air   lift stepped |   sway  rock wiggle
+  0.7     6   12.0     90  same  0.0    0 |    142mm   -4mm   -9deg  11.8mm/s   64% |    38%  1.2mm     92% |    5mm  5.2d  23.7d
+  1.1     4    6.0     90  same  0.0    0 |    107mm    1mm    8deg   9.0mm/s   66% |    27%  0.5mm     87% |    3mm  3.6d  12.0d
+  0.7     6    9.0     90  same  0.0    0 |    107mm   -4mm   -6deg   8.9mm/s   64% |    39%  1.9mm     92% |    6mm  6.9d  18.2d
+  0.7     4    9.0     90  same  0.0    0 |    101mm   -3mm   -6deg   8.4mm/s   66% |    24%  0.7mm     81% |    3mm  4.2d  17.2d
+  0.5     4   12.0     90  same  0.0    0 |     98mm    1mm    3deg   8.1mm/s   66% |    22%  0.5mm     75% |    4mm  4.0d  23.1d
+  0.9     4    6.0     90  same  0.0    0 |     84mm    1mm    5deg   7.0mm/s   62% |    24%  0.4mm     87% |    4mm  3.8d  11.6d
+  0.5     6    9.0     90  same  0.0    0 |     77mm   -2mm   -0deg   6.4mm/s   61% |    35%  2.5mm     92% |    8mm  8.3d  18.0d
+  0.7     6    6.0     90  same  0.0    0 |     70mm   -3mm   -2deg   5.9mm/s   64% |    43%  2.2mm     93% |    7mm  7.5d  12.4d
+  0.5     4    9.0     90  same  0.0    0 |     70mm   -1mm   -1deg   5.8mm/s   58% |    19%  0.4mm     76% |    4mm  3.8d  17.1d
+  0.7     4    6.0     90  same  0.0    0 |     64mm   -2mm   -3deg   5.3mm/s   57% |    20%  0.3mm     81% |    3mm  3.4d  11.2d
+
+calmest gait that still covers >= 60% of the best distance (least side-to-side sway):
+  1.1     4    6.0     90  same  0.0    0 |    107mm    1mm    8deg   9.0mm/s   66% |    27%  0.5mm     87% |    3mm  3.6d  12.0d
+
+sway = side-to-side travel of the pelvis, rock = torso roll range, wiggle = heading swing (all peak-to-peak, trend removed)
+
+furthest overall (for comparison, may be sliding):
+  0.7     6   12.0     90  same  0.0    0 |    142mm   -4mm   -9deg  11.8mm/s   64% |    38%  1.2mm     92% |    5mm  5.2d  23.7d
+  1.1     4    6.0     90  same  0.0    0 |    107mm    1mm    8deg   9.0mm/s   66% |    27%  0.5mm     87% |    3mm  3.6d  12.0d
+  0.7     6    9.0     90  same  0.0    0 |    107mm   -4mm   -6deg   8.9mm/s   64% |    39%  1.9mm     92% |    6mm  6.9d  18.2d
+falls by roll amplitude: 3 deg: 4, 4 deg: 22, 5 deg: 15, 6 deg: 27, 7 deg: 2, 8 deg: 121

@@ -1,0 +1,51 @@
+{
+  "variant": "v19_scs0009",
+  "title": "SCS0009, after PartsAssemblyV2: flat torso bottom with leg sockets, legs carried up into it, 458 mm, 4 mm walls",
+  "layout": "newbase",
+  "demo": {
+    "pitch_lean": 0,
+    "roll_lean": 5,
+    "yaw": 35,
+    "bow_hip": 10,
+    "bow_ankle": 0,
+    "diag_roll": 5,
+    "diag_yaw": -30,
+    "pose_bow_hip": 8,
+    "pose_bow_ankle": 0,
+    "pose_lift_roll": 5,
+    "pose_lift_hip": 8
+  },
+  "mass_kg": 2.021,
+  "com_mm": [
+    25.3,
+    0.0,
+    154.9
+  ],
+  "height_mm": 465.8,
+  "summary": {
+    "actuated joints": "6 (hip yaw x2, hip pitch x2, ankle roll x2; the waist is fixed)",
+    "servo": "SCS0009: 12.1 x 23.2 x 25.25 mm, 13 g, stall 0.226 N.m",
+    "roll axis above sole (mm)": "10.1 / 10.4 (left / right)",
+    "roll axis vs leg centre (mm)": "9.4 ahead, 4.4 inboard",
+    "legs raised to clear the feet (mm)": 7.8,
+    "hip pitch motor": "standing in the belly under the hip yaw motor, shaft lateral, horn outboard; axis 16.0 mm above the crotch, 1.5 ahead of the leg centre (target 15.8), case -2.0 outboard; walled case inside the body over hip yaw +-30 deg",
+    "hip yaw motor": "vertical shaft, horn down, case bottom 38.2 mm above the crotch",
+    "character scale": "x3.82 of the 120 mm STL (458 mm character; the walled roll motor fits the STL foot from x4.01)",
+    "foot (mm)": "62.8 long x 42.3 wide x 30.5 high (the STL's own foot, flat sole 56 x 35)",
+    "roll motor": "lying on its side in the foot, shaft fore-aft, long end outward",
+    "ankle gap, leg bottom to foot top (mm)": 3.9,
+    "leg shell (mm)": "original, 10.9 from bottom to crotch",
+    "hip seam": "torso cut flat 16.0 mm above the STL crotch (pivot), legs carried up into sockets (legs that much longer), hidden dome R 22.9 mm about the hip pivot; sockets cut for hip pitch -30..25, yaw +-20 + 1.0 mm gap: socket gap front 4.4 / back 3.4 / outer 3.3 mm, BREAKS the torso skin (thickest wall beside it 0.4 mm); motor hollow through the visible leg skin 0 mm^2; leg points reaching the hip yaw case 471843",
+    "display": "192.8 x 130.3 x 10.5 mm, 0.502 kg, centre 84 mm ahead, 128 mm up, bottom edge 62 mm above the floor",
+    "hip range, collision-free (deg)": "pitch 34 forward (belly) / 29 back (belly); yaw 19 toes-in (other foot) / 26 toes-out (belly)",
+    "hip joint limits set (deg)": "pitch -32..27 (+ = leg back), yaw +-17"
+  },
+  "motors_inside": {
+    "pelvis#0": 1.0,
+    "pelvis#1": 1.0,
+    "hip_l#0": 1.0,
+    "foot_l#0": 1.0,
+    "hip_r#0": 1.0,
+    "foot_r#0": 1.0
+  }
+}

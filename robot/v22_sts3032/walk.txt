@@ -1,0 +1,37 @@
+feedback balance on: {'ki': 0.3, 'kd': 0.2, 'kdr': 0.03}
+variant v22_sts3032: 5400 gaits, 4009 stayed up, 899 kept their heading with peak torque <= 70% of stall (1033 s)
+top 40 by distance checked for real steps; 40 move their feet mostly through the air (>= 60% of foot travel), the rest mostly slide
+
+ freq  roll  swing  phase  hips foll  yaw |  forward   side   turn     speed  peak | in air   lift stepped |   sway  rock wiggle
+  1.1     4    9.0    270  anti  1.0    0 |    187mm   -2mm   -2deg  15.6mm/s   55% |    31%  1.0mm     92% |    4mm  3.9d   0.3d
+  0.7     6   12.0    270  anti  1.0    0 |    165mm   -6mm   -0deg  13.8mm/s   63% |    42%  2.6mm     97% |    9mm  8.7d   0.1d
+  0.9     5    9.0    270  anti  1.0    0 |    153mm    4mm    1deg  12.8mm/s   66% |    37%  2.8mm     95% |    8mm  7.9d   0.7d
+  0.9     5    9.0    300  anti  1.0    0 |    145mm    2mm   -1deg  12.1mm/s   68% |    41%  2.2mm     94% |    8mm  7.3d   1.2d
+  0.6     5   12.0    270  anti  1.0    0 |    139mm    2mm    0deg  11.6mm/s   67% |    29%  1.7mm     87% |    7mm  6.8d   1.4d
+  0.7     6    6.0    240  anti  0.5    0 |    134mm   -9mm    1deg  11.2mm/s   62% |    31%  3.4mm     91% |   13mm 11.6d   0.5d
+  1.1     4    3.0    240  anti  0.0    0 |    134mm    3mm    0deg  11.1mm/s   66% |    22%  2.0mm     83% |    8mm  7.6d   0.5d
+  1.1     4    3.0    270  anti  0.0    0 |    133mm   11mm    2deg  11.1mm/s   70% |    22%  1.3mm     81% |    5mm  5.0d   5.8d
+  0.6     6   12.0    300  anti  1.0    0 |    133mm   -1mm    0deg  11.1mm/s   67% |    38%  3.0mm     85% |    9mm  8.7d   1.5d
+  0.9     5    3.0    270  anti  0.0    0 |    133mm   -3mm   -3deg  11.1mm/s   70% |    25%  1.8mm     83% |    7mm  6.8d   5.8d
+
+calmest gait that still covers >= 60% of the best distance (least side-to-side sway):
+  1.1     4    9.0    270  anti  1.0    0 |    187mm   -2mm   -2deg  15.6mm/s   55% |    31%  1.0mm     92% |    4mm  3.9d   0.3d
+
+sway = side-to-side travel of the pelvis, rock = torso roll range, wiggle = heading swing (all peak-to-peak, trend removed)
+
+furthest overall (for comparison, may be sliding):
+  1.1     4    9.0    270  anti  1.0    0 |    187mm   -2mm   -2deg  15.6mm/s   55% |    31%  1.0mm     92% |    4mm  3.9d   0.3d
+  0.7     6   12.0    270  anti  1.0    0 |    165mm   -6mm   -0deg  13.8mm/s   63% |    42%  2.6mm     97% |    9mm  8.7d   0.1d
+  0.9     5    9.0    270  anti  1.0    0 |    153mm    4mm    1deg  12.8mm/s   66% |    37%  2.8mm     95% |    8mm  7.9d   0.7d
+falls by roll amplitude: 3 deg: 156, 4 deg: 193, 5 deg: 226, 6 deg: 302, 7 deg: 514
+
+refined around the best gait: 1125 local gaits + 5 x 27 feedback gains (295 s); 20 of the top 20 step for real; long runs of 32 s:
+  freq 1.0 roll 5 swing 9 phase 240 follow 0.75 fb {'ki': 0.15, 'kd': 0.35, 'kdr': 0.03} | 244 mm in 12 s, peak 69%, stepped 94% | 32 s: 609 mm, turned 2 deg
+  freq 1.0 roll 5 swing 9 phase 240 follow 0.75 fb {'ki': 0.15, 'kd': 0.2, 'kdr': 0.03} | 243 mm in 12 s, peak 64%, stepped 94% | 32 s: 608 mm, turned 2 deg
+  freq 1.0 roll 5 swing 9 phase 240 follow 0.75 fb {'ki': 0.3, 'kd': 0.2, 'kdr': 0.03} | 241 mm in 12 s, peak 66%, stepped 94% | 32 s: 604 mm, turned 2 deg
+  freq 1.0 roll 5 swing 9 phase 240 follow 0.75 fb {'ki': 0.3, 'kd': 0.2, 'kdr': 0.03} | 241 mm in 12 s, peak 66%, stepped 94% | 32 s: 604 mm, turned 2 deg
+  freq 1.3 roll 4 swing 9 phase 255 follow 1.0 fb {'ki': 0.5, 'kd': 0.1, 'kdr': 0.03} | 235 mm in 12 s, peak 68%, stepped 96% | 32 s: 592 mm, turned 0 deg
+  freq 1.3 roll 4 swing 9 phase 255 follow 1.0 fb {'ki': 0.3, 'kd': 0.1, 'kdr': 0.03} | 233 mm in 12 s, peak 66%, stepped 96% | 32 s: 587 mm, turned 1 deg
+  freq 1.3 roll 4 swing 9 phase 255 follow 1.0 fb {'ki': 0.15, 'kd': 0.1, 'kdr': 0.03} | 232 mm in 12 s, peak 65%, stepped 96% | 32 s: 585 mm, turned -2 deg
+  freq 1.2 roll 4 swing 10.5 phase 255 follow 1.0 fb {'ki': 0.15, 'kd': 0.2, 'kdr': 0.03} | 229 mm in 12 s, peak 65%, stepped 95% | 32 s: 575 mm, turned -0 deg
+new best: 244 mm in 12 s (was 187)

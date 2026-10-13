@@ -1,0 +1,77 @@
+variant v13_ankle_pitch_display
+model   7 actuated DoF, 8 links, 4.753 kg
+CoM     x +0.0  y -0.0  z 304.4  mm
+        pelvis    0.598 kg
+        torso     3.394 kg
+        leg_l     0.181 kg
+        ankle_l   0.050 kg
+        foot_l    0.150 kg
+
+7 XL430 boxes, tightest pair pelvis / torso: +8.0 mm (OK)
+
+neutral pose held for 3 s: CoM sank 0.1 mm, residual speed 0.0 mm/s
+  holding torque
+    waist_yaw        +0.000 N.m     0.0 % of stall
+    hip_yaw_l        +0.003 N.m     0.2 % of stall
+    hip_yaw_r        -0.003 N.m     0.2 % of stall
+    ankle_pitch_l    +0.194 N.m    13.8 % of stall
+    ankle_pitch_r    +0.193 N.m    13.8 % of stall
+    ankle_roll_l     -0.040 N.m     2.8 % of stall
+    ankle_roll_r     +0.041 N.m     2.9 % of stall
+
+  ankle pitch (lean fore/aft): both joints commanded together, 1.5 s ramp then hold
+     cmd deg  N.m worst  % stall  CoM shift mm  state
+           0      0.194    13.8%           1.4  standing
+           1      0.077     5.5%           3.6  standing
+           2      0.040     2.9%           8.7  standing
+           3      0.157    11.2%          13.7  standing
+           4      0.276    19.7%          18.8  standing
+           5      0.395    28.2%          23.9  standing
+           6      0.513    36.6%          29.0  standing
+           7      0.125     8.9%         380.7  TIPPED OVER
+           8      0.112     8.0%         379.2  TIPPED OVER
+           9      0.109     7.8%         377.8  TIPPED OVER
+          10      0.108     7.7%         376.3  TIPPED OVER
+          11      0.107     7.7%         374.8  TIPPED OVER
+          12      0.107     7.6%         373.3  TIPPED OVER
+          13      0.106     7.6%         371.9  TIPPED OVER
+          14      0.106     7.6%         370.4  TIPPED OVER
+          15      0.013     0.9%         370.0  TIPPED OVER
+
+  ankle roll (lean left/right): both joints commanded together, 1.5 s ramp then hold
+     cmd deg  N.m worst  % stall  CoM shift mm  state
+           0      0.041     2.9%           1.4  standing
+           1      0.336    24.0%           1.7  standing
+           2      0.431    30.8%           4.0  standing
+           3      0.523    37.3%           6.9  standing
+           4      0.565    40.4%          10.1  standing
+           5      0.092     6.6%          23.4  standing
+           6      0.467    33.4%          34.6  standing
+           7      0.010     0.7%         319.6  TIPPED OVER
+           8      0.012     0.8%         351.5  TIPPED OVER
+           9      0.009     0.6%         372.7  TIPPED OVER
+          10      0.009     0.7%         360.2  TIPPED OVER
+          11      0.008     0.6%         365.7  TIPPED OVER
+          12      0.009     0.6%         364.6  TIPPED OVER
+          13      0.009     0.6%         363.8  TIPPED OVER
+          14      0.009     0.6%         363.6  TIPPED OVER
+          15      0.004     0.3%         363.3  TIPPED OVER
+
+  single support: lean onto the left foot, swing the right leg
+    right foot lifts at +4.5 deg; holding +7.5 deg the right pad clears the floor by ~52 mm
+    left foot carries 56 % of the weight; left ankle roll 1.30 N.m (93 %), pitch 0.50 N.m (36 %)
+      R hip  swing  peak %:   L roll  L pitch  L hip  R hip  waist  state
+      -20 deg  1.0 s             100       43     20     38     51  LOST BALANCE
+      +20 deg  1.0 s             100       43     20     37     50  LOST BALANCE
+      -20 deg  0.3 s             100       43     18     24     51  LOST BALANCE
+      +20 deg  0.3 s             100       43     16     50     50  LOST BALANCE
+
+foot 98 x 66 mm per foot, flat sole 89 x 55 mm; ankle pitch axis 17 mm above the sole
+CoM is 287 mm above the ankle axis; sole reaches 39 mm behind and 49 mm ahead of it
+static tip-over toward the heel at 7.9 deg of ankle pitch
+  holding that lean on two feet : 0.92 N.m per ankle (65 % of stall)
+  holding that lean on one foot : 1.83 N.m (131 % of stall)  <- exceeds the XL430
+
+demo (sim/demo.py, 23.5 s, amplitudes from variant.json)
+  stayed up the whole run
+  peak torque, % of stall: waist_yaw 56, hip_yaw_l 29, hip_yaw_r 30, ankle_pitch_l 64, ankle_pitch_r 64, ankle_roll_l 47, ankle_roll_r 47

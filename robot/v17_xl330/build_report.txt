@@ -1,0 +1,38 @@
+variant  v17_xl330: XL330-M288, hip yaw + hip pitch in the belly, ankle roll in the foot, legs unchanged, 516 mm
+wrote    robot/v17_xl330/haetburi.urdf, robot/v17_xl330/haetburi_scene.xml
+
+link       mass kg  com (m, robot frame)
+pelvis       0.268  [ 0.0037 -0.0001  0.0962]
+torso        2.155  [3.140e-02 1.000e-04 2.357e-01]
+leg_l        0.024  [0.0162 0.0245 0.037 ]
+hip_l        0.026  [0.0169 0.022  0.0732]
+foot_l       0.075  [0.0226 0.0245 0.0099]
+leg_r        0.024  [ 0.0163 -0.0248  0.037 ]
+hip_r        0.026  [ 0.0169 -0.0223  0.0732]
+foot_r       0.075  [ 0.0222 -0.025   0.0098]
+
+total mass 2.673 kg   com [2.760e-02 1.000e-04 2.023e-01] m   com height 202 mm
+standing height 525 mm, character scale x4.3000
+actuated joints: 6 (hip yaw x2, hip pitch x2, ankle roll x2; the waist is fixed)
+servo: XL330-M288-T: 20.0 x 34.0 x 26.0 mm, 18 g, stall 0.52 N.m
+roll axis above sole (mm): 12.4 / 12.4 (left / right)
+roll axis vs leg centre (mm): 11.7 ahead, 7.4 inboard
+legs raised to clear the feet (mm): 9.5
+hip pitch motor: standing in the belly under the hip yaw motor, shaft lateral, horn outboard; axis 14.7 mm above the crotch, 6.5 ahead of the leg centre (target 11.2), case -3.0 outboard; walled case inside the body over hip yaw +-30 deg
+hip yaw motor: vertical shaft, horn down, case bottom 45.5 mm above the crotch
+character scale: x4.30 of the 120 mm STL (516 mm character; the walled roll motor fits the STL foot from x4.25)
+foot (mm): 70.8 long x 47.7 wide x 34.3 high (the STL's own foot, flat sole 63 x 39)
+roll motor: lying on its side in the foot, shaft fore-aft, long end outward
+ankle gap, leg bottom to foot top (mm): 5.0
+leg shell (mm): original, 12.3 from bottom to crotch
+hip seam: outside: sphere R 36.1 mm about the point where hip yaw and pitch meet; between the legs: the crotch plane; 1.0 mm gap; legs and belly keep the STL's outside
+display: 217.2 x 146.9 x 11.9 mm, 0.693 kg, centre 95 mm ahead, 145 mm up, bottom edge 71 mm above the floor
+hip range, collision-free (deg): pitch 61 forward (display) / 26 back (belly); yaw 25 toes-in (other foot) / 42 toes-out (other foot)
+hip joint limits set (deg): pitch -45..24 (+ = leg back), yaw +-23
+motor volume inside the shell:
+  pelvis#0   100.0 %
+  pelvis#1   100.0 %
+  hip_l#0    100.0 %
+  foot_l#0   100.0 %
+  hip_r#0    100.0 %
+  foot_r#0   100.0 %

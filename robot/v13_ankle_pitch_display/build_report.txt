@@ -1,0 +1,34 @@
+variant  v13_ankle_pitch_display: v11 + the ankle pitch joint back: pitch motor in the foot, roll motor stacked in the leg
+wrote    robot/v13_ankle_pitch_display/haetburi.urdf, robot/v13_ankle_pitch_display/haetburi_scene.xml
+
+link       mass kg  com (m, robot frame)
+pelvis       0.598  [ 2.900e-02 -1.000e-04  1.434e-01]
+torso        3.394  [2.640e-02 2.000e-04 3.897e-01]
+leg_l        0.181  [0.0153 0.0326 0.0806]
+ankle_l      0.050  [0.024  0.0276 0.0471]
+foot_l       0.150  [0.0308 0.0354 0.0155]
+leg_r        0.181  [ 0.0153 -0.033   0.0806]
+ankle_r      0.050  [ 0.0228 -0.0278  0.0471]
+foot_r       0.149  [ 0.0297 -0.0357  0.0154]
+
+total mass 4.753 kg   com [2.610e-02 1.000e-04 3.044e-01] m   com height 304 mm
+standing height 769 mm, character scale x5.9500
+actuated joints: 7 (waist yaw, hip yaw x2, ankle pitch x2, ankle roll x2)
+roll axis above sole (mm): 17.3 / 17.3 (left / right)
+roll axis vs leg centre (mm): 15.2 ahead, 9.3 inboard
+legs raised to clear the feet (mm): 54.7
+character scale: x5.95 of the 120 mm STL (714 mm character)
+foot (mm): 97.9 long x 66.0 wide x 47.5 high (the STL's own foot, flat sole 87 x 54)
+ankle motors: roll lying in the foot (long end outward); pitch standing in the leg above it
+pitch axis above sole (mm): 76.8, 4.0 ahead of the leg centre
+leg (mm): the STL leg lengthened by its own section: 43 added, 50 from bottom to crotch
+ankle gap, leg bottom to foot top (mm): 15.5
+display: 210.5 x 142.3 x 11.5 mm, 0.651 kg, centre 131 mm ahead, 272 mm up, bottom edge 201 mm above the floor
+motor volume inside the shell:
+  pelvis#0   100.0 %
+  pelvis#1   100.0 %
+  torso#0    100.0 %
+  leg_l#0    100.0 %
+  foot_l#0   100.0 %
+  leg_r#0    100.0 %
+  foot_r#0   100.0 %

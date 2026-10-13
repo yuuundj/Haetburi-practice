@@ -1,0 +1,32 @@
+== v19_xl330  (3.31 kg)
+best gait None
+reference gait {'freq': 0.4, 'roll': 6, 'swing': 4.5, 'phase': 330, 'pair': 'anti'}
+
+joint                         stand        reference gait                  demo   max speed
+                    peak / rms  N.m       peak / rms  N.m       peak / rms  N.m   rad/s
+hip_yaw_l             0.002 / 0.001         0.245 / 0.095         0.341 / 0.114    0.30
+hip_pitch_l           0.355 / 0.355         0.520 / 0.463         0.520 / 0.402    4.89
+hip_yaw_r             0.006 / 0.004         0.343 / 0.200         0.100 / 0.026    0.39
+hip_pitch_r           0.354 / 0.353         0.520 / 0.520         0.520 / 0.372    5.44
+ankle_roll_l          0.029 / 0.029         0.213 / 0.106         0.520 / 0.150    0.79
+ankle_roll_r          0.015 / 0.015         0.520 / 0.355         0.233 / 0.067    0.97
+fell: reference gait at 2.6 s, demo at 7.3 s
+
+motor check, all runs, including the fastest gait: peak under 70% of stall, RMS under 35% of stall, speed under no-load speed
+joint          XL430-W250-T  XC330-T288-T  XC330-M288-T  XC330-T181-T  XL330-M288-T       STS3032       SCS0009
+hip_yaw_l       24%/  8% ok   37%/ 12% ok   37%/ 12% ok   45%/ 15% ok   66%/ 22% ok   78%/ 26% --  151%/ 51% --
+hip_pitch_l     37%/ 33% ok   57%/ 50% --   56%/ 50% --   68%/ 61% --  100%/ 89% --  118%/105% --  230%/205% --
+hip_yaw_r       25%/ 14% ok   37%/ 22% ok   37%/ 21% ok   45%/ 26% ok   66%/ 38% --   78%/ 45% --  152%/ 88% --
+hip_pitch_r     37%/ 37% --   57%/ 57% --   56%/ 56% --   68%/ 68% --  100%/100% --  118%/118% --  230%/230% --
+ankle_roll_l    37%/ 11% ok   57%/ 16% ok   56%/ 16% ok   68%/ 20% ok  100%/ 29% --  118%/ 34% --  230%/ 66% --
+ankle_roll_r    37%/ 25% ok   57%/ 39% --   56%/ 38% --   68%/ 47% --  100%/ 68% --  118%/ 81% --  230%/157% --
+
+motor check, walking at the reference pace (no fastest gait): peak under 70% of stall, RMS under 35% of stall, speed under no-load speed
+joint          XL430-W250-T  XC330-T288-T  XC330-M288-T  XC330-T181-T  XL330-M288-T       STS3032       SCS0009
+hip_yaw_l       24%/  8% ok   37%/ 12% ok   37%/ 12% ok   45%/ 15% ok   66%/ 22% ok   78%/ 26% --  151%/ 51% --
+hip_pitch_l     37%/ 33% ok   57%/ 50% --   56%/ 50% --   68%/ 61% --  100%/ 89% --  118%/105% --  230%/205% --
+hip_yaw_r       25%/ 14% ok   37%/ 22% ok   37%/ 21% ok   45%/ 26% ok   66%/ 38% --   78%/ 45% --  152%/ 88% --
+hip_pitch_r     37%/ 37% --   57%/ 57% --   56%/ 56% --   68%/ 68% --  100%/100% --  118%/118% --  230%/230% --
+ankle_roll_l    37%/ 11% ok   57%/ 16% ok   56%/ 16% ok   68%/ 20% ok  100%/ 29% --  118%/ 34% --  230%/ 66% --
+ankle_roll_r    37%/ 25% ok   57%/ 39% --   56%/ 38% --   68%/ 47% --  100%/ 68% --  118%/ 81% --  230%/157% --
+  (cells: peak % of stall / RMS % of stall, then ok or --)

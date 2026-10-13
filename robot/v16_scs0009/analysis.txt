@@ -1,0 +1,69 @@
+variant v16_scs0009
+model   6 actuated DoF, 8 links, 2.564 kg
+CoM     x +0.0  y +0.0  z 204.2  mm
+        pelvis    0.239 kg
+        torso     2.102 kg
+        leg_l     0.018 kg
+        ankle_l   0.025 kg
+        foot_l    0.069 kg
+
+6 XL430 boxes, tightest pair ankle_l / foot_l: +3.9 mm (OK)
+
+neutral pose held for 3 s: CoM sank 0.1 mm, residual speed 0.0 mm/s
+  holding torque
+    hip_yaw_l        +0.000 N.m     0.1 % of stall
+    hip_yaw_r        -0.000 N.m     0.0 % of stall
+    ankle_pitch_l    +0.018 N.m     8.2 % of stall
+    ankle_pitch_r    +0.018 N.m     7.8 % of stall
+    ankle_roll_l     +0.000 N.m     0.2 % of stall
+    ankle_roll_r     +0.003 N.m     1.5 % of stall
+
+  ankle pitch (lean fore/aft): both joints commanded together, 1.5 s ramp then hold
+     cmd deg  N.m worst  % stall  CoM shift mm  state
+           0      0.018     8.2%           0.8  standing
+           1      0.069    30.5%           6.1  standing
+           2      0.158    69.8%          13.2  standing
+           3      0.001     0.6%         279.6  standing
+           4      0.001     0.5%         277.6  standing
+           5      0.001     0.5%         277.6  standing
+           6      0.001     0.6%         277.6  standing
+           7      0.001     0.7%         277.5  standing
+           8      0.002     0.7%         277.6  standing
+           9      0.002     0.8%         277.5  standing
+          10      0.002     0.9%         277.6  standing
+          11      0.002     0.9%         277.6  standing
+          12      0.002     1.0%         277.6  standing
+          13      0.002     1.0%         277.6  standing
+          14      0.003     1.1%         277.7  standing
+          15      0.003     1.2%         277.7  standing
+
+  ankle roll (lean left/right): both joints commanded together, 1.5 s ramp then hold
+     cmd deg  N.m worst  % stall  CoM shift mm  state
+           0      0.003     1.5%           0.8  standing
+           1      0.076    33.7%           0.9  standing
+           2      0.141    62.3%           1.1  standing
+           3      0.188    83.3%           1.9  standing
+           4      0.226   100.0%           3.1  standing
+           5      0.226   100.0%           4.4  standing
+           6      0.226   100.0%           5.5  standing
+           7      0.226   100.0%           6.9  standing
+           8      0.226   100.0%           8.2  standing
+           9      0.226   100.0%           9.6  standing
+          10      0.226   100.0%          11.9  standing
+          11      0.226   100.0%          19.4  standing
+          12      0.012     5.4%         121.9  standing
+
+  single support: lean onto the left foot, swing the right leg
+    right foot never unloaded: with no hip roll the body cannot shift sideways
+    on flat feet, and here ankle roll tips both feet onto their edges instead
+    of tilting the body onto one foot (roll axis high above the sole)
+
+foot 70 x 47 mm per foot, flat sole 63 x 40 mm; ankle pitch axis 11 mm above the sole
+CoM is 193 mm above the ankle axis; sole reaches 37 mm behind and 26 mm ahead of it
+static tip-over toward the toe at 7.9 deg of ankle pitch
+  holding that lean on two feet : 0.33 N.m per ankle (147 % of stall)
+  holding that lean on one foot : 0.67 N.m (295 % of stall)  <- exceeds the servo
+
+demo (sim/demo.py, 23.5 s, amplitudes from variant.json)
+  stayed up the whole run
+  peak torque, % of stall: hip_yaw_l 1, hip_yaw_r 4, ankle_pitch_l 100, ankle_pitch_r 100, ankle_roll_l 5, ankle_roll_r 5

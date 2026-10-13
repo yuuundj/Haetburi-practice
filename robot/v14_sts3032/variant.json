@@ -1,0 +1,44 @@
+{
+  "variant": "v14_sts3032",
+  "title": "v12 layout, Feetech STS3032 (6 V), fixed waist, 228 mm",
+  "layout": "newbase",
+  "demo": {
+    "pitch_lean": 0,
+    "roll_lean": 5,
+    "yaw": 35,
+    "bow_hip": 0,
+    "bow_ankle": 0,
+    "diag_roll": 5,
+    "diag_yaw": -30,
+    "pose_bow_hip": 0,
+    "pose_bow_ankle": 0,
+    "pose_lift_roll": 5,
+    "pose_lift_hip": 8
+  },
+  "mass_kg": 0.464,
+  "com_mm": [
+    12.2,
+    -0.0,
+    68.6
+  ],
+  "height_mm": 243.5,
+  "summary": {
+    "actuated joints": "4 (hip yaw x2, ankle roll x2; the waist is fixed)",
+    "servo": "STS3032: 12.0 x 23.0 x 27.5 mm, 25 g, stall 0.44 N.m",
+    "roll axis above sole (mm)": "8.0 / 8.0 (left / right)",
+    "roll axis vs leg centre (mm)": "6.5 ahead, 2.7 inboard",
+    "legs raised to clear the feet (mm)": 15.5,
+    "character scale": "x1.900 of the 120 mm STL (228 mm character)",
+    "foot (mm)": "31.3 long x 21.1 wide (the STL's outline); toe cap 10 mm long, sole plate 2 mm",
+    "roll motor": "standing on the sole plate at the heel, in the open, shaft fore-aft, long side up, horn to the heel",
+    "ankle gap, motor top to leg cap (mm)": 4.5,
+    "leg shell (mm)": "original, capped at 14 mm, 4.6 from cap to crotch",
+    "display": "96.0 x 64.9 x 5.2 mm, 0.065 kg, centre 42 mm ahead, 73 mm up, bottom edge 40 mm above the floor"
+  },
+  "motors_inside": {
+    "pelvis#0": 1.0,
+    "pelvis#1": 1.0,
+    "foot_l#0": 0.134,
+    "foot_r#0": 0.134
+  }
+}

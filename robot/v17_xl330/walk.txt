@@ -1,0 +1,26 @@
+feedback balance on: {'ki': 0.3, 'kd': 0.2, 'kdr': 0.03}
+variant v17_xl330: 6000 gaits, 4149 stayed up, 378 kept their heading with peak torque <= 70% of stall (836 s); 223 more stayed up but hit the belly with a leg (dropped)
+top 40 by distance checked for real steps; 36 move their feet mostly through the air (>= 60% of foot travel), the rest mostly slide
+
+ freq  roll  swing  phase  hips foll  yaw |  forward   side   turn     speed  peak | in air   lift stepped |   sway  rock wiggle
+  1.3     3    2.0    330  anti  0.0    6 |    200mm    4mm  -12deg  16.7mm/s   70% |    32%  0.4mm     83% |    5mm  5.4d  13.8d
+  0.7     5    2.0    330  anti  0.0   12 |    172mm   -3mm    2deg  14.3mm/s   64% |    40%  0.8mm     88% |    7mm  7.4d  24.7d
+  0.7     5    0.0      0  anti  0.0   12 |    150mm   -3mm   -9deg  12.5mm/s   63% |    44%  2.0mm     97% |    5mm  7.5d  24.2d
+  0.7     5    0.0    330  anti  0.0   12 |    133mm   -2mm    3deg  11.1mm/s   64% |    37%  2.0mm     94% |    7mm  7.0d  22.3d
+  0.9     4    2.0    330  anti  0.0    6 |    131mm    2mm    4deg  10.9mm/s   57% |    25%  0.4mm     68% |    5mm  5.7d  13.5d
+  0.5     6    2.0    330  anti  0.0   12 |    122mm   -5mm   -2deg  10.1mm/s   61% |    40%  1.8mm     88% |    8mm 10.6d  26.0d
+  0.5     5    2.0    330  anti  0.0   12 |    114mm   -2mm   -1deg   9.5mm/s   62% |    27%  0.6mm     82% |    7mm  7.6d  26.2d
+  1.3     3    0.0    330  anti  0.0    6 |    110mm    7mm   -9deg   9.2mm/s   62% |    27%  0.5mm     87% |    4mm  3.3d  13.1d
+  0.7     5    2.0    330  anti  0.0    6 |    110mm   -2mm    2deg   9.2mm/s   52% |    39%  0.6mm     89% |    5mm  7.5d  13.9d
+  0.5     5    0.0      0  anti  0.0   12 |    108mm   -2mm   -0deg   9.0mm/s   68% |    34%  1.9mm     92% |    5mm  7.2d  24.1d
+
+calmest gait that still covers >= 60% of the best distance (least side-to-side sway):
+  1.3     3    2.0    330  anti  0.0    6 |    200mm    4mm  -12deg  16.7mm/s   70% |    32%  0.4mm     83% |    5mm  5.4d  13.8d
+
+sway = side-to-side travel of the pelvis, rock = torso roll range, wiggle = heading swing (all peak-to-peak, trend removed)
+
+furthest overall (for comparison, may be sliding):
+  1.3     3    2.0    330  anti  0.0    6 |    200mm    4mm  -12deg  16.7mm/s   70% |    32%  0.4mm     83% |    5mm  5.4d  13.8d
+  0.7     5    2.0    330  anti  0.0   12 |    172mm   -3mm    2deg  14.3mm/s   64% |    40%  0.8mm     88% |    7mm  7.4d  24.7d
+  0.7     5    0.0      0  anti  0.0   12 |    150mm   -3mm   -9deg  12.5mm/s   63% |    44%  2.0mm     97% |    5mm  7.5d  24.2d
+falls by roll amplitude: 3 deg: 81, 4 deg: 137, 5 deg: 218, 6 deg: 450, 7 deg: 742

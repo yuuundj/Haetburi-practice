@@ -1,0 +1,44 @@
+{
+  "variant": "v14_sts3032_w4",
+  "title": "v14_sts3032 with 4 mm walls (2 mm head / tail), 270 mm (the belly needs it for walled hip motors)",
+  "layout": "newbase",
+  "demo": {
+    "pitch_lean": 0,
+    "roll_lean": 5,
+    "yaw": 35,
+    "bow_hip": 0,
+    "bow_ankle": 0,
+    "diag_roll": 5,
+    "diag_yaw": -30,
+    "pose_bow_hip": 0,
+    "pose_bow_ankle": 0,
+    "pose_lift_roll": 5,
+    "pose_lift_hip": 8
+  },
+  "mass_kg": 0.743,
+  "com_mm": [
+    12.9,
+    0.0,
+    89.5
+  ],
+  "height_mm": 282.8,
+  "summary": {
+    "actuated joints": "4 (hip yaw x2, ankle roll x2; the waist is fixed)",
+    "servo": "STS3032: 12.0 x 23.0 x 27.5 mm, 25 g, stall 0.44 N.m",
+    "roll axis above sole (mm)": "8.0 / 8.0 (left / right)",
+    "roll axis vs leg centre (mm)": "4.6 ahead, 4.4 inboard",
+    "legs raised to clear the feet (mm)": 12.8,
+    "character scale": "x2.250 of the 120 mm STL (270 mm character)",
+    "foot (mm)": "37.0 long x 25.0 wide (the STL's outline); toe cap 12 mm long, sole plate 2 mm",
+    "roll motor": "standing on the sole plate at the heel, in the open, shaft fore-aft, long side up, horn to the heel",
+    "ankle gap, motor top to leg cap (mm)": 4.5,
+    "leg shell (mm)": "original, capped at 17 mm, 5.4 from cap to crotch",
+    "display": "113.7 x 76.8 x 6.2 mm, 0.107 kg, centre 50 mm ahead, 81 mm up, bottom edge 43 mm above the floor"
+  },
+  "motors_inside": {
+    "pelvis#0": 1.0,
+    "pelvis#1": 1.0,
+    "foot_l#0": 0.088,
+    "foot_r#0": 0.088
+  }
+}

@@ -1,0 +1,38 @@
+variant  v21_xc330: XC330-T288, v20 with straight legs and the lower torso fitted to them, 588 mm
+wrote    robot/v21_xc330/haetburi.urdf, robot/v21_xc330/haetburi_scene.xml
+
+link       mass kg  com (m, robot frame)
+pelvis       0.491  [4.30e-03 1.00e-04 1.38e-01]
+torso        2.497  [4.230e-02 1.000e-04 2.817e-01]
+leg_l        0.127  [0.0188 0.0273 0.0809]
+ankle_l      0.020  [0.0263 0.0231 0.0406]
+foot_l       0.108  [0.0255 0.0289 0.0121]
+leg_r        0.128  [ 0.0189 -0.0276  0.0814]
+ankle_r      0.020  [ 0.0261 -0.0236  0.0406]
+foot_r       0.108  [ 0.0253 -0.0293  0.0121]
+
+total mass 3.498 kg   com [0.034  0.     0.2275] m   com height 228 mm
+standing height 634 mm, character scale x4.9000
+actuated joints: 6 (hip pitch x2, ankle pitch x2, ankle roll x2; the waist is fixed)
+servo: XC330-T288-T: 20.0 x 34.0 x 26.0 mm, 23 g, stall 1.0 N.m
+roll axis above sole (mm): 14.0 / 14.0 (left / right)
+roll axis vs leg centre (mm): 12.1 ahead, 6.8 inboard
+legs raised to clear the feet (mm): 46.1
+hip pitch motor: standing in the belly, shaft lateral, horn outboard; axis 16.2 mm above the crotch, 10.0 ahead of the leg centre (target 24.2), case -8.0 outboard; walled case inside the body
+character scale: x4.90 of the 120 mm STL (588 mm character)
+foot (mm): 80.6 long x 54.3 wide x 39.1 high (the STL's own foot, flat sole 72 x 45)
+ankle motors: roll lying in the foot (long end outward); pitch standing in the leg above it
+pitch axis above sole (mm): 67.3, 16.7 ahead of the leg centre
+leg (mm): the STL leg lengthened by its own section: 33 added, 39 from bottom to crotch; the added part reaches 14.7 further forward
+ankle gap, leg bottom to foot top (mm): 16.0
+hip seam: torso cut flat 16.2 mm above the STL crotch (pivot), legs carried up into sockets (legs that much longer), hidden dome R 36.4 mm about the hip pivot; sockets cut for hip pitch -30..25, yaw +-0 + 1.0 mm gap: socket gap front 4.4 / back 4.4 / outer 0.7 mm, torso wall kept (thickest wall beside it 0.5 mm); motor hollow through the visible leg skin 0 mm^2; leg points reaching the hip yaw case 0
+display: 247.5 x 167.3 x 13.5 mm, 0.900 kg, centre 108 mm ahead, 202 mm up, bottom edge 118 mm above the floor
+hip range, collision-free (deg): pitch 31 forward (belly) / 27 back (belly); yaw 3 toes-in (belly) / 3 toes-out (belly)
+hip joint limits set (deg): pitch -29..25 (+ = leg back), yaw +-0
+motor volume inside the shell (bare case / with its 4.0 mm walls):
+  pelvis#0   100.0 % / 100.0 %
+  pelvis#1   100.0 % / 100.0 %
+  leg_l#0    100.0 % / 100.0 %
+  foot_l#0   100.0 % / 100.0 %
+  leg_r#0    100.0 % / 100.0 %
+  foot_r#0   100.0 % / 100.0 %

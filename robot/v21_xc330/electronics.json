@@ -1,0 +1,58 @@
+[
+  {
+    "name": "battery 3S 11.1 V 1000 mAh LiPo",
+    "kg": 0.085,
+    "behind": 11.41,
+    "up": 16.81,
+    "side": 2.53,
+    "size_mm": [
+      20.0,
+      70.0,
+      35.0
+    ]
+  },
+  {
+    "name": "servo driver with ESP32 + IMU",
+    "kg": 0.02,
+    "behind": 11.91,
+    "up": 19.81,
+    "side": -8.47,
+    "size_mm": [
+      12.0,
+      30.0,
+      65.0
+    ]
+  },
+  {
+    "name": "Raspberry Pi Zero 2 W",
+    "kg": 0.012,
+    "behind": 5.91,
+    "up": 13.31,
+    "side": 1.53,
+    "size_mm": [
+      6.0,
+      30.0,
+      65.0
+    ]
+  },
+  {
+    "name": "buck 5 V 3 A (Pi, display)",
+    "kg": 0.005,
+    "behind": 5.41,
+    "up": 9.31,
+    "side": -4.97,
+    "size_mm": [
+      6.0,
+      22.0,
+      17.0
+    ]
+  },
+  {
+    "name": "wiring and connectors",
+    "kg": 0.015,
+    "behind": 0.0,
+    "up": 12.0,
+    "side": 0.0,
+    "size_mm": null
+  }
+]

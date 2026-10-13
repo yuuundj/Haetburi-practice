@@ -1,0 +1,47 @@
+{
+  "variant": "v15_scs0009",
+  "title": "SCS0009, ankle pitch + roll stacked, all 6 motors inside, 432 mm",
+  "layout": "newbase",
+  "demo": {
+    "pitch_lean": 5,
+    "roll_lean": 5,
+    "yaw": 35,
+    "bow_hip": 0,
+    "bow_ankle": 0,
+    "diag_roll": 5,
+    "diag_yaw": -30,
+    "pose_bow_hip": 0,
+    "pose_bow_ankle": 0,
+    "pose_lift_roll": 5,
+    "pose_lift_hip": 8
+  },
+  "mass_kg": 1.723,
+  "com_mm": [
+    22.2,
+    0.0,
+    179.4
+  ],
+  "height_mm": 463.0,
+  "summary": {
+    "actuated joints": "6 (hip yaw x2, ankle pitch x2, ankle roll x2; the waist is fixed)",
+    "servo": "SCS0009: 12.1 x 23.2 x 25.25 mm, 13 g, stall 0.226 N.m",
+    "roll axis above sole (mm)": "8.3 / 8.3 (left / right)",
+    "roll axis vs leg centre (mm)": "10.0 ahead, 4.3 inboard",
+    "legs raised to clear the feet (mm)": 31.0,
+    "character scale": "x3.60 of the 120 mm STL (432 mm character)",
+    "foot (mm)": "59.3 long x 39.9 wide x 28.7 high (the STL's own foot, flat sole 53 x 33)",
+    "ankle motors": "roll lying in the foot (long end outward); pitch standing in the leg above it",
+    "pitch axis above sole (mm)": "48.0, 11.9 ahead of the leg centre",
+    "leg (mm)": "the STL leg lengthened by its own section: 21 added, 26 from bottom to crotch; the added part reaches 10.8 further forward",
+    "ankle gap, leg bottom to foot top (mm)": 11.8,
+    "display": "181.9 x 122.9 x 9.9 mm, 0.423 kg, centre 79 mm ahead, 143 mm up, bottom edge 82 mm above the floor"
+  },
+  "motors_inside": {
+    "pelvis#0": 1.0,
+    "pelvis#1": 1.0,
+    "leg_l#0": 1.0,
+    "foot_l#0": 1.0,
+    "leg_r#0": 1.0,
+    "foot_r#0": 1.0
+  }
+}

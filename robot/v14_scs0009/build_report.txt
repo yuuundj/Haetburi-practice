@@ -1,0 +1,29 @@
+variant  v14_scs0009: v12 layout, Feetech SCS0009 (6 V micro), fixed waist, 222 mm
+wrote    robot/v14_scs0009/haetburi.urdf, robot/v14_scs0009/haetburi_scene.xml
+
+link       mass kg  com (m, robot frame)
+pelvis       0.104  [ 0.0116 -0.      0.0489]
+torso        0.177  [0.0143 0.     0.1112]
+leg_l        0.012  [0.0044 0.0106 0.0197]
+foot_l       0.015  [0.0107 0.0086 0.0124]
+leg_r        0.013  [ 0.0044 -0.0107  0.0198]
+foot_r       0.015  [ 0.0107 -0.0088  0.0124]
+
+total mass 0.336 kg   com [0.0124 0.     0.0762] m   com height 76 mm
+standing height 238 mm, character scale x1.8500
+actuated joints: 4 (hip yaw x2, ankle roll x2; the waist is fixed)
+servo: SCS0009: 12.1 x 23.2 x 25.25 mm, 13 g, stall 0.226 N.m
+roll axis above sole (mm): 8.0 / 8.0 (left / right)
+roll axis vs leg centre (mm): 5.6 ahead, 2.4 inboard
+legs raised to clear the feet (mm): 15.9
+character scale: x1.850 of the 120 mm STL (222 mm character)
+foot (mm): 30.4 long x 20.5 wide (the STL's outline); toe cap 10 mm long, sole plate 2 mm
+roll motor: standing on the sole plate at the heel, in the open, shaft fore-aft, long side up, horn to the heel
+ankle gap, motor top to leg cap (mm): 4.4
+leg shell (mm): original, capped at 14 mm, 4.4 from cap to crotch
+display: 93.5 x 63.2 x 5.1 mm, 0.060 kg, centre 41 mm ahead, 71 mm up, bottom edge 40 mm above the floor
+motor volume inside the shell:
+  pelvis#0   100.0 %
+  pelvis#1   100.0 %
+  foot_l#0    13.9 %
+  foot_r#0    13.9 %

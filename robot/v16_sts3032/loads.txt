@@ -1,0 +1,32 @@
+== v16_sts3032  (2.85 kg)
+best gait None
+reference gait {'freq': 0.9, 'roll': 6, 'swing': 16, 'phase': 90, 'pair': 'same'}
+
+joint                         stand        reference gait                  demo   max speed
+                    peak / rms  N.m       peak / rms  N.m       peak / rms  N.m   rad/s
+hip_yaw_l             0.000 / 0.000         0.440 / 0.165         0.007 / 0.005    1.77
+hip_yaw_r             0.000 / 0.000         0.400 / 0.159         0.010 / 0.005    1.88
+ankle_pitch_l         0.006 / 0.006         0.440 / 0.111         0.394 / 0.292    1.26
+ankle_pitch_r         0.007 / 0.007         0.440 / 0.093         0.400 / 0.294    0.84
+ankle_roll_l          0.005 / 0.005         0.440 / 0.244         0.047 / 0.021    1.18
+ankle_roll_r          0.005 / 0.005         0.440 / 0.246         0.047 / 0.024    1.48
+fell: demo at 5.4 s
+
+motor check, all runs, including the fastest gait: peak under 70% of stall, RMS under 35% of stall, speed under no-load speed
+joint          XL430-W250-T  XC330-T288-T  XC330-M288-T  XC330-T181-T  XL330-M288-T       STS3032       SCS0009
+hip_yaw_l       31%/ 12% ok   48%/ 18% ok   47%/ 18% ok   58%/ 22% ok   85%/ 32% --  100%/ 38% --  195%/ 73% --
+hip_yaw_r       29%/ 11% ok   44%/ 17% ok   43%/ 17% ok   53%/ 21% ok   77%/ 31% --   91%/ 36% --  177%/ 70% --
+ankle_pitch_l   31%/ 21% ok   48%/ 32% ok   47%/ 31% ok   58%/ 38% --   85%/ 56% --  100%/ 66% --  195%/129% --
+ankle_pitch_r   31%/ 21% ok   48%/ 32% ok   47%/ 32% ok   58%/ 39% --   85%/ 57% --  100%/ 67% --  195%/130% --
+ankle_roll_l    31%/ 17% ok   48%/ 26% ok   47%/ 26% ok   58%/ 32% ok   85%/ 47% --  100%/ 55% --  195%/108% --
+ankle_roll_r    31%/ 18% ok   48%/ 27% ok   47%/ 26% ok   58%/ 32% ok   85%/ 47% --  100%/ 56% --  195%/109% --
+
+motor check, walking at the reference pace (no fastest gait): peak under 70% of stall, RMS under 35% of stall, speed under no-load speed
+joint          XL430-W250-T  XC330-T288-T  XC330-M288-T  XC330-T181-T  XL330-M288-T       STS3032       SCS0009
+hip_yaw_l       31%/ 12% ok   48%/ 18% ok   47%/ 18% ok   58%/ 22% ok   85%/ 32% --  100%/ 38% --  195%/ 73% --
+hip_yaw_r       29%/ 11% ok   44%/ 17% ok   43%/ 17% ok   53%/ 21% ok   77%/ 31% --   91%/ 36% --  177%/ 70% --
+ankle_pitch_l   31%/ 21% ok   48%/ 32% ok   47%/ 31% ok   58%/ 38% --   85%/ 56% --  100%/ 66% --  195%/129% --
+ankle_pitch_r   31%/ 21% ok   48%/ 32% ok   47%/ 32% ok   58%/ 39% --   85%/ 57% --  100%/ 67% --  195%/130% --
+ankle_roll_l    31%/ 17% ok   48%/ 26% ok   47%/ 26% ok   58%/ 32% ok   85%/ 47% --  100%/ 55% --  195%/108% --
+ankle_roll_r    31%/ 18% ok   48%/ 27% ok   47%/ 26% ok   58%/ 32% ok   85%/ 47% --  100%/ 56% --  195%/109% --
+  (cells: peak % of stall / RMS % of stall, then ok or --)

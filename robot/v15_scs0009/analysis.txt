@@ -1,0 +1,76 @@
+variant v15_scs0009
+model   6 actuated DoF, 8 links, 1.723 kg
+CoM     x +0.0  y -0.0  z 179.4  mm
+        pelvis    0.209 kg
+        torso     1.281 kg
+        leg_l     0.053 kg
+        ankle_l   0.012 kg
+        foot_l    0.053 kg
+
+6 XL430 boxes, tightest pair leg_l / leg_r: +12.6 mm (OK)
+
+neutral pose held for 3 s: CoM sank 0.1 mm, residual speed 0.0 mm/s
+  holding torque
+    hip_yaw_l        +0.000 N.m     0.2 % of stall
+    hip_yaw_r        -0.000 N.m     0.2 % of stall
+    ankle_pitch_l    +0.020 N.m     8.8 % of stall
+    ankle_pitch_r    +0.020 N.m     8.9 % of stall
+    ankle_roll_l     -0.009 N.m     4.2 % of stall
+    ankle_roll_r     +0.008 N.m     3.7 % of stall
+
+  ankle pitch (lean fore/aft): both joints commanded together, 1.5 s ramp then hold
+     cmd deg  N.m worst  % stall  CoM shift mm  state
+           0      0.020     8.9%           0.7  standing
+           1      0.006     2.8%           2.4  standing
+           2      0.035    15.3%           5.6  standing
+           3      0.060    26.6%           8.8  standing
+           4      0.086    38.2%          12.0  standing
+           5      0.113    49.9%          15.1  standing
+           6      0.139    61.7%          18.3  standing
+           7      0.166    73.6%          21.5  standing
+           8      0.194    86.0%          24.7  standing
+           9      0.023    10.1%         228.0  TIPPED OVER
+          10      0.023    10.0%         226.9  TIPPED OVER
+          11      0.022     9.9%         225.8  TIPPED OVER
+          12      0.022     9.8%         224.9  TIPPED OVER
+          13      0.022     9.8%         224.0  TIPPED OVER
+          14      0.022     9.7%         223.9  TIPPED OVER
+          15      0.002     1.1%         223.8  TIPPED OVER
+
+  ankle roll (lean left/right): both joints commanded together, 1.5 s ramp then hold
+     cmd deg  N.m worst  % stall  CoM shift mm  state
+           0      0.009     4.2%           0.7  standing
+           1      0.062    27.6%           0.9  standing
+           2      0.083    36.7%           1.8  standing
+           3      0.108    47.7%           3.5  standing
+           4      0.125    55.4%           5.2  standing
+           5      0.133    58.9%           6.8  standing
+           6      0.059    26.2%          19.8  standing
+           7      0.075    33.0%         177.3  TIPPED OVER
+           8      0.002     0.8%         179.6  TIPPED OVER
+           9      0.001     0.4%         238.3  TIPPED OVER
+          10      0.001     0.6%         232.6  TIPPED OVER
+          11      0.001     0.6%         234.5  TIPPED OVER
+          12      0.001     0.5%         235.6  TIPPED OVER
+          13      0.001     0.6%         235.7  TIPPED OVER
+          14      0.001     0.6%         235.4  TIPPED OVER
+          15      0.000     0.1%         234.8  TIPPED OVER
+
+  single support: lean onto the left foot, swing the right leg
+    right foot lifts at +6.0 deg; holding +9.0 deg the right pad clears the floor by ~122 mm
+    left foot carries 0 % of the weight; left ankle roll 0.00 N.m (2 %), pitch 0.00 N.m (0 %)
+      R hip  swing  peak %:   L roll  L pitch  L hip  R hip  waist  state
+      -20 deg  1.0 s             100       31     35     40      -  LOST BALANCE
+      +20 deg  1.0 s             100       31     35    100      -  LOST BALANCE
+      -20 deg  0.3 s             100       31     36     38      -  LOST BALANCE
+      +20 deg  0.3 s             100       31     35    100      -  LOST BALANCE
+
+foot 59 x 40 mm per foot, flat sole 54 x 34 mm; ankle pitch axis 8 mm above the sole
+CoM is 171 mm above the ankle axis; sole reaches 30 mm behind and 23 mm ahead of it
+static tip-over toward the toe at 7.9 deg of ankle pitch
+  holding that lean on two feet : 0.20 N.m per ankle (88 % of stall)
+  holding that lean on one foot : 0.40 N.m (176 % of stall)  <- exceeds the servo
+
+demo (sim/demo.py, 23.5 s, amplitudes from variant.json)
+  stayed up the whole run
+  peak torque, % of stall: hip_yaw_l 12, hip_yaw_r 15, ankle_pitch_l 75, ankle_pitch_r 75, ankle_roll_l 61, ankle_roll_r 61

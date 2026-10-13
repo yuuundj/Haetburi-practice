@@ -1,0 +1,54 @@
+variant v14_xc330
+model   4 actuated DoF, 6 links, 0.828 kg
+CoM     x +0.0  y -0.0  z 106.2  mm
+        pelvis    0.296 kg
+        torso     0.432 kg
+        leg_l     0.022 kg
+        foot_l    0.027 kg
+
+4 XL430 boxes, tightest pair foot_l / foot_r: +5.3 mm (OK)
+
+neutral pose held for 3 s: CoM sank 0.0 mm, residual speed 0.0 mm/s
+  holding torque
+    hip_yaw_l        +0.000 N.m     0.0 % of stall
+    hip_yaw_r        +0.000 N.m     0.0 % of stall
+    ankle_roll_l     -0.003 N.m     0.3 % of stall
+    ankle_roll_r     +0.009 N.m     0.9 % of stall
+
+  no ankle pitch joint: fore/aft lean sweep skipped
+
+  ankle roll (lean left/right): both joints commanded together, 1.5 s ramp then hold
+     cmd deg  N.m worst  % stall  CoM shift mm  state
+           0      0.009     0.9%           0.1  standing
+           1      0.038     3.8%           0.6  standing
+           2      0.048     4.8%           1.1  standing
+           3      0.051     5.1%           1.4  standing
+           4      0.054     5.4%           1.8  standing
+           5      0.057     5.7%           2.0  standing
+           6      0.056     5.6%           2.3  standing
+           7      0.055     5.5%           2.6  standing
+           8      0.056     5.6%           2.9  standing
+           9      0.054     5.4%           3.6  standing
+          10      0.081     8.1%          23.1  standing
+          11      0.054     5.4%           3.7  standing
+          12      0.048     4.8%           3.3  standing
+          13      0.045     4.5%           4.5  standing
+          14      0.045     4.5%           3.8  standing
+          15      0.043     4.3%           6.1  standing
+
+  single support: lean onto the left foot, swing the right leg
+    right foot lifts at +7.5 deg; holding +10.5 deg the right pad clears the floor by ~0 mm
+    left foot carries 100 % of the weight; left ankle roll 0.05 N.m (5 %)
+      R hip  swing  peak %:   L roll  L pitch  L hip  R hip  waist  state
+      -20 deg  1.0 s               6        -     10     22      -  standing
+      +20 deg  1.0 s              10        -      9     23      -  LOST BALANCE
+      -20 deg  0.3 s               6        -     10     21      -  standing
+      +20 deg  0.3 s               9        -      8     22      -  LOST BALANCE
+
+foot 39 x 27 mm per foot, flat sole 37 x 23 mm; ankle pitch axis 10 mm above the sole
+CoM is 96 mm above the ankle axis; sole reaches 22 mm behind and 15 mm ahead of it
+no ankle pitch: fore/aft balance is passive, the whole robot tips over once leaned 7.9 deg toward the toe
+
+demo (sim/demo.py, 23.5 s, amplitudes from variant.json)
+  stayed up the whole run
+  peak torque, % of stall: hip_yaw_l 0, hip_yaw_r 0, ankle_roll_l 9, ankle_roll_r 9

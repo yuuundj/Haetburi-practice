@@ -1,0 +1,13 @@
+feedback balance on: {'ki': 0.3, 'kd': 0.2, 'kdr': 0.03}
+variant v16_sts3032: 2676 gaits, 2223 stayed up, 4 kept their heading with peak torque <= 70% of stall (328 s)
+top 40 by distance checked for real steps; 0 move their feet mostly through the air (>= 60% of foot travel), the rest mostly slide
+
+ freq  roll  swing  phase  hips foll |  forward   side   turn     speed  peak | in air   lift stepped |   sway  rock wiggle
+
+sway = side-to-side travel of the pelvis, rock = torso roll range, wiggle = heading swing (all peak-to-peak, trend removed)
+
+furthest overall (for comparison, may be sliding):
+  0.6     3    1.5    150  same  0.0 |      5mm   -0mm    1deg   0.4mm/s   70% |     0% -0.0mm      0% |    1mm  1.6d   1.1d
+  0.6     3    1.5     30  same  0.0 |     -0mm   -0mm   -0deg  -0.0mm/s   70% |     0% -0.0mm      0% |    1mm  1.5d   1.2d
+  0.5     3    1.5      0  same  0.0 |     -3mm   -0mm    0deg  -0.2mm/s   70% |     0% -0.0mm      0% |    1mm  1.5d   1.2d
+falls by roll amplitude: 3 deg: 23, 4 deg: 105, 5 deg: 49, 6 deg: 111, 7 deg: 37, 8 deg: 128

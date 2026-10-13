@@ -1,0 +1,51 @@
+{
+  "variant": "v17_xl330",
+  "title": "XL330-M288, hip yaw + hip pitch in the belly, ankle roll in the foot, legs unchanged, 516 mm",
+  "layout": "newbase",
+  "demo": {
+    "pitch_lean": 0,
+    "roll_lean": 5,
+    "yaw": 35,
+    "bow_hip": 10,
+    "bow_ankle": 0,
+    "diag_roll": 5,
+    "diag_yaw": -30,
+    "pose_bow_hip": 8,
+    "pose_bow_ankle": 0,
+    "pose_lift_roll": 5,
+    "pose_lift_hip": 8
+  },
+  "mass_kg": 2.673,
+  "com_mm": [
+    27.6,
+    0.1,
+    202.3
+  ],
+  "height_mm": 525.5,
+  "summary": {
+    "actuated joints": "6 (hip yaw x2, hip pitch x2, ankle roll x2; the waist is fixed)",
+    "servo": "XL330-M288-T: 20.0 x 34.0 x 26.0 mm, 18 g, stall 0.52 N.m",
+    "roll axis above sole (mm)": "12.4 / 12.4 (left / right)",
+    "roll axis vs leg centre (mm)": "11.7 ahead, 7.4 inboard",
+    "legs raised to clear the feet (mm)": 9.5,
+    "hip pitch motor": "standing in the belly under the hip yaw motor, shaft lateral, horn outboard; axis 14.7 mm above the crotch, 6.5 ahead of the leg centre (target 11.2), case -3.0 outboard; walled case inside the body over hip yaw +-30 deg",
+    "hip yaw motor": "vertical shaft, horn down, case bottom 45.5 mm above the crotch",
+    "character scale": "x4.30 of the 120 mm STL (516 mm character; the walled roll motor fits the STL foot from x4.25)",
+    "foot (mm)": "70.8 long x 47.7 wide x 34.3 high (the STL's own foot, flat sole 63 x 39)",
+    "roll motor": "lying on its side in the foot, shaft fore-aft, long end outward",
+    "ankle gap, leg bottom to foot top (mm)": 5.0,
+    "leg shell (mm)": "original, 12.3 from bottom to crotch",
+    "hip seam": "outside: sphere R 36.1 mm about the point where hip yaw and pitch meet; between the legs: the crotch plane; 1.0 mm gap; legs and belly keep the STL's outside",
+    "display": "217.2 x 146.9 x 11.9 mm, 0.693 kg, centre 95 mm ahead, 145 mm up, bottom edge 71 mm above the floor",
+    "hip range, collision-free (deg)": "pitch 61 forward (display) / 26 back (belly); yaw 25 toes-in (other foot) / 42 toes-out (other foot)",
+    "hip joint limits set (deg)": "pitch -45..24 (+ = leg back), yaw +-23"
+  },
+  "motors_inside": {
+    "pelvis#0": 1.0,
+    "pelvis#1": 1.0,
+    "hip_l#0": 1.0,
+    "foot_l#0": 1.0,
+    "hip_r#0": 1.0,
+    "foot_r#0": 1.0
+  }
+}

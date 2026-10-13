@@ -1,0 +1,32 @@
+== v15_scs0009  (1.72 kg)
+best gait {'freq': 0.5, 'roll': 6, 'swing': 12, 'phase': 90, 'pair': 'same', 'fb': {'ki': 0.3, 'kd': 0.2, 'kdr': 0.03}, 'fell': None, 'dx': 91.14885136983433, 'dy': -2.5393999780166907, 'dyaw': -0.8015554660997122, 'speed': 7.59573761415201, 'peak': 69.44246808724455, 'sway_mm': 7.472842774759057, 'roll_deg': 7.148704549794737, 'yaw_osc_deg': 24.329984598691276, 'air_time': 0.34335944009331776, 'lift_mm': 1.61880300744318, 'step_ratio': 0.8878044555459902}
+reference gait {'freq': 0.9, 'roll': 6, 'swing': 16, 'phase': 90, 'pair': 'same', 'fb': {'ki': 0.3, 'kd': 0.2, 'kdr': 0.03}}
+
+joint                         stand             best gait        reference gait                  demo   max speed
+                    peak / rms  N.m       peak / rms  N.m       peak / rms  N.m       peak / rms  N.m   rad/s
+hip_yaw_l             0.001 / 0.000         0.142 / 0.037         0.200 / 0.099         0.027 / 0.009    1.82
+hip_yaw_r             0.001 / 0.000         0.145 / 0.040         0.148 / 0.069         0.033 / 0.009    1.80
+ankle_pitch_l         0.020 / 0.020         0.133 / 0.056         0.226 / 0.099         0.169 / 0.049    0.66
+ankle_pitch_r         0.020 / 0.020         0.131 / 0.051         0.183 / 0.069         0.170 / 0.049    0.64
+ankle_roll_l          0.010 / 0.009         0.156 / 0.080         0.226 / 0.174         0.139 / 0.051    0.86
+ankle_roll_r          0.008 / 0.008         0.157 / 0.079         0.226 / 0.111         0.138 / 0.050    1.04
+fell: reference gait at 3.3 s
+
+motor check, all runs, including the fastest gait: peak under 70% of stall, RMS under 35% of stall, speed under no-load speed
+joint          XL430-W250-T  XC330-T288-T  XC330-M288-T  XC330-T181-T  XL330-M288-T       STS3032       SCS0009
+hip_yaw_l       14%/  7% ok   22%/ 11% ok   21%/ 11% ok   26%/ 13% ok   38%/ 19% ok   45%/ 23% ok   88%/ 44% --
+hip_yaw_r       11%/  5% ok   16%/  7% ok   16%/  7% ok   19%/  9% ok   28%/ 13% ok   34%/ 16% ok   65%/ 30% ok
+ankle_pitch_l   16%/  7% ok   25%/ 11% ok   24%/ 11% ok   30%/ 13% ok   43%/ 19% ok   51%/ 23% ok  100%/ 44% --
+ankle_pitch_r   13%/  5% ok   20%/  7% ok   20%/  7% ok   24%/  9% ok   35%/ 13% ok   42%/ 16% ok   81%/ 30% --
+ankle_roll_l    16%/ 12% ok   25%/ 19% ok   24%/ 19% ok   30%/ 23% ok   43%/ 33% ok   51%/ 40% --  100%/ 77% --
+ankle_roll_r    16%/  8% ok   25%/ 12% ok   24%/ 12% ok   30%/ 15% ok   43%/ 21% ok   51%/ 25% ok  100%/ 49% --
+
+motor check, walking at the reference pace (no fastest gait): peak under 70% of stall, RMS under 35% of stall, speed under no-load speed
+joint          XL430-W250-T  XC330-T288-T  XC330-M288-T  XC330-T181-T  XL330-M288-T       STS3032       SCS0009
+hip_yaw_l       14%/  7% ok   22%/ 11% ok   21%/ 11% ok   26%/ 13% ok   38%/ 19% ok   45%/ 23% ok   88%/ 44% --
+hip_yaw_r       11%/  5% ok   16%/  7% ok   16%/  7% ok   19%/  9% ok   28%/ 13% ok   34%/ 16% ok   65%/ 30% ok
+ankle_pitch_l   16%/  7% ok   25%/ 11% ok   24%/ 11% ok   30%/ 13% ok   43%/ 19% ok   51%/ 23% ok  100%/ 44% --
+ankle_pitch_r   13%/  5% ok   20%/  7% ok   20%/  7% ok   24%/  9% ok   35%/ 13% ok   42%/ 16% ok   81%/ 30% --
+ankle_roll_l    16%/ 12% ok   25%/ 19% ok   24%/ 19% ok   30%/ 23% ok   43%/ 33% ok   51%/ 40% --  100%/ 77% --
+ankle_roll_r    16%/  8% ok   25%/ 12% ok   24%/ 12% ok   30%/ 15% ok   43%/ 21% ok   51%/ 25% ok  100%/ 49% --
+  (cells: peak % of stall / RMS % of stall, then ok or --)

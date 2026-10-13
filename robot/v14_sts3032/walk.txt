@@ -1,0 +1,25 @@
+variant v14_sts3032: 2676 gaits, 2643 stayed up, 1811 kept their heading with peak torque <= 70% of stall (210 s)
+top 40 by distance checked for real steps; 30 move their feet mostly through the air (>= 60% of foot travel), the rest mostly slide
+
+ freq  roll  swing  phase  hips foll |  forward   side   turn     speed  peak | in air   lift stepped |   sway  rock wiggle
+  1.3     3   30.0     75  same  0.0 |    258mm   56mm   -1deg  21.5mm/s   47% |    26%  0.5mm     61% |   21mm  3.9d  40.1d
+  1.5     3   25.0     90  same  0.0 |    258mm   58mm   15deg  21.5mm/s   48% |    32%  0.4mm     63% |   11mm  3.8d  28.7d
+  1.5     4   25.0     75  same  0.0 |    254mm   18mm   10deg  21.2mm/s   46% |    34%  0.3mm     63% |   14mm  3.3d  32.3d
+  1.1     5   30.0     90  same  0.0 |    249mm  -30mm   18deg  20.7mm/s   39% |    38%  0.5mm     74% |   11mm  4.9d  46.1d
+  1.1     4   30.0     90  same  0.0 |    245mm    4mm    3deg  20.4mm/s   40% |    32%  0.4mm     68% |    7mm  4.8d  42.3d
+  1.8     5   20.0    105  same  0.0 |    241mm   20mm  -16deg  20.1mm/s   48% |    46%  1.3mm     91% |   31mm  9.9d  57.4d
+  1.8     3   20.0     90  same  0.0 |    240mm   44mm    6deg  20.0mm/s   47% |    33%  0.2mm     69% |   16mm  3.2d  29.8d
+  1.1     5   30.0     75  same  0.0 |    239mm   23mm   19deg  19.9mm/s   40% |    32%  0.5mm     69% |   10mm  4.5d  33.1d
+  1.1     3   30.0     90  same  0.0 |    239mm   -3mm   11deg  19.9mm/s   40% |    29%  0.3mm     64% |    9mm  3.5d  40.0d
+  1.3     4   25.0    105  same  0.0 |    233mm   -9mm  -19deg  19.4mm/s   42% |    38%  0.7mm     72% |    9mm  5.7d  39.8d
+
+calmest gait that still covers >= 60% of the best distance (least side-to-side sway):
+  1.3     4   20.0    105  same  0.0 |    190mm    4mm  -15deg  15.9mm/s   35% |    36%  0.3mm     74% |    5mm  3.8d  29.8d
+
+sway = side-to-side travel of the pelvis, rock = torso roll range, wiggle = heading swing (all peak-to-peak, trend removed)
+
+furthest overall (for comparison, may be sliding):
+  1.3     4   30.0     75  same  0.0 |    272mm   34mm  -19deg  22.7mm/s   46% |    29%  0.5mm     60% |    7mm  4.3d  25.8d
+  1.3     3   30.0     75  same  0.0 |    258mm   56mm   -1deg  21.5mm/s   47% |    26%  0.5mm     61% |   21mm  3.9d  40.1d
+  1.5     3   25.0     90  same  0.0 |    258mm   58mm   15deg  21.5mm/s   48% |    32%  0.4mm     63% |   11mm  3.8d  28.7d
+falls by roll amplitude: 3 deg: 6, 4 deg: 9, 5 deg: 18

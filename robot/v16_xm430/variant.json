@@ -1,0 +1,47 @@
+{
+  "variant": "v16_xm430",
+  "title": "XM430-W350 (12 V), ankle pitch + roll both in the STL foot, legs unchanged, 852 mm",
+  "layout": "newbase",
+  "demo": {
+    "pitch_lean": 5,
+    "roll_lean": 5,
+    "yaw": 35,
+    "bow_hip": 0,
+    "bow_ankle": 0,
+    "diag_roll": 5,
+    "diag_yaw": -30,
+    "pose_bow_hip": 0,
+    "pose_bow_ankle": 0,
+    "pose_lift_roll": 5,
+    "pose_lift_hip": 8
+  },
+  "mass_kg": 10.3,
+  "com_mm": [
+    34.2,
+    0.2,
+    354.5
+  ],
+  "height_mm": 871.2,
+  "summary": {
+    "actuated joints": "6 (hip yaw x2, ankle pitch x2, ankle roll x2; the waist is fixed)",
+    "servo": "XM430-W350-T: 28.5 x 46.5 x 34.0 mm, 82 g, stall 4.1 N.m",
+    "roll axis above sole (mm)": "14.2 / 14.2 (left / right)",
+    "roll axis vs leg centre (mm)": "-8.5 ahead, -1.7 inboard",
+    "legs raised to clear the feet (mm)": 19.2,
+    "character scale": "x7.10 of the 120 mm STL (852 mm character)",
+    "foot (mm)": "116.9 long x 78.7 wide x 56.7 high (the STL's own foot, flat sole 104 x 65)",
+    "ankle motors": "both inside the foot: roll standing, pitch lying with its long side to the toe, riding the roll output",
+    "pitch axis above sole (mm)": "19.3, 22.6 ahead of the leg centre",
+    "ankle gap, leg bottom to foot top (mm)": 11.8,
+    "leg shell (mm)": "original, 20.3 from bottom to crotch",
+    "display": "358.7 x 242.5 x 19.6 mm, 1.890 kg, centre 156 mm ahead, 246 mm up, bottom edge 125 mm above the floor"
+  },
+  "motors_inside": {
+    "pelvis#0": 1.0,
+    "pelvis#1": 1.0,
+    "ankle_l#0": 1.0,
+    "foot_l#0": 1.0,
+    "ankle_r#0": 1.0,
+    "foot_r#0": 1.0
+  }
+}

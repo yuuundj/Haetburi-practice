@@ -1,0 +1,29 @@
+variant  v12_slipper_display: v11 at 500 mm: roll motor out in the open at the ankle, toe cap as a slipper
+wrote    robot/v12_slipper_display/haetburi.urdf, robot/v12_slipper_display/haetburi_scene.xml
+
+link       mass kg  com (m, robot frame)
+pelvis       0.537  [ 0.0255 -0.      0.094 ]
+torso        2.063  [2.990e-02 1.000e-04 2.398e-01]
+leg_l        0.060  [0.0095 0.0239 0.0396]
+foot_l       0.076  [0.0151 0.0199 0.0221]
+leg_r        0.062  [ 0.0099 -0.0241  0.0402]
+foot_r       0.076  [ 0.015  -0.0202  0.0221]
+
+total mass 2.875 kg   com [0.0274 0.     0.1925] m   com height 193 mm
+standing height 526 mm, character scale x4.1667
+actuated joints: 5 (waist yaw, hip yaw x2, ankle roll x2)
+roll axis above sole (mm): 14.2 / 14.2 (left / right)
+roll axis vs leg centre (mm): -2.0 ahead, 6.1 inboard
+legs raised to clear the feet (mm): 26.0
+character scale: x4.167 of the 120 mm STL (500 mm character)
+foot (mm): 68.6 long x 46.2 wide (the STL's outline); toe cap 22 mm long, sole plate 3 mm
+roll motor: standing on the sole plate at the heel, in the open, shaft fore-aft, long side up, horn to the heel
+ankle gap, motor top to leg cap (mm): 7.4
+leg shell (mm): original, capped at 31 mm, 10.0 from cap to crotch
+display: 210.5 x 142.3 x 11.5 mm, 0.651 kg, centre 92 mm ahead, 157 mm up, bottom edge 86 mm above the floor
+motor volume inside the shell:
+  pelvis#0    98.1 %
+  pelvis#1    98.1 %
+  torso#0    100.0 %
+  foot_l#0     0.0 %
+  foot_r#0     0.0 %

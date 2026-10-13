@@ -1,0 +1,38 @@
+variant  v18_sts3032: STS3032, v17 with whole legs: lower belly carved around the leg sweep, 402 mm
+wrote    robot/v18_sts3032/haetburi.urdf, robot/v18_sts3032/haetburi_scene.xml
+
+link       mass kg  com (m, robot frame)
+pelvis       0.238  [ 0.0012 -0.0001  0.0793]
+torso        1.033  [2.510e-02 1.000e-04 1.823e-01]
+leg_l        0.040  [0.0092 0.0191 0.0303]
+hip_l        0.036  [0.0096 0.0175 0.0585]
+foot_l       0.060  [0.0174 0.0189 0.0066]
+leg_r        0.040  [ 0.0092 -0.0193  0.0303]
+hip_r        0.036  [ 0.0096 -0.0177  0.0585]
+foot_r       0.060  [ 0.0175 -0.0195  0.0066]
+
+total mass 1.542 kg   com [0.0193 0.     0.1392] m   com height 139 mm
+standing height 409 mm, character scale x3.3500
+actuated joints: 6 (hip yaw x2, hip pitch x2, ankle roll x2; the waist is fixed)
+servo: STS3032: 12.0 x 23.0 x 27.5 mm, 25 g, stall 0.44 N.m
+roll axis above sole (mm): 8.2 / 8.2 (left / right)
+roll axis vs leg centre (mm): 9.1 ahead, 4.5 inboard
+legs raised to clear the feet (mm): 7.4
+hip pitch motor: standing in the belly under the hip yaw motor, shaft lateral, horn outboard; axis 13.5 mm above the crotch, 1.5 ahead of the leg centre (target 10.5), case -2.0 outboard; walled case inside the body over hip yaw +-30 deg
+hip yaw motor: vertical shaft, horn down, case bottom 35.5 mm above the crotch
+character scale: x3.35 of the 120 mm STL (402 mm character; the walled roll motor fits the STL foot from x4.01)
+foot (mm): 55.1 long x 37.1 wide x 26.7 high (the STL's own foot, flat sole 49 x 31)
+roll motor: lying on its side in the foot, shaft fore-aft, long end outward
+ankle gap, leg bottom to foot top (mm): 3.9
+leg shell (mm): original, 9.6 from bottom to crotch
+hip seam: legs cut off whole at the crotch (flat lid); lower belly carved around their sweep (hip pitch -30..25 deg, yaw +-20) + 1.0 mm gap: pockets up to 11.0 mm above the crotch; leg points reaching into the hip motor cases: 0
+display: 169.2 x 114.4 x 9.2 mm, 0.342 kg, centre 74 mm ahead, 112 mm up, bottom edge 55 mm above the floor
+hip range, collision-free (deg): pitch 32 forward (belly) / 28 back (belly); yaw 20 toes-in (other foot) / 60 toes-out (not reached)
+hip joint limits set (deg): pitch -30..26 (+ = leg back), yaw +-18
+motor volume inside the shell:
+  pelvis#0   100.0 %
+  pelvis#1   100.0 %
+  hip_l#0    100.0 %
+  foot_l#0   100.0 %
+  hip_r#0    100.0 %
+  foot_r#0   100.0 %

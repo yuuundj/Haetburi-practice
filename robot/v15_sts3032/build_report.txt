@@ -1,0 +1,34 @@
+variant  v15_sts3032: STS3032, ankle pitch + roll stacked, all 6 motors inside, 456 mm
+wrote    robot/v15_sts3032/haetburi.urdf, robot/v15_sts3032/haetburi_scene.xml
+
+link       mass kg  com (m, robot frame)
+pelvis       0.251  [ 1.600e-03 -1.000e-04  1.051e-01]
+torso        1.505  [2.840e-02 1.000e-04 2.293e-01]
+leg_l        0.079  [0.015  0.0211 0.0511]
+ankle_l      0.022  [0.0205 0.0188 0.029 ]
+foot_l       0.069  [0.0199 0.022  0.0076]
+leg_r        0.079  [ 0.015  -0.0213  0.0511]
+ankle_r      0.022  [ 0.0206 -0.0191  0.029 ]
+foot_r       0.069  [ 0.0199 -0.0224  0.0075]
+
+total mass 2.095 kg   com [0.0234 0.     0.1823] m   com height 182 mm
+standing height 486 mm, character scale x3.8000
+actuated joints: 6 (hip yaw x2, ankle pitch x2, ankle roll x2; the waist is fixed)
+servo: STS3032: 12.0 x 23.0 x 27.5 mm, 25 g, stall 0.44 N.m
+roll axis above sole (mm): 8.3 / 8.3 (left / right)
+roll axis vs leg centre (mm): 10.3 ahead, 4.2 inboard
+legs raised to clear the feet (mm): 30.4
+character scale: x3.80 of the 120 mm STL (456 mm character)
+foot (mm): 62.5 long x 42.1 wide x 30.3 high (the STL's own foot, flat sole 56 x 35)
+ankle motors: roll lying in the foot (long end outward); pitch standing in the leg above it
+pitch axis above sole (mm): 49.6, 12.4 ahead of the leg centre
+leg (mm): the STL leg lengthened by its own section: 21 added, 26 from bottom to crotch; the added part reaches 11.4 further forward
+ankle gap, leg bottom to foot top (mm): 11.8
+display: 192.0 x 129.8 x 10.5 mm, 0.496 kg, centre 84 mm ahead, 150 mm up, bottom edge 85 mm above the floor
+motor volume inside the shell:
+  pelvis#0   100.0 %
+  pelvis#1   100.0 %
+  leg_l#0    100.0 %
+  foot_l#0   100.0 %
+  leg_r#0    100.0 %
+  foot_r#0   100.0 %

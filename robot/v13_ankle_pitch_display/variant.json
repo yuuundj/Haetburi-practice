@@ -1,0 +1,47 @@
+{
+  "variant": "v13_ankle_pitch_display",
+  "title": "v11 + the ankle pitch joint back: pitch motor in the foot, roll motor stacked in the leg",
+  "layout": "newbase",
+  "demo": {
+    "pitch_lean": 5,
+    "roll_lean": 5,
+    "yaw": 35,
+    "bow_hip": 0,
+    "bow_ankle": 0,
+    "diag_roll": 5,
+    "diag_yaw": -30,
+    "pose_bow_hip": 0,
+    "pose_bow_ankle": 0,
+    "pose_lift_roll": 5,
+    "pose_lift_hip": 8
+  },
+  "mass_kg": 4.753,
+  "com_mm": [
+    26.1,
+    0.1,
+    304.4
+  ],
+  "height_mm": 768.7,
+  "summary": {
+    "actuated joints": "7 (waist yaw, hip yaw x2, ankle pitch x2, ankle roll x2)",
+    "roll axis above sole (mm)": "17.3 / 17.3 (left / right)",
+    "roll axis vs leg centre (mm)": "15.2 ahead, 9.3 inboard",
+    "legs raised to clear the feet (mm)": 54.7,
+    "character scale": "x5.95 of the 120 mm STL (714 mm character)",
+    "foot (mm)": "97.9 long x 66.0 wide x 47.5 high (the STL's own foot, flat sole 87 x 54)",
+    "ankle motors": "roll lying in the foot (long end outward); pitch standing in the leg above it",
+    "pitch axis above sole (mm)": "76.8, 4.0 ahead of the leg centre",
+    "leg (mm)": "the STL leg lengthened by its own section: 43 added, 50 from bottom to crotch",
+    "ankle gap, leg bottom to foot top (mm)": 15.5,
+    "display": "210.5 x 142.3 x 11.5 mm, 0.651 kg, centre 131 mm ahead, 272 mm up, bottom edge 201 mm above the floor"
+  },
+  "motors_inside": {
+    "pelvis#0": 1.0,
+    "pelvis#1": 1.0,
+    "torso#0": 1.0,
+    "leg_l#0": 1.0,
+    "foot_l#0": 1.0,
+    "leg_r#0": 1.0,
+    "foot_r#0": 1.0
+  }
+}

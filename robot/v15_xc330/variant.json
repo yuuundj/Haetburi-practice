@@ -1,0 +1,47 @@
+{
+  "variant": "v15_xc330",
+  "title": "XC330-T288, ankle pitch + roll stacked, all 6 motors inside, 516 mm",
+  "layout": "newbase",
+  "demo": {
+    "pitch_lean": 5,
+    "roll_lean": 5,
+    "yaw": 35,
+    "bow_hip": 0,
+    "bow_ankle": 0,
+    "diag_roll": 5,
+    "diag_yaw": -30,
+    "pose_bow_hip": 0,
+    "pose_bow_ankle": 0,
+    "pose_lift_roll": 5,
+    "pose_lift_hip": 8
+  },
+  "mass_kg": 2.862,
+  "com_mm": [
+    27.0,
+    0.0,
+    223.2
+  ],
+  "height_mm": 559.4,
+  "summary": {
+    "actuated joints": "6 (hip yaw x2, ankle pitch x2, ankle roll x2; the waist is fixed)",
+    "servo": "XC330-T288-T: 20.0 x 34.0 x 26.0 mm, 23 g, stall 1.0 N.m",
+    "roll axis above sole (mm)": "12.4 / 12.4 (left / right)",
+    "roll axis vs leg centre (mm)": "11.7 ahead, 7.4 inboard",
+    "legs raised to clear the feet (mm)": 43.4,
+    "character scale": "x4.30 of the 120 mm STL (516 mm character)",
+    "foot (mm)": "70.8 long x 47.7 wide x 34.3 high (the STL's own foot, flat sole 63 x 39)",
+    "ankle motors": "roll lying in the foot (long end outward); pitch standing in the leg above it",
+    "pitch axis above sole (mm)": "58.8, 15.8 ahead of the leg centre",
+    "leg (mm)": "the STL leg lengthened by its own section: 31 added, 36 from bottom to crotch; the added part reaches 12.9 further forward",
+    "ankle gap, leg bottom to foot top (mm)": 14.7,
+    "display": "217.2 x 146.9 x 11.9 mm, 0.714 kg, centre 95 mm ahead, 179 mm up, bottom edge 105 mm above the floor"
+  },
+  "motors_inside": {
+    "pelvis#0": 1.0,
+    "pelvis#1": 1.0,
+    "leg_l#0": 1.0,
+    "foot_l#0": 1.0,
+    "leg_r#0": 1.0,
+    "foot_r#0": 1.0
+  }
+}

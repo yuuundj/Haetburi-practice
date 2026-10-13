@@ -1,0 +1,164 @@
+{
+ "worst": {
+  "all runs, including the fastest gait": {
+   "hip_yaw_l": [
+    0.11144159384662009,
+    0.0686619382069807,
+    3.9261526039281818
+   ],
+   "hip_yaw_r": [
+    0.11399940815371144,
+    0.0686279658115902,
+    3.92551409845693
+   ],
+   "ankle_roll_l": [
+    0.044101605961681084,
+    0.01740900010251643,
+    0.6094235967831296
+   ],
+   "ankle_roll_r": [
+    0.04193489124831054,
+    0.01743466739953337,
+    0.619086719955989
+   ]
+  },
+  "walking at the reference pace (no fastest gait)": {
+   "hip_yaw_l": [
+    0.051400723481817456,
+    0.028071422718160068,
+    1.5798038093265634
+   ],
+   "hip_yaw_r": [
+    0.053207884701970576,
+    0.02884706613553994,
+    1.5718290325515114
+   ],
+   "ankle_roll_l": [
+    0.030863753413597147,
+    0.016736730454738107,
+    0.6094235967831296
+   ],
+   "ankle_roll_r": [
+    0.02761827284045079,
+    0.01591697066208528,
+    0.619086719955989
+   ]
+  }
+ },
+ "verdict": {
+  "all runs, including the fastest gait": {
+   "XL430-W250-T (11.1V)": {
+    "hip_yaw_l": true,
+    "hip_yaw_r": true,
+    "ankle_roll_l": true,
+    "ankle_roll_r": true
+   },
+   "XC330-T288-T (11.1V)": {
+    "hip_yaw_l": true,
+    "hip_yaw_r": true,
+    "ankle_roll_l": true,
+    "ankle_roll_r": true
+   },
+   "XC330-M288-T (5V)": {
+    "hip_yaw_l": true,
+    "hip_yaw_r": true,
+    "ankle_roll_l": true,
+    "ankle_roll_r": true
+   },
+   "XC330-T181-T (11.1V)": {
+    "hip_yaw_l": true,
+    "hip_yaw_r": true,
+    "ankle_roll_l": true,
+    "ankle_roll_r": true
+   },
+   "XL330-M288-T (5V)": {
+    "hip_yaw_l": true,
+    "hip_yaw_r": true,
+    "ankle_roll_l": true,
+    "ankle_roll_r": true
+   },
+   "STS3032 (6V)": {
+    "hip_yaw_l": true,
+    "hip_yaw_r": true,
+    "ankle_roll_l": true,
+    "ankle_roll_r": true
+   },
+   "SCS0009 (6V)": {
+    "hip_yaw_l": true,
+    "hip_yaw_r": true,
+    "ankle_roll_l": true,
+    "ankle_roll_r": true
+   }
+  },
+  "walking at the reference pace (no fastest gait)": {
+   "XL430-W250-T (11.1V)": {
+    "hip_yaw_l": true,
+    "hip_yaw_r": true,
+    "ankle_roll_l": true,
+    "ankle_roll_r": true
+   },
+   "XC330-T288-T (11.1V)": {
+    "hip_yaw_l": true,
+    "hip_yaw_r": true,
+    "ankle_roll_l": true,
+    "ankle_roll_r": true
+   },
+   "XC330-M288-T (5V)": {
+    "hip_yaw_l": true,
+    "hip_yaw_r": true,
+    "ankle_roll_l": true,
+    "ankle_roll_r": true
+   },
+   "XC330-T181-T (11.1V)": {
+    "hip_yaw_l": true,
+    "hip_yaw_r": true,
+    "ankle_roll_l": true,
+    "ankle_roll_r": true
+   },
+   "XL330-M288-T (5V)": {
+    "hip_yaw_l": true,
+    "hip_yaw_r": true,
+    "ankle_roll_l": true,
+    "ankle_roll_r": true
+   },
+   "STS3032 (6V)": {
+    "hip_yaw_l": true,
+    "hip_yaw_r": true,
+    "ankle_roll_l": true,
+    "ankle_roll_r": true
+   },
+   "SCS0009 (6V)": {
+    "hip_yaw_l": true,
+    "hip_yaw_r": true,
+    "ankle_roll_l": true,
+    "ankle_roll_r": true
+   }
+  }
+ },
+ "best": {
+  "freq": 1.5,
+  "roll": 3,
+  "swing": 25,
+  "phase": 75,
+  "pair": "same",
+  "fell": null,
+  "dx": 231.7746835681436,
+  "dy": 75.71745141263224,
+  "dyaw": 11.480494155512023,
+  "speed": 19.3145569640098,
+  "peak": 50.44221599721745,
+  "sway_mm": 9.951591976019282,
+  "roll_deg": 3.094631130199604,
+  "yaw_osc_deg": 35.093179895150676,
+  "air_time": 0.31786368938510245,
+  "lift_mm": 0.22242152809334553,
+  "step_ratio": 0.6698703664273625
+ },
+ "ref": {
+  "freq": 0.9,
+  "roll": 6,
+  "swing": 16,
+  "phase": 90,
+  "pair": "same"
+ }
+}

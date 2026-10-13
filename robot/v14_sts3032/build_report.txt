@@ -1,0 +1,29 @@
+variant  v14_sts3032: v12 layout, Feetech STS3032 (6 V), fixed waist, 228 mm
+wrote    robot/v14_sts3032/haetburi.urdf, robot/v14_sts3032/haetburi_scene.xml
+
+link       mass kg  com (m, robot frame)
+pelvis       0.173  [ 0.0117 -0.      0.0495]
+torso        0.191  [0.0146 0.     0.1134]
+leg_l        0.023  [0.0045 0.0109 0.0193]
+foot_l       0.027  [0.0114 0.0085 0.0128]
+leg_r        0.023  [ 0.0046 -0.011   0.0194]
+foot_r       0.027  [ 0.0114 -0.0086  0.0128]
+
+total mass 0.464 kg   com [ 0.0122 -0.      0.0686] m   com height 69 mm
+standing height 243 mm, character scale x1.9000
+actuated joints: 4 (hip yaw x2, ankle roll x2; the waist is fixed)
+servo: STS3032: 12.0 x 23.0 x 27.5 mm, 25 g, stall 0.44 N.m
+roll axis above sole (mm): 8.0 / 8.0 (left / right)
+roll axis vs leg centre (mm): 6.5 ahead, 2.7 inboard
+legs raised to clear the feet (mm): 15.5
+character scale: x1.900 of the 120 mm STL (228 mm character)
+foot (mm): 31.3 long x 21.1 wide (the STL's outline); toe cap 10 mm long, sole plate 2 mm
+roll motor: standing on the sole plate at the heel, in the open, shaft fore-aft, long side up, horn to the heel
+ankle gap, motor top to leg cap (mm): 4.5
+leg shell (mm): original, capped at 14 mm, 4.6 from cap to crotch
+display: 96.0 x 64.9 x 5.2 mm, 0.065 kg, centre 42 mm ahead, 73 mm up, bottom edge 40 mm above the floor
+motor volume inside the shell:
+  pelvis#0   100.0 %
+  pelvis#1   100.0 %
+  foot_l#0    13.4 %
+  foot_r#0    13.4 %

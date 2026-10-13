@@ -1,0 +1,29 @@
+== v11_newbase_display  (4.42 kg)
+best gait {'freq': 0.7, 'roll': 4, 'swing': 9, 'phase': 90, 'pair': 'same', 'fell': None, 'dx': 176.1572689834418, 'dy': -6.927095322317103, 'dyaw': -7.02244356462025, 'speed': 14.679772415285173, 'peak': 67.22451027814877, 'sway_mm': 4.415889176883843, 'roll_deg': 4.966413745881097, 'yaw_osc_deg': 20.112352933426312, 'air_time': 0.43667722046325613, 'lift_mm': 1.5162064092249066, 'step_ratio': 0.9193347197886557}
+reference gait {'freq': 0.9, 'roll': 6, 'swing': 16, 'phase': 90, 'pair': 'same'}
+
+joint                         stand             best gait        reference gait                  demo   max speed
+                    peak / rms  N.m       peak / rms  N.m       peak / rms  N.m       peak / rms  N.m   rad/s
+waist_yaw             0.000 / 0.000         0.405 / 0.131         1.014 / 0.349         0.850 / 0.111    1.13
+hip_yaw_l             0.003 / 0.002         0.893 / 0.220         0.816 / 0.314         0.138 / 0.041    1.55
+hip_yaw_r             0.003 / 0.002         0.916 / 0.211         1.037 / 0.438         0.219 / 0.038    1.81
+ankle_roll_l          0.032 / 0.031         0.667 / 0.307         1.400 / 1.037         0.673 / 0.229    0.69
+ankle_roll_r          0.033 / 0.033         0.677 / 0.309         1.400 / 0.772         0.656 / 0.233    1.68
+fell: reference gait at 3.8 s
+
+motor check, all runs, including the fastest gait: peak under 70% of stall, RMS under 35% of stall, speed under no-load speed
+joint          XL430-W250-T  XC330-T288-T  XC330-M288-T  XC330-T181-T  XL330-M288-T
+waist_yaw       72%/ 25% --  110%/ 38% --  109%/ 38% --  133%/ 46% --  195%/ 67% --
+hip_yaw_l       64%/ 22% ok   97%/ 34% --   96%/ 34% --  118%/ 41% --  172%/ 60% --
+hip_yaw_r       74%/ 31% --  113%/ 48% --  111%/ 47% --  136%/ 58% --  199%/ 84% --
+ankle_roll_l   100%/ 74% --  152%/113% --  151%/112% --  184%/136% --  269%/199% --
+ankle_roll_r   100%/ 55% --  152%/ 84% --  151%/ 83% --  184%/102% --  269%/148% --
+
+motor check, walking at the reference pace (no fastest gait): peak under 70% of stall, RMS under 35% of stall, speed under no-load speed
+joint          XL430-W250-T  XC330-T288-T  XC330-M288-T  XC330-T181-T  XL330-M288-T
+waist_yaw       72%/ 25% --  110%/ 38% --  109%/ 38% --  133%/ 46% --  195%/ 67% --
+hip_yaw_l       58%/ 22% ok   89%/ 34% --   88%/ 34% --  107%/ 41% --  157%/ 60% --
+hip_yaw_r       74%/ 31% --  113%/ 48% --  111%/ 47% --  136%/ 58% --  199%/ 84% --
+ankle_roll_l   100%/ 74% --  152%/113% --  151%/112% --  184%/136% --  269%/199% --
+ankle_roll_r   100%/ 55% --  152%/ 84% --  151%/ 83% --  184%/102% --  269%/148% --
+  (cells: peak % of stall / RMS % of stall, then ok or --)

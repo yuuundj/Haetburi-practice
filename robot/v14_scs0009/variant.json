@@ -1,0 +1,44 @@
+{
+  "variant": "v14_scs0009",
+  "title": "v12 layout, Feetech SCS0009 (6 V micro), fixed waist, 222 mm",
+  "layout": "newbase",
+  "demo": {
+    "pitch_lean": 0,
+    "roll_lean": 5,
+    "yaw": 35,
+    "bow_hip": 0,
+    "bow_ankle": 0,
+    "diag_roll": 5,
+    "diag_yaw": -30,
+    "pose_bow_hip": 0,
+    "pose_bow_ankle": 0,
+    "pose_lift_roll": 5,
+    "pose_lift_hip": 8
+  },
+  "mass_kg": 0.336,
+  "com_mm": [
+    12.4,
+    0.0,
+    76.2
+  ],
+  "height_mm": 237.9,
+  "summary": {
+    "actuated joints": "4 (hip yaw x2, ankle roll x2; the waist is fixed)",
+    "servo": "SCS0009: 12.1 x 23.2 x 25.25 mm, 13 g, stall 0.226 N.m",
+    "roll axis above sole (mm)": "8.0 / 8.0 (left / right)",
+    "roll axis vs leg centre (mm)": "5.6 ahead, 2.4 inboard",
+    "legs raised to clear the feet (mm)": 15.9,
+    "character scale": "x1.850 of the 120 mm STL (222 mm character)",
+    "foot (mm)": "30.4 long x 20.5 wide (the STL's outline); toe cap 10 mm long, sole plate 2 mm",
+    "roll motor": "standing on the sole plate at the heel, in the open, shaft fore-aft, long side up, horn to the heel",
+    "ankle gap, motor top to leg cap (mm)": 4.4,
+    "leg shell (mm)": "original, capped at 14 mm, 4.4 from cap to crotch",
+    "display": "93.5 x 63.2 x 5.1 mm, 0.060 kg, centre 41 mm ahead, 71 mm up, bottom edge 40 mm above the floor"
+  },
+  "motors_inside": {
+    "pelvis#0": 1.0,
+    "pelvis#1": 1.0,
+    "foot_l#0": 0.139,
+    "foot_r#0": 0.139
+  }
+}

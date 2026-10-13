@@ -1,0 +1,29 @@
+variant  v14_scs0009_hidden: SCS0009, all motors inside (roll motor in the STL foot), 384 mm
+wrote    robot/v14_scs0009_hidden/haetburi.urdf, robot/v14_scs0009_hidden/haetburi_scene.xml
+
+link       mass kg  com (m, robot frame)
+pelvis       0.131  [ 0.0175 -0.      0.0591]
+torso        0.902  [2.400e-02 1.000e-04 1.741e-01]
+leg_l        0.014  [0.0075 0.0182 0.0219]
+foot_l       0.045  [0.0165 0.0176 0.0059]
+leg_r        0.014  [ 0.0075 -0.0184  0.022 ]
+foot_r       0.045  [ 0.0165 -0.0178  0.0058]
+
+total mass 1.152 kg   com [0.0223 0.     0.144 ] m   com height 144 mm
+standing height 391 mm, character scale x3.2000
+actuated joints: 4 (hip yaw x2, ankle roll x2; the waist is fixed)
+servo: SCS0009: 12.1 x 23.2 x 25.25 mm, 13 g, stall 0.226 N.m
+roll axis above sole (mm): 8.2 / 8.2 (left / right)
+roll axis vs leg centre (mm): 8.4 ahead, 4.6 inboard
+legs raised to clear the feet (mm): 7.2
+character scale: x3.20 of the 120 mm STL (384 mm character; the walled roll motor fits the STL foot from x4.01)
+foot (mm): 52.7 long x 35.5 wide x 25.5 high (the STL's own foot, flat sole 47 x 29)
+roll motor: lying on its side in the foot, shaft fore-aft, long end outward
+ankle gap, leg bottom to foot top (mm): 3.9
+leg shell (mm): original, 9.1 from bottom to crotch
+display: 161.7 x 109.3 x 8.8 mm, 0.299 kg, centre 71 mm ahead, 107 mm up, bottom edge 52 mm above the floor
+motor volume inside the shell:
+  pelvis#0   100.0 %
+  pelvis#1   100.0 %
+  foot_l#0   100.0 %
+  foot_r#0   100.0 %

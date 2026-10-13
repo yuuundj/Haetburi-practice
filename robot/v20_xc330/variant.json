@@ -1,0 +1,51 @@
+{
+  "variant": "v20_xc330",
+  "title": "XC330-T288, hip pitch + ankle pitch + ankle roll, sockets, 4 mm walls, 588 mm",
+  "layout": "newbase",
+  "demo": {
+    "pitch_lean": 5,
+    "roll_lean": 5,
+    "yaw": 35,
+    "bow_hip": 10,
+    "bow_ankle": 0,
+    "diag_roll": 5,
+    "diag_yaw": -30,
+    "pose_bow_hip": 8,
+    "pose_bow_ankle": 0,
+    "pose_lift_roll": 5,
+    "pose_lift_hip": 8
+  },
+  "mass_kg": 3.566,
+  "com_mm": [
+    33.5,
+    0.1,
+    224.9
+  ],
+  "height_mm": 634.1,
+  "summary": {
+    "actuated joints": "6 (hip pitch x2, ankle pitch x2, ankle roll x2; the waist is fixed)",
+    "servo": "XC330-T288-T: 20.0 x 34.0 x 26.0 mm, 23 g, stall 1.0 N.m",
+    "roll axis above sole (mm)": "14.0 / 14.0 (left / right)",
+    "roll axis vs leg centre (mm)": "12.1 ahead, 6.8 inboard",
+    "legs raised to clear the feet (mm)": 46.1,
+    "hip pitch motor": "standing in the belly, shaft lateral, horn outboard; axis 16.2 mm above the crotch, 10.0 ahead of the leg centre (target 24.3), case -8.0 outboard; walled case inside the body",
+    "character scale": "x4.90 of the 120 mm STL (588 mm character)",
+    "foot (mm)": "80.6 long x 54.3 wide x 39.1 high (the STL's own foot, flat sole 72 x 45)",
+    "ankle motors": "roll lying in the foot (long end outward); pitch standing in the leg above it",
+    "pitch axis above sole (mm)": "67.3, 16.7 ahead of the leg centre",
+    "leg (mm)": "the STL leg lengthened by its own section: 33 added, 39 from bottom to crotch; the added part reaches 14.7 further forward",
+    "ankle gap, leg bottom to foot top (mm)": 16.0,
+    "hip seam": "torso cut flat 16.2 mm above the STL crotch (pivot), legs carried up into sockets (legs that much longer), hidden dome R 37.0 mm about the hip pivot; sockets cut for hip pitch -30..25, yaw +-0 + 1.0 mm gap: socket gap front 2.7 / back 4.3 / outer 0.7 mm, BREAKS the torso skin (thickest wall beside it 0.5 mm); motor hollow through the visible leg skin 129 mm^2; leg points reaching the hip yaw case 0",
+    "display": "247.5 x 167.3 x 13.5 mm, 0.900 kg, centre 108 mm ahead, 202 mm up, bottom edge 118 mm above the floor",
+    "hip range, collision-free (deg)": "pitch 32 forward (belly) / 26 back (belly); yaw 4 toes-in (belly) / 3 toes-out (belly)",
+    "hip joint limits set (deg)": "pitch -30..24 (+ = leg back), yaw +-0"
+  },
+  "motors_inside": {
+    "pelvis#0": 1.0,
+    "pelvis#1": 1.0,
+    "leg_l#0": 1.0,
+    "foot_l#0": 1.0,
+    "leg_r#0": 1.0,
+    "foot_r#0": 1.0
+  }
+}

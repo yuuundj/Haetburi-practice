@@ -1,0 +1,29 @@
+variant  v14_xc330: v12 layout, Dynamixel XC330-T288 (12 V), fixed waist, 300 mm
+wrote    robot/v14_xc330/haetburi.urdf, robot/v14_xc330/haetburi_scene.xml
+
+link       mass kg  com (m, robot frame)
+pelvis       0.296  [ 0.0171 -0.      0.067 ]
+torso        0.432  [1.900e-02 1.000e-04 1.525e-01]
+leg_l        0.022  [0.0059 0.0143 0.0273]
+foot_l       0.027  [0.0105 0.0131 0.0169]
+leg_r        0.023  [ 0.006  -0.0144  0.0276]
+foot_r       0.027  [ 0.0105 -0.0132  0.0169]
+
+total mass 0.828 kg   com [0.017  0.     0.1062] m   com height 106 mm
+standing height 323 mm, character scale x2.5000
+actuated joints: 4 (hip yaw x2, ankle roll x2; the waist is fixed)
+servo: XC330-T288-T: 20.0 x 34.0 x 26.0 mm, 23 g, stall 1.0 N.m
+roll axis above sole (mm): 10.2 / 10.2 (left / right)
+roll axis vs leg centre (mm): 2.5 ahead, 1.7 inboard
+legs raised to clear the feet (mm): 22.6
+character scale: x2.500 of the 120 mm STL (300 mm character)
+foot (mm): 41.1 long x 27.7 wide (the STL's outline); toe cap 13 mm long, sole plate 2 mm
+roll motor: standing on the sole plate at the heel, in the open, shaft fore-aft, long side up, horn to the heel
+ankle gap, motor top to leg cap (mm): 5.1
+leg shell (mm): original, capped at 18 mm, 6.0 from cap to crotch
+display: 126.3 x 85.4 x 6.9 mm, 0.145 kg, centre 55 mm ahead, 100 mm up, bottom edge 57 mm above the floor
+motor volume inside the shell:
+  pelvis#0   100.0 %
+  pelvis#1   100.0 %
+  foot_l#0     0.0 %
+  foot_r#0     0.0 %

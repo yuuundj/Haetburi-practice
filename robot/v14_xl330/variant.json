@@ -1,0 +1,44 @@
+{
+  "variant": "v14_xl330",
+  "title": "v12 layout, Dynamixel XL330-M288 (5 V), fixed waist, 300 mm",
+  "layout": "newbase",
+  "demo": {
+    "pitch_lean": 0,
+    "roll_lean": 5,
+    "yaw": 35,
+    "bow_hip": 0,
+    "bow_ankle": 0,
+    "diag_roll": 5,
+    "diag_yaw": -30,
+    "pose_bow_hip": 0,
+    "pose_bow_ankle": 0,
+    "pose_lift_roll": 5,
+    "pose_lift_hip": 8
+  },
+  "mass_kg": 0.692,
+  "com_mm": [
+    17.1,
+    0.0,
+    115.3
+  ],
+  "height_mm": 322.6,
+  "summary": {
+    "actuated joints": "4 (hip yaw x2, ankle roll x2; the waist is fixed)",
+    "servo": "XL330-M288-T: 20.0 x 34.0 x 26.0 mm, 18 g, stall 0.52 N.m",
+    "roll axis above sole (mm)": "10.2 / 10.2 (left / right)",
+    "roll axis vs leg centre (mm)": "2.5 ahead, 1.7 inboard",
+    "legs raised to clear the feet (mm)": 22.6,
+    "character scale": "x2.500 of the 120 mm STL (300 mm character)",
+    "foot (mm)": "41.1 long x 27.7 wide (the STL's outline); toe cap 13 mm long, sole plate 2 mm",
+    "roll motor": "standing on the sole plate at the heel, in the open, shaft fore-aft, long side up, horn to the heel",
+    "ankle gap, motor top to leg cap (mm)": 5.1,
+    "leg shell (mm)": "original, capped at 18 mm, 6.0 from cap to crotch",
+    "display": "126.3 x 85.4 x 6.9 mm, 0.145 kg, centre 55 mm ahead, 100 mm up, bottom edge 57 mm above the floor"
+  },
+  "motors_inside": {
+    "pelvis#0": 1.0,
+    "pelvis#1": 1.0,
+    "foot_l#0": 0.0,
+    "foot_r#0": 0.0
+  }
+}

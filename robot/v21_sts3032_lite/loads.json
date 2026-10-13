@@ -1,0 +1,225 @@
+{
+ "worst": {
+  "walking (standing, best gait, reference gait; IMU feedback on)": {
+   "hip_pitch_l": [
+    0.2048293673541397,
+    0.06686170441581285,
+    1.142968326420719
+   ],
+   "hip_pitch_r": [
+    0.1969088926236735,
+    0.06211049987133955,
+    1.2196475781590888
+   ],
+   "ankle_pitch_l": [
+    0.2709061635450346,
+    0.0921361083430909,
+    1.0021528170626022
+   ],
+   "ankle_pitch_r": [
+    0.2400865511305128,
+    0.08661610837480847,
+    1.1333936562156806
+   ],
+   "ankle_roll_l": [
+    0.24905927446900855,
+    0.11436856735138633,
+    0.728280690285591
+   ],
+   "ankle_roll_r": [
+    0.2542720547927465,
+    0.11940478430822841,
+    0.6845399625091049
+   ]
+  },
+  "all runs, the demo's scripted bows and twists included": {
+   "hip_pitch_l": [
+    0.2048293673541397,
+    0.07818651212615972,
+    1.142968326420719
+   ],
+   "hip_pitch_r": [
+    0.24102438660721237,
+    0.08458839431607502,
+    1.2196475781590888
+   ],
+   "ankle_pitch_l": [
+    0.28232584620359247,
+    0.10391756050422436,
+    1.0021528170626022
+   ],
+   "ankle_pitch_r": [
+    0.2400865511305128,
+    0.08661610837480847,
+    1.1333936562156806
+   ],
+   "ankle_roll_l": [
+    0.24905927446900855,
+    0.11436856735138633,
+    0.728280690285591
+   ],
+   "ankle_roll_r": [
+    0.2542720547927465,
+    0.11940478430822841,
+    0.6845399625091049
+   ]
+  }
+ },
+ "verdict": {
+  "walking (standing, best gait, reference gait; IMU feedback on)": {
+   "XL430-W250-T (11.1V)": {
+    "hip_pitch_l": true,
+    "hip_pitch_r": true,
+    "ankle_pitch_l": true,
+    "ankle_pitch_r": true,
+    "ankle_roll_l": true,
+    "ankle_roll_r": true
+   },
+   "XC330-T288-T (11.1V)": {
+    "hip_pitch_l": true,
+    "hip_pitch_r": true,
+    "ankle_pitch_l": true,
+    "ankle_pitch_r": true,
+    "ankle_roll_l": true,
+    "ankle_roll_r": true
+   },
+   "XC330-M288-T (5V)": {
+    "hip_pitch_l": true,
+    "hip_pitch_r": true,
+    "ankle_pitch_l": true,
+    "ankle_pitch_r": true,
+    "ankle_roll_l": true,
+    "ankle_roll_r": true
+   },
+   "XC330-T181-T (11.1V)": {
+    "hip_pitch_l": true,
+    "hip_pitch_r": true,
+    "ankle_pitch_l": true,
+    "ankle_pitch_r": true,
+    "ankle_roll_l": true,
+    "ankle_roll_r": true
+   },
+   "XL330-M288-T (5V)": {
+    "hip_pitch_l": true,
+    "hip_pitch_r": true,
+    "ankle_pitch_l": true,
+    "ankle_pitch_r": true,
+    "ankle_roll_l": true,
+    "ankle_roll_r": true
+   },
+   "STS3032 (6V)": {
+    "hip_pitch_l": true,
+    "hip_pitch_r": true,
+    "ankle_pitch_l": true,
+    "ankle_pitch_r": true,
+    "ankle_roll_l": true,
+    "ankle_roll_r": true
+   },
+   "SCS0009 (6V)": {
+    "hip_pitch_l": false,
+    "hip_pitch_r": false,
+    "ankle_pitch_l": false,
+    "ankle_pitch_r": false,
+    "ankle_roll_l": false,
+    "ankle_roll_r": false
+   }
+  },
+  "all runs, the demo's scripted bows and twists included": {
+   "XL430-W250-T (11.1V)": {
+    "hip_pitch_l": true,
+    "hip_pitch_r": true,
+    "ankle_pitch_l": true,
+    "ankle_pitch_r": true,
+    "ankle_roll_l": true,
+    "ankle_roll_r": true
+   },
+   "XC330-T288-T (11.1V)": {
+    "hip_pitch_l": true,
+    "hip_pitch_r": true,
+    "ankle_pitch_l": true,
+    "ankle_pitch_r": true,
+    "ankle_roll_l": true,
+    "ankle_roll_r": true
+   },
+   "XC330-M288-T (5V)": {
+    "hip_pitch_l": true,
+    "hip_pitch_r": true,
+    "ankle_pitch_l": true,
+    "ankle_pitch_r": true,
+    "ankle_roll_l": true,
+    "ankle_roll_r": true
+   },
+   "XC330-T181-T (11.1V)": {
+    "hip_pitch_l": true,
+    "hip_pitch_r": true,
+    "ankle_pitch_l": true,
+    "ankle_pitch_r": true,
+    "ankle_roll_l": true,
+    "ankle_roll_r": true
+   },
+   "XL330-M288-T (5V)": {
+    "hip_pitch_l": true,
+    "hip_pitch_r": true,
+    "ankle_pitch_l": true,
+    "ankle_pitch_r": true,
+    "ankle_roll_l": true,
+    "ankle_roll_r": true
+   },
+   "STS3032 (6V)": {
+    "hip_pitch_l": true,
+    "hip_pitch_r": true,
+    "ankle_pitch_l": true,
+    "ankle_pitch_r": true,
+    "ankle_roll_l": true,
+    "ankle_roll_r": true
+   },
+   "SCS0009 (6V)": {
+    "hip_pitch_l": false,
+    "hip_pitch_r": false,
+    "ankle_pitch_l": false,
+    "ankle_pitch_r": false,
+    "ankle_roll_l": false,
+    "ankle_roll_r": false
+   }
+  }
+ },
+ "best": {
+  "freq": 0.9,
+  "roll": 5,
+  "swing": 9,
+  "phase": 270,
+  "pair": "anti",
+  "follow": 1.0,
+  "fb": {
+   "ki": 0.3,
+   "kd": 0.2,
+   "kdr": 0.03
+  },
+  "fell": null,
+  "dx": 178.98913922422383,
+  "dy": 7.270539112119395,
+  "dyaw": -0.5119347415715538,
+  "speed": 14.915761602016982,
+  "peak": 68.38324630656317,
+  "hip_hit": 0.0,
+  "sway_mm": 6.456316743679304,
+  "roll_deg": 6.124725657874245,
+  "yaw_osc_deg": 0.1568140008412533,
+  "air_time": 0.35269121813031157,
+  "lift_mm": 1.7306022287556666,
+  "step_ratio": 0.9332323712012335
+ },
+ "ref": {
+  "freq": 0.7,
+  "roll": 6,
+  "swing": 3,
+  "phase": 300,
+  "pair": "anti",
+  "follow": 1.0,
+  "fb": {
+   "ki": 0.3,
+   "kd": 0.2,
+   "kdr": 0.03
+  }
+ }
+}

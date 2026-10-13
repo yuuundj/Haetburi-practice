@@ -1,0 +1,47 @@
+{
+  "variant": "v16_sts3032_w4",
+  "title": "v16_sts3032 with 4 mm walls (2 mm head / tail), 594 mm",
+  "layout": "newbase",
+  "demo": {
+    "pitch_lean": 5,
+    "roll_lean": 5,
+    "yaw": 35,
+    "bow_hip": 0,
+    "bow_ankle": 0,
+    "diag_roll": 5,
+    "diag_yaw": -30,
+    "pose_bow_hip": 0,
+    "pose_bow_ankle": 0,
+    "pose_lift_roll": 5,
+    "pose_lift_hip": 8
+  },
+  "mass_kg": 3.266,
+  "com_mm": [
+    36.4,
+    0.0,
+    211.5
+  ],
+  "height_mm": 610.1,
+  "summary": {
+    "actuated joints": "6 (hip yaw x2, ankle pitch x2, ankle roll x2; the waist is fixed)",
+    "servo": "STS3032: 12.0 x 23.0 x 27.5 mm, 25 g, stall 0.44 N.m",
+    "roll axis above sole (mm)": "12.5 / 12.5 (left / right)",
+    "roll axis vs leg centre (mm)": "-4.1 ahead, -0.7 inboard",
+    "legs raised to clear the feet (mm)": 16.1,
+    "character scale": "x4.95 of the 120 mm STL (594 mm character)",
+    "foot (mm)": "81.5 long x 54.9 wide x 39.5 high (the STL's own foot, flat sole 73 x 45)",
+    "ankle motors": "both inside the foot: roll standing, pitch lying with its long side to the toe, riding the roll output",
+    "pitch axis above sole (mm)": "14.0, 22.3 ahead of the leg centre",
+    "ankle gap, leg bottom to foot top (mm)": 10.9,
+    "leg shell (mm)": "original, 14.1 from bottom to crotch",
+    "display": "250.1 x 169.1 x 13.7 mm, 0.919 kg, centre 109 mm ahead, 173 mm up, bottom edge 89 mm above the floor"
+  },
+  "motors_inside": {
+    "pelvis#0": 1.0,
+    "pelvis#1": 1.0,
+    "ankle_l#0": 1.0,
+    "foot_l#0": 1.0,
+    "ankle_r#0": 1.0,
+    "foot_r#0": 1.0
+  }
+}

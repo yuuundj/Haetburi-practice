@@ -1,0 +1,26 @@
+== v14_xc330_hidden  (2.75 kg)
+best gait {'freq': 0.9, 'roll': 4, 'swing': 16, 'phase': 90, 'pair': 'same', 'fell': None, 'dx': 288.70711054465704, 'dy': 15.19828809900395, 'dyaw': 17.73979576016432, 'speed': 24.058925878718725, 'peak': 58.97459790071231, 'sway_mm': 7.21026347474195, 'roll_deg': 6.124272747330373, 'yaw_osc_deg': 36.41869765596772, 'air_time': 0.46750541576403937, 'lift_mm': 1.6100092848827918, 'step_ratio': 0.9775724426548112}
+reference gait {'freq': 0.9, 'roll': 6, 'swing': 16, 'phase': 90, 'pair': 'same'}
+
+joint                         stand             best gait        reference gait                  demo   max speed
+                    peak / rms  N.m       peak / rms  N.m       peak / rms  N.m       peak / rms  N.m   rad/s
+hip_yaw_l             0.002 / 0.001         0.418 / 0.188         0.604 / 0.226         0.065 / 0.016    1.74
+hip_yaw_r             0.001 / 0.001         0.423 / 0.188         0.624 / 0.147         0.040 / 0.016    1.66
+ankle_roll_l          0.033 / 0.033         0.398 / 0.168         0.826 / 0.511         0.272 / 0.099    0.65
+ankle_roll_r          0.028 / 0.028         0.414 / 0.162         0.784 / 0.343         0.283 / 0.099    1.03
+fell: reference gait at 3.3 s
+
+motor check, all runs, including the fastest gait: peak under 70% of stall, RMS under 35% of stall, speed under no-load speed
+joint          XL430-W250-T  XC330-T288-T  XC330-M288-T  XC330-T181-T  XL330-M288-T       STS3032       SCS0009
+hip_yaw_l       43%/ 16% ok   66%/ 25% ok   65%/ 24% ok   79%/ 30% --  116%/ 43% --  137%/ 51% --  267%/100% --
+hip_yaw_r       45%/ 13% ok   68%/ 20% ok   67%/ 20% ok   82%/ 25% --  120%/ 36% --  142%/ 43% --  276%/ 83% --
+ankle_roll_l    59%/ 36% --   90%/ 56% --   89%/ 55% --  109%/ 67% --  159%/ 98% --  188%/116% --  365%/226% --
+ankle_roll_r    56%/ 25% ok   85%/ 37% --   84%/ 37% --  103%/ 45% --  151%/ 66% --  178%/ 78% --  347%/152% --
+
+motor check, walking at the reference pace (no fastest gait): peak under 70% of stall, RMS under 35% of stall, speed under no-load speed
+joint          XL430-W250-T  XC330-T288-T  XC330-M288-T  XC330-T181-T  XL330-M288-T       STS3032       SCS0009
+hip_yaw_l       43%/ 16% ok   66%/ 25% ok   65%/ 24% ok   79%/ 30% --  116%/ 43% --  137%/ 51% --  267%/100% --
+hip_yaw_r       45%/ 10% ok   68%/ 16% ok   67%/ 16% ok   82%/ 19% --  120%/ 28% --  142%/ 33% --  276%/ 65% --
+ankle_roll_l    59%/ 36% --   90%/ 56% --   89%/ 55% --  109%/ 67% --  159%/ 98% --  188%/116% --  365%/226% --
+ankle_roll_r    56%/ 25% ok   85%/ 37% --   84%/ 37% --  103%/ 45% --  151%/ 66% --  178%/ 78% --  347%/152% --
+  (cells: peak % of stall / RMS % of stall, then ok or --)

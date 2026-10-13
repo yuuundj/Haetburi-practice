@@ -1,0 +1,25 @@
+== v14_scs0009  (0.34 kg)
+best gait {'freq': 1.5, 'roll': 3, 'swing': 25, 'phase': 75, 'pair': 'same', 'fell': None, 'dx': 231.7746835681436, 'dy': 75.71745141263224, 'dyaw': 11.480494155512023, 'speed': 19.3145569640098, 'peak': 50.44221599721745, 'sway_mm': 9.951591976019282, 'roll_deg': 3.094631130199604, 'yaw_osc_deg': 35.093179895150676, 'air_time': 0.31786368938510245, 'lift_mm': 0.22242152809334553, 'step_ratio': 0.6698703664273625}
+reference gait {'freq': 0.9, 'roll': 6, 'swing': 16, 'phase': 90, 'pair': 'same'}
+
+joint                         stand             best gait        reference gait                  demo   max speed
+                    peak / rms  N.m       peak / rms  N.m       peak / rms  N.m       peak / rms  N.m   rad/s
+hip_yaw_l             0.000 / 0.000         0.111 / 0.069         0.051 / 0.028         0.001 / 0.000    3.93
+hip_yaw_r             0.000 / 0.000         0.114 / 0.069         0.053 / 0.029         0.001 / 0.000    3.93
+ankle_roll_l          0.004 / 0.004         0.044 / 0.017         0.031 / 0.017         0.019 / 0.008    0.61
+ankle_roll_r          0.004 / 0.004         0.042 / 0.017         0.028 / 0.016         0.019 / 0.008    0.62
+
+motor check, all runs, including the fastest gait: peak under 70% of stall, RMS under 35% of stall, speed under no-load speed
+joint          XL430-W250-T  XC330-T288-T  XC330-M288-T  XC330-T181-T  XL330-M288-T       STS3032       SCS0009
+hip_yaw_l        8%/  5% ok   12%/  7% ok   12%/  7% ok   15%/  9% ok   21%/ 13% ok   25%/ 16% ok   49%/ 30% ok
+hip_yaw_r        8%/  5% ok   12%/  7% ok   12%/  7% ok   15%/  9% ok   22%/ 13% ok   26%/ 16% ok   50%/ 30% ok
+ankle_roll_l     3%/  1% ok    5%/  2% ok    5%/  2% ok    6%/  2% ok    8%/  3% ok   10%/  4% ok   20%/  8% ok
+ankle_roll_r     3%/  1% ok    5%/  2% ok    5%/  2% ok    6%/  2% ok    8%/  3% ok   10%/  4% ok   19%/  8% ok
+
+motor check, walking at the reference pace (no fastest gait): peak under 70% of stall, RMS under 35% of stall, speed under no-load speed
+joint          XL430-W250-T  XC330-T288-T  XC330-M288-T  XC330-T181-T  XL330-M288-T       STS3032       SCS0009
+hip_yaw_l        4%/  2% ok    6%/  3% ok    6%/  3% ok    7%/  4% ok   10%/  5% ok   12%/  6% ok   23%/ 12% ok
+hip_yaw_r        4%/  2% ok    6%/  3% ok    6%/  3% ok    7%/  4% ok   10%/  6% ok   12%/  7% ok   24%/ 13% ok
+ankle_roll_l     2%/  1% ok    3%/  2% ok    3%/  2% ok    4%/  2% ok    6%/  3% ok    7%/  4% ok   14%/  7% ok
+ankle_roll_r     2%/  1% ok    3%/  2% ok    3%/  2% ok    4%/  2% ok    5%/  3% ok    6%/  4% ok   12%/  7% ok
+  (cells: peak % of stall / RMS % of stall, then ok or --)
